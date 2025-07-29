@@ -33,4 +33,6 @@ StartDate DeadLine입력하기
    
 6. 승인 단계를 건너뛰기 때문에 로컬에서 직접 Dev로 Merge 후 웹으로 Push
 
-7. 매일 7시 30분 코드리뷰
+7. 포로젝트에서 state를 Done으로 수정, End Date 입력
+
+8. 매일 7시 30분 코드리뷰
