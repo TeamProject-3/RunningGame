@@ -22,7 +22,10 @@ public class Spring : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        animator.SetBool("IsMove", false);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            animator.SetBool("IsMove", false);
+        }
     }
 
 
