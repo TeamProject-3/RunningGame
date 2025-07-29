@@ -21,7 +21,6 @@ StartDate DeadLine입력하기
 - 종류가 feat 이슈번호가 40이었으면 feat#40으로 생성
 
 5. 작업 종료 후 Commit
-<img width="1417" height="485" alt="image" src="https://github.com/user-attachments/assets/61f22d4f-c120-4233-82f1-6b3030b379e7" />
 <img width="1221" height="687" alt="image" src="https://github.com/user-attachments/assets/e3537fcf-9096-45e8-883c-a44452c6ef19" />
 <img width="697" height="136" alt="image" src="https://github.com/user-attachments/assets/4587f39d-db6a-49e1-ae4b-862b7b0d26bb" />
 웹에서 내용 복사 후 수정사항이 있으면 수정하여 Commit내용 작성
