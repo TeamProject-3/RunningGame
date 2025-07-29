@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
+
 
 public interface IUiUpdate
 {
-
     public void UpdateDiamont()
     {
     }
@@ -18,5 +17,4 @@ public interface IUiUpdate
     public void UpdatePlayerName()
     {
     }
-
 }
