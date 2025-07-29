@@ -45,7 +45,7 @@ public class FIrebaseAuthManager : MonoBehaviour
             if (task.IsCanceled)
             {
                 Debug.LogError("로그인 취소");
-                return;
+                return; 
             }
             // 회원가입 실패
             if (task.IsFaulted)
