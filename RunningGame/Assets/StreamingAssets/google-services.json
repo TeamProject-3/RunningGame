@@ -1,15 +1,16 @@
 {
   "project_info": {
     "project_number": "118713646132",
+    "firebase_url": "https://runninggame-250aa-default-rtdb.firebaseio.com",
     "project_id": "runninggame-250aa",
     "storage_bucket": "runninggame-250aa.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:118713646132:android:420a49dbc193f390bc5e61",
+        "mobilesdk_app_id": "1:118713646132:android:8f5009cc30e41fdfbc5e61",
         "android_client_info": {
-          "package_name": "com.firebase.runinggame"
+          "package_name": "com.sparta.runninggame"
         }
       },
       "oauth_client": [],
