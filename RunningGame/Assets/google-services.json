@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "118713646132",
+    "project_id": "runninggame-250aa",
+    "storage_bucket": "runninggame-250aa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118713646132:android:420a49dbc193f390bc5e61",
+        "android_client_info": {
+          "package_name": "com.firebase.runinggame"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuHT9fk53896LNCueTeYl_Jam-2dH6lDc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
