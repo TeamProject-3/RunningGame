@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 1008267276}
   - component: {fileID: 1008267279}
   - component: {fileID: 1008267280}
+  - component: {fileID: 1008267281}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -500,6 +501,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+--- !u!114 &1008267281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008267274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038bddc0202d2ff4bba4bb832ed32258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideSpeed: 5
+  isSliding: 0
+  isDead: 0
 --- !u!1 &1670574159
 GameObject:
   m_ObjectHideFlags: 0
