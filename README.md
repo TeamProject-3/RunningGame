@@ -19,6 +19,7 @@ StartDate DeadLine입력하기
 
 4. Branch 생성
 <img width="402" height="385" alt="image" src="https://github.com/user-attachments/assets/d90d2a53-814e-4842-8c62-5ed6cdf2d482" />
+
 - 종류가 feat 이슈번호가 40이었으면 feat#40으로 생성
 
 5. 작업 종료 후 Commit
