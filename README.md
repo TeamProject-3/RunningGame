@@ -11,7 +11,7 @@
 
 <img width="685" height="273" alt="image" src="https://github.com/user-attachments/assets/0a3c640c-9960-4ac3-b1bb-2d87ed1ea609" />
 
-StartDatam DeadLine입력하기
+StartDate DeadLine입력하기
 
 3. 이슈 번호 확인하기
 <img width="541" height="86" alt="image" src="https://github.com/user-attachments/assets/cca97813-0f63-437c-a673-a79fd2b13be6" />
@@ -20,7 +20,12 @@ StartDatam DeadLine입력하기
 <img width="402" height="385" alt="image" src="https://github.com/user-attachments/assets/d90d2a53-814e-4842-8c62-5ed6cdf2d482" />
 - 종류가 feat 이슈번호가 40이었으면 feat#40으로 생성
 
-5. 작업 종료 후 Merge
-승인 단계를 건너뛰기 때문에 로컬에서 직접 Dev로 머지 후 웹으로 Push
+5. 작업 종료 후 Commit
+<img width="1417" height="485" alt="image" src="https://github.com/user-attachments/assets/61f22d4f-c120-4233-82f1-6b3030b379e7" />
+<img width="1221" height="687" alt="image" src="https://github.com/user-attachments/assets/e3537fcf-9096-45e8-883c-a44452c6ef19" />
+<img width="697" height="136" alt="image" src="https://github.com/user-attachments/assets/4587f39d-db6a-49e1-ae4b-862b7b0d26bb" />
+웹에서 내용 복사 후 수정사항이 있으면 수정하여 Commit내용 작성
+   
+6. 승인 단계를 건너뛰기 때문에 로컬에서 직접 Dev로 Merge 후 웹으로 Push
 
-6. 매일 7시 30분 코드리뷰
+7. 매일 7시 30분 코드리뷰
