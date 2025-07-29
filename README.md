@@ -3,7 +3,9 @@
 워크플로우
 1. 이슈 작성하기
 <img width="2848" height="1192" alt="image" src="https://github.com/user-attachments/assets/80763439-c5ad-4e94-900d-08f25433bfa7" />
-<img width="785" height="663" alt="image" src="https://github.com/user-attachments/assets/a85805cf-b141-4593-94d9-c70b6e4e7381" />
+<img width="798" height="570" alt="image" src="https://github.com/user-attachments/assets/f3ec2d77-55d6-4387-b901-f9e4021e829e" />
+
+
 
 2. 프로젝트 입력하기
 <img width="1626" height="726" alt="image" src="https://github.com/user-attachments/assets/f00d21df-d7b0-4a49-b3c6-db32f6036b7f" />
