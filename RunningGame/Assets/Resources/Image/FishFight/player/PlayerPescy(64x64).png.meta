@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,7 +121,784 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3647497f8cf0c040b99af56f9d31656
+      internalID: 233650762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdb649de83dd3084ab31eaa72c2a83a2
+      internalID: -555740316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_2
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9ddf3d569dc55459729246b90984fb
+      internalID: -853165706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_3
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfcbd1a0b7b379b40a5c5d0d7e29cf5f
+      internalID: 157975560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_4
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab83c791785b724ca223c953d4a06ff
+      internalID: 192529747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_5
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce0df5cfcb31a24593e684e06ab6fae
+      internalID: -1638372711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_6
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e54a2ce73959ae4184ca67090fb7e28
+      internalID: -44635069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_7
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c922947b996cb419f4d08355bc5135
+      internalID: 1079729270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_8
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2991e567bddef646a88a4ee9b896de1
+      internalID: -1867700029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_9
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e3ee8ce49e9e24408d150cc66db454d
+      internalID: -1367411475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_10
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bb512d17ca4d0446a49db52360c0fc8
+      internalID: 86161632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_11
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd5f6c9d503072844af72adf05bed2ab
+      internalID: -1316627614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_12
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419e472075aafb84a9316ece12c51f51
+      internalID: 139447016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_13
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 480
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e203a33b9bb5d894ca4f7a5e62bbe000
+      internalID: -1422699931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_14
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 400
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b893c69c313d8d489306576cd1f511c
+      internalID: -499855839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_15
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 400
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02412f143048be40a3541bee129e713
+      internalID: 1656247064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_16
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 400
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a90beb562f9565b46a1b5581d54c7b80
+      internalID: 1350198803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_17
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 400
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f2455512df1fef4bbcf4710be8a47ba
+      internalID: -1715472470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_18
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 400
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d314d2ceb55180b44b0da399ad01c033
+      internalID: -130591668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_19
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 400
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd3ca54f2e1946a4cab1598c3afc81ff
+      internalID: 1364237118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_20
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 320
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc33ddbe444e71f44bea9201194cb057
+      internalID: 1043166920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_21
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 240
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2ea39e058eeeeb47a4b6e84774fac6a
+      internalID: 1717119286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_22
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 160
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c63dc339fef15c94a9a62c4cd30bae90
+      internalID: -534869196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_23
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 80
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6738c869910ad144f9bb8673535408ff
+      internalID: 373749601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_24
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 80
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cfe876ae73ede648b18dbc598b1dc9c
+      internalID: 451683586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_25
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 80
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b9d0d52feefbb840a3e38d70c6054d5
+      internalID: -1274396892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_26
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 80
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df37ae393616a64487098e13a5492f7
+      internalID: 372218485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_27
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 80
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a5dad98ffb4c7f43b8e29beb5d541d4
+      internalID: -1718464819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_28
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 80
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb758d3094d4dd34c8623561d09f854c
+      internalID: -1522154716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_29
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 80
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c762cce8650d0764aac25518ca61919a
+      internalID: 808627252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_30
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee03c191c5eb70f4c929a2ef53a94171
+      internalID: 1871242995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_31
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 0
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69ce480cf1b1954a9b49010c647fd42
+      internalID: 36822873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_32
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 0
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0676b2b150abe6441b7bb5a674679f29
+      internalID: 1306824727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_33
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 0
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcdfbe41474409b42ba39f279a3950bf
+      internalID: -1668635034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_34
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 0
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b2c62a3f3d1af84fababedfa94777e9
+      internalID: -34276523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_35
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 0
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51938db4eac43d54ebaad7f92a818cd3
+      internalID: -1542080373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerPescy(64x64)_36
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 0
+        width: 75
+        height: 80
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f58bb946eff6f4abd1b57b30e5b5b7
+      internalID: 645672610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +909,44 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PlayerPescy(64x64)_0: 233650762
+      PlayerPescy(64x64)_1: -555740316
+      PlayerPescy(64x64)_10: 86161632
+      PlayerPescy(64x64)_11: -1316627614
+      PlayerPescy(64x64)_12: 139447016
+      PlayerPescy(64x64)_13: -1422699931
+      PlayerPescy(64x64)_14: -499855839
+      PlayerPescy(64x64)_15: 1656247064
+      PlayerPescy(64x64)_16: 1350198803
+      PlayerPescy(64x64)_17: -1715472470
+      PlayerPescy(64x64)_18: -130591668
+      PlayerPescy(64x64)_19: 1364237118
+      PlayerPescy(64x64)_2: -853165706
+      PlayerPescy(64x64)_20: 1043166920
+      PlayerPescy(64x64)_21: 1717119286
+      PlayerPescy(64x64)_22: -534869196
+      PlayerPescy(64x64)_23: 373749601
+      PlayerPescy(64x64)_24: 451683586
+      PlayerPescy(64x64)_25: -1274396892
+      PlayerPescy(64x64)_26: 372218485
+      PlayerPescy(64x64)_27: -1718464819
+      PlayerPescy(64x64)_28: -1522154716
+      PlayerPescy(64x64)_29: 808627252
+      PlayerPescy(64x64)_3: 157975560
+      PlayerPescy(64x64)_30: 1871242995
+      PlayerPescy(64x64)_31: 36822873
+      PlayerPescy(64x64)_32: 1306824727
+      PlayerPescy(64x64)_33: -1668635034
+      PlayerPescy(64x64)_34: -34276523
+      PlayerPescy(64x64)_35: -1542080373
+      PlayerPescy(64x64)_36: 645672610
+      PlayerPescy(64x64)_4: 192529747
+      PlayerPescy(64x64)_5: -1638372711
+      PlayerPescy(64x64)_6: -44635069
+      PlayerPescy(64x64)_7: 1079729270
+      PlayerPescy(64x64)_8: -1867700029
+      PlayerPescy(64x64)_9: -1367411475
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
