@@ -25,7 +25,8 @@ StartDate DeadLine입력하기
 5. 작업 종료 후 Commit
 <img width="1221" height="687" alt="image" src="https://github.com/user-attachments/assets/e3537fcf-9096-45e8-883c-a44452c6ef19" />
 <img width="697" height="136" alt="image" src="https://github.com/user-attachments/assets/4587f39d-db6a-49e1-ae4b-862b7b0d26bb" />
-웹에서 내용 복사 후 수정사항이 있으면 수정하여 Commit내용 작성
+
+- 웹에서 내용 복사 후 수정사항이 있으면 수정하여 Commit내용 작성
    
 6. 승인 단계를 건너뛰기 때문에 로컬에서 직접 Dev로 Merge 후 웹으로 Push
 
