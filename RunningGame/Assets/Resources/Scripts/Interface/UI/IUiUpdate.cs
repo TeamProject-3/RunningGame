@@ -17,4 +17,15 @@ public interface IUiUpdate
     public void UpdatePlayerName()
     {
     }
+    public void UpdateStage()
+    {
+    }
+    public void UpdateStageName()
+    {
+
+    }
+    public void UpdateHighScore()
+    {
+    }
+
 }
