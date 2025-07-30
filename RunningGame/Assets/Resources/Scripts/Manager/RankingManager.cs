@@ -14,7 +14,9 @@ public struct UserRank
 
 public class RankingManager : MonoBehaviour
 {
+    [Tooltip("랭킹 항목이 추가될 UI Panel의 Transform")]
     public Transform rankingContent; // 랭킹 항목이 추가될 UI Panel의 Transform
+    [Tooltip("유저 순위, 이름, 점수를 표시할 UI 프리팹 프리팹")]
     public GameObject rankingItemPrefab; // 유저 순위, 이름, 점수를 표시할 UI 프리팹
 
     private DatabaseReference dbReference;
