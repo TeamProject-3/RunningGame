@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
                     animator.SetBool("Jump", true);
                 }
             }
-            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetMouseButtonDown(2))
+            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetMouseButtonDown(2) && jumpCount == 0)
             {
                 StartSliding();
             }
