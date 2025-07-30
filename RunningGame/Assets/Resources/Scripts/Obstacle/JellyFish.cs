@@ -13,7 +13,7 @@ public class JellyFish : MonoBehaviour
 
     private void Awake()
     {
-        player = FindObjectOfType<Playermove>().gameObject;
+        player = FindObjectOfType<Player>().gameObject;
         animators = GetComponentsInChildren<Animator>();
     }
 

@@ -50,8 +50,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _rigidbody.velocity = new Vector2(playerstat.moveSpeed, _rigidbody.velocity.y);
-        DecreaseHpOverTime();
+
 
         if (isDead)
         {
@@ -79,6 +78,9 @@ public class Player : MonoBehaviour
                 StopSliding();
             }
         }
+
+        _rigidbody.velocity = new Vector2(playerstat.moveSpeed, _rigidbody.velocity.y);
+        DecreaseHpOverTime();
     }
 
 
