@@ -8,15 +8,15 @@ public class PlayerData
 {
     public string userName;
     public int gold;
-    public int score;
+    public int bastScore;
     // 캐릭터는 Dictionary (캐릭터 이름(캐릭터ID), 캐릭터 데이터(캐릭터 프리팹?))
     public PlayerData() // 초기 데이터 설정 (변경 해야 함)
     {
         userName = "NewPlayer";
         gold = 100;
-        score = 0;
+        bastScore = 0;
+        // 캐릭터 데이터 초기화 (예시로 빈 딕셔너리 사용)
     }
-
 }
 
 public class DataManager : MonoBehaviour
