@@ -62,7 +62,6 @@ public class Player : MonoBehaviour
         if (_rigidbody.velocity.y < 0)
         {
             animator.SetBool("Jump", true);
-            Debug.DrawRay(_rigidbody.position + new Vector2(-4.8f, -4.2f), Vector3.down, new Color(0, 1, 0));
             RaycastHit2D rayhit = Physics2D.Raycast(_rigidbody.position + new Vector2(-4.8f, -4.2f), Vector2.down, 2, LayerMask.GetMask("Ground"));
             if (rayhit.collider != null)
             {
