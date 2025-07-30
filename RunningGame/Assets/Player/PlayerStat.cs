@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerStat : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Range(0, 100)][SerializeField] private float hp = 10;
+    public float Hp
     {
-        
+        get { return hp; }
+        set
+        {
+            hp = Mathf.Clamp(value, 0, 10);
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float jumpForce = 7f;
+    public float slideSpeed = 5f;
+    public float moveSpeed = 5f;
 }
