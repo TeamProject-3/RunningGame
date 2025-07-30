@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
 {
     public GameObject[] controlUI;
-    //0 - MainMenu, 1 - StageMenu, 2 - StartMenu
+    //0 - MainMenu, 1 - StageMenu, 2 - StartMenu, 3- ShopMenu
     public Text diaText;
     public int diamondCount = 0;
     public Text coinText;
@@ -70,6 +72,8 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
 
     public void OnShopButton()
     {
+        HideUI(0); 
+        ShowUI(3); 
     }
     public void OnGachaButton()
     {
@@ -132,6 +136,8 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     }
     public void OnRunButton()
     {
+        SceneManager.LoadScene("TestScene 4_InGame");//추후변경필요
+
     }
     public void UpdateHighScore()
     {
@@ -139,5 +145,10 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
         {
             //highScoretext[i].text = 하이스코어 변수값을 받는 로직 필요
         }
+    }
+    public void OnOutShopButton()
+    {
+        HideUI(3);
+        ShowUI(0);
     }
 }

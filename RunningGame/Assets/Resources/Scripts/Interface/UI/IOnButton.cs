@@ -57,4 +57,9 @@ public interface IOnButton
     {
         Debug.Log("Run Button Clicked");
     }
+
+    public void OnOutShopButton()
+    {
+        Debug.Log("Out Shop Button Clicked");
+    }
 }
