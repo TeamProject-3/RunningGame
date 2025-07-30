@@ -36,4 +36,30 @@ public interface IOnButton
         Debug.Log("Hamburger Button Clicked");
     }
 
+    public void OnStartButton()
+    {
+        Debug.Log("Start Button Clicked");
+    }
+    public void OnStageSelectButton()
+    {
+        Debug.Log("Start Button Clicked");
+    }
+
+    public void OnNextStageButton()
+    {
+        Debug.Log("Next Stage Button Clicked");
+    }
+    public void OnPrevStageButton()
+    {
+        Debug.Log("Previous Stage Button Clicked");
+    }
+    public void OnRunButton()
+    {
+        Debug.Log("Run Button Clicked");
+    }
+
+    public void OnOutShopButton()
+    {
+        Debug.Log("Out Shop Button Clicked");
+    }
 }

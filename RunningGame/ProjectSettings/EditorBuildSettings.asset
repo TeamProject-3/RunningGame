@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Work/TestScene 4_InGame.unity
     guid: 03f83b9f9b422d947823eb51304490e6
+  - enabled: 1
+    path: Assets/Scenes/Work/TestScene 4_Main.unity
+    guid: d4fd21e9dcb7f9d4e9ff32568e76bbb1
+  - enabled: 1
+    path: Assets/Scenes/Work/TestScene 4_Shop.unity
+    guid: 1fa170ef93d1c2f4ab3b39b317b01c7e
   m_configObjects: {}
