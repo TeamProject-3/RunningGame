@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    private string stage = "Prefab\\Obstacle\\Stage01";
-    
+    private string stage_One = "Prefab\\Obstacle\\Stage01";
+    private string stage_Two = "Prefab\\Obstacle\\Stage01";
+
     protected GameObject[] obstaclePrefabs;
 
     private List<GameObject> obstacles = new List<GameObject>();
@@ -15,7 +16,8 @@ public class MapManager : MonoBehaviour
     {
         grid = FindObjectOfType<MapManager>();
         
-        obstaclePrefabs = Resources.LoadAll<GameObject>(stage);
+        //스테이지 가져올때 변경필요함
+        obstaclePrefabs = Resources.LoadAll<GameObject>(stage_One);
 
         foreach (GameObject prefab in obstaclePrefabs)
         {
