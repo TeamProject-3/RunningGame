@@ -50,19 +50,31 @@ public class Player : MonoBehaviour
                     jumpCount++;
                     animator.SetTrigger("Jump");
                     animator.SetBool("Jump", true);
-                    Debug.Log("점프감지됨 설정");
+                   
                 }
             }
         }
     }
-    void OnCollisionEnter2D(Collision2D col) // 땅에 닿으면 점프카운트 초기화
+
+
+    private void FixedUpdate()
     {
-        if (col.gameObject.CompareTag("Ground"))
+        if (_rigidbody.velocity.y < 0)
         {
-            jumpCount = 0;
-            animator.SetBool("Jump", false);
-            Debug.Log("착지감지됨 FLASE설정");
+            animator.SetBool("Jump", true);
+            Debug.DrawRay(_rigidbody.position + new Vector2(-4.8f, -4.2f), Vector3.down, new Color(0, 1, 0));
+            RaycastHit2D rayhit = Physics2D.Raycast(_rigidbody.position + new Vector2(-4.8f, -4.2f), Vector2.down, 2, LayerMask.GetMask("Ground"));
+            if (rayhit.collider != null)
+            {
+                if (rayhit.distance < 1)
+                {
+                    jumpCount = 0;
+                    animator.SetBool("Jump", false);
+                    Debug.Log("Raycast hit: " + rayhit.collider.name);
+                }
+            }
         }
     }
+
 
 }

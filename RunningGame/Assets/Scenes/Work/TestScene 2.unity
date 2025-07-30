@@ -242,9 +242,9 @@ GameObject:
   - component: {fileID: 976177899}
   - component: {fileID: 976177901}
   - component: {fileID: 976177900}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Modle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 976177898}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.97, y: -3, z: 0}
+  m_LocalPosition: {x: -5.97, y: -2.98, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 1008267279}
   - component: {fileID: 1008267280}
   - component: {fileID: 1008267281}
+  - component: {fileID: 1008267282}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -516,6 +517,18 @@ MonoBehaviour:
   slideSpeed: 5
   isSliding: 0
   isDead: 0
+--- !u!114 &1008267282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008267274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b6a7e38eb91ec419e91622f3cabe5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1670574159
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +540,7 @@ GameObject:
   - component: {fileID: 1670574162}
   - component: {fileID: 1670574161}
   - component: {fileID: 1670574160}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -640,8 +653,8 @@ Transform:
   m_GameObject: {fileID: 1670574159}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: -5.39, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 1}
+  m_LocalPosition: {x: 12, y: -5.39, z: 0}
+  m_LocalScale: {x: 50, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

@@ -19,6 +19,41 @@ public class PlayerSliding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isDead)
+        {
+
+        }
+        else
+        {
+            if(Input.GetKeyDown(KeyCode.LeftControl) || Input.GetMouseButtonDown(2))
+            {
+                StartSliding();
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetMouseButtonUp(2))
+            {
+                StopSliding();
+            }
+        }
+    }
+
+
+    void StartSliding()
+    {
+        if (!isSliding)
+        {
+            isSliding = true;
+            animator.SetBool("isSliding", true);
+            _rigidbody.velocity = new Vector2(slideSpeed, _rigidbody.velocity.y); // X축 속도 설정
+        }
+    }
+
+    void StopSliding()
+    {
+        if (isSliding)
+        {
+            isSliding = false;
+            animator.SetBool("isSliding", false);
+            _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y); // X축 속도 초기화
+        }
     }
 }
