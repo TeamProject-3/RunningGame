@@ -153,8 +153,6 @@ GameObject:
   - component: {fileID: 695209171722345677}
   - component: {fileID: 2845497566037575239}
   - component: {fileID: 8530838890622662192}
-  - component: {fileID: 104323471780926834}
-  - component: {fileID: 9129423819216192584}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -240,38 +238,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.3, y: 1.6}
   m_Direction: 0
---- !u!114 &104323471780926834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2624974109037216785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ccccd6c21064074a85fa485a19c79bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCollier: {fileID: 8530838890622662192}
-  slidingCollider: {fileID: 8277482580662390781}
-  jumpCount: 0
-  maxJumpCount: 2
-  isDead: 0
-  isSliding: 0
-  hpDecreaseRate: 0.8
---- !u!114 &9129423819216192584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2624974109037216785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f91ac14af6f56874b87e66de7a514607, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 10
-  jumpForce: 7
-  slideSpeed: 5
-  moveSpeed: 5
