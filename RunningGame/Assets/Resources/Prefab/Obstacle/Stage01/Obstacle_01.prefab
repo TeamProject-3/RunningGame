@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4891114376166715464}
   - component: {fileID: 3327543500514720948}
   - component: {fileID: 4910210196086014356}
+  - component: {fileID: 5492188349125787234}
   - component: {fileID: 3360160079568950774}
   m_Layer: 0
   m_Name: Collider
@@ -154,6 +155,33 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!50 &5492188349125787234
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011192438697363759}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!19719996 &3360160079568950774
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -235,7 +263,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5608120327439606385}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -323,7 +351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6265367554306719906}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -761,7 +789,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8498665715344473160}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -809,7 +837,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 7.2, y: -3.2}
@@ -824,14 +852,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.90307426, y: 0.7511909}
-      - {x: 0.90992355, y: 2.317978}
-      - {x: -0.9102578, y: 2.323316}
-      - {x: -0.9087992, y: 0.76528883}
-      - {x: -1.5859423, y: 0.75267196}
-      - {x: -1.5877852, y: -0.80901694}
+    - - {x: 0.8825283, y: 0.5046439}
+      - {x: 0.8893776, y: 2.153613}
+      - {x: -0.68425655, y: 2.1589513}
+      - {x: -0.68279743, y: 0.55983305}
+      - {x: -1.5243053, y: 0.56776166}
+      - {x: -1.5261488, y: -0.80901694}
       - {x: 1.4827452, y: -0.80901694}
-      - {x: 1.4865026, y: 0.74502325}
+      - {x: 1.4659557, y: 0.49847627}
   m_UseDelaunayMesh: 0
 --- !u!1001 &136944260971092579
 PrefabInstance:
@@ -1012,6 +1040,10 @@ PrefabInstance:
     - target: {fileID: 1332363200759152789, guid: fc7e083e208411b4b944f1f0cb7690a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441759069672845481, guid: fc7e083e208411b4b944f1f0cb7690a8, type: 3}
+      propertyPath: jumpHigh
+      value: 12.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

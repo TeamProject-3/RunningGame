@@ -3,7 +3,7 @@ using UnityEngine;
 public class Spring : MonoBehaviour
 {
     Animator animator;
-
+    [SerializeField] float jumpHigh = 8f;
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
@@ -16,7 +16,7 @@ public class Spring : MonoBehaviour
             animator.SetBool("IsMove", true);
             Rigidbody2D _rigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
-            _rigidbody.AddForce(Vector2.up * 10f, ForceMode2D.Impulse);
+            _rigidbody.AddForce(Vector2.up * jumpHigh, ForceMode2D.Impulse);
         }
     }
 
