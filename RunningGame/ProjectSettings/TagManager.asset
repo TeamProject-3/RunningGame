@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Spring
+  - BackGround
+  - ReLoad
   layers:
   - Default
   - TransparentFX
