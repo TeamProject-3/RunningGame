@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
         if (isDead) return;
         else
         {
-            if (_rigidbody.velocity.y < -0.1f)
+            if (_rigidbody.velocity.y < -1)
             {
                 animator.SetBool("Jump", true);
                 Debug.DrawRay(_rigidbody.position, Vector2.down, Color.green);
