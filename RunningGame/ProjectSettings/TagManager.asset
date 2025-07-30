@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Enemy
+  - Spring
+  - BackGround
+  - ReLoad
   layers:
   - Default
   - TransparentFX
@@ -12,10 +16,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Ground
+  - Enemy
+  - PlayerDamage
   - 
   - 
   - 
