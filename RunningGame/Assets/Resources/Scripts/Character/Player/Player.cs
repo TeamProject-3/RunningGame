@@ -89,10 +89,10 @@ public class Player : MonoBehaviour
         if (isDead) return;
         else
         {
-            if (_rigidbody.velocity.y < -1)
+            if (_rigidbody.velocity.y < -0.1f)
             {
                 animator.SetBool("Jump", true);
-                Debug.DrawRay(_rigidbody.position, Vector2.down, new Color(1, 1, 1));
+                Debug.DrawRay(_rigidbody.position, Vector2.down, Color.green);
                 RaycastHit2D rayhit = Physics2D.Raycast(_rigidbody.position, Vector2.down, 2, LayerMask.GetMask("Ground"));
                 if (rayhit.collider != null)
                 {

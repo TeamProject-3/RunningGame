@@ -8,7 +8,7 @@ public class FollowCamera : MonoBehaviour
     public Transform player;           // 플레이어 트랜스폼
     public float followSpeed = 5f;     // 카메라 따라가는 속도
     public Vector2 screenOffset = new Vector2(0.18f, 0.28f); // 화면에서 플레이어 위치(좌측 하단)
-    public float cameraFixedY = 1f;  // 카메라 y축 고정값
+    public float cameraFixedY = 0f;  // 카메라 y축 고정값
 
     private bool isFollowing = false;  // 따라가기 시작 여부
 
