@@ -8,6 +8,7 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
 {
     public GameObject[] controlGameUI;
     //0 - StopButton, 1 - ProgressSlider, 2 - Coin, 3 - Bean, 4 - MapName, 5 - HighScore, 6 - MyScore, 7 - PauseMenu
+    // 8 - ResultMenu
     public Text coinText;
     public int coinCount = 0;
     public Text starText;
@@ -20,6 +21,19 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     public Text mapName;
     public string mapNameText = "Default Map";
 
+    public static UIManager_InGame Instance { get; private set; }
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void InitializeUI()
     {
@@ -90,5 +104,9 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     public void OnExitButton()
     {
         SceneManager.LoadScene("TestScene 4_Main");
+    }
+    public void ShowResultUI()
+    {
+        ShowUI(8);
     }
 }

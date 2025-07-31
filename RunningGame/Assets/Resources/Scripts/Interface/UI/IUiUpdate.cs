@@ -27,5 +27,9 @@ public interface IUiUpdate
     public void UpdateHighScore()
     {
     }
+    public void UpdatePlayerSprite()
+    {
+
+    }
 
 }
