@@ -125,13 +125,13 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     public void OnStartButton()
     {
         HideUI(0);
+        HideUI(5);
         ShowUI(1);
     }
     public void OnStageSelectButton()
     {
         //스테이지 인덱스를 받는 로직이 필요하다
         HideUI(1);
-        HideUI(5);
         ShowUI(2);
         UpdateHighScore();
     }
@@ -176,7 +176,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     public void OnOutShopButton()
     {
         HideUI(3);
-        HideUI(5);
+        ShowUI(5);
         ShowUI(0);
     }
     public void OnNameCheckButton()
