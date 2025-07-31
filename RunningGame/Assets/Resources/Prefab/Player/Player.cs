@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Collider2D mainCollier;
     [SerializeField] private Collider2D slidingCollider;
 
-    
+    [SerializeField] private bool superMode = false;
+
     public int jumpCount = 0;
     public int maxJumpCount = 2; // Maximum number of jumps allowed
     public bool isDead = false;
@@ -54,7 +55,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Super();
 
         if (isDead)
         {
@@ -111,7 +112,7 @@ public class Player : MonoBehaviour
                     {
                         jumpCount = 0;
                         animator.SetBool("Jump", false);
-                        Debug.Log("Raycast hit: " + rayhit.collider.name);
+                        //Debug.Log("Raycast hit: " + rayhit.collider.name);
 
                         isJump = false;
                     }
@@ -186,7 +187,7 @@ public class Player : MonoBehaviour
         if (playerstat.Hp > 0)
         {
             playerstat.Hp -= Time.deltaTime * hpDecreaseRate; // 초당 0.5씩 감소
-            Debug.Log("Player HP: " + playerstat.Hp);
+            //Debug.Log("Player HP: " + playerstat.Hp);
         }
         else
         {
@@ -217,4 +218,12 @@ public class Player : MonoBehaviour
     //        slidingCollider.enabled = false;
     //    }
     //}
+
+    private void Super()
+    {
+        if (superMode)
+            playerstat.Hp = 10;
+        else return;
+
+    }
 }

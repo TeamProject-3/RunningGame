@@ -15,6 +15,7 @@ public class Spring : MonoBehaviour
         {
             animator.SetBool("IsMove", true);
             Rigidbody2D _rigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (_rigidbody == null) return;
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(Vector2.up * jumpHigh, ForceMode2D.Impulse);
         }
