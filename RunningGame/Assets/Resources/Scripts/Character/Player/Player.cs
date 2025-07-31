@@ -21,8 +21,10 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Collider2D mainCollier;
     [SerializeField] private Collider2D slidingCollider;
+    [SerializeField] private Collider2D mainshield;
+    [SerializeField] private Collider2D slidingshield;
 
-    
+
     public int jumpCount = 0;
     public int maxJumpCount = 2; // Maximum number of jumps allowed
     public bool isDead = false;
@@ -84,7 +86,7 @@ public class Player : MonoBehaviour
                     isJump = true;
                 }
             }
-            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetMouseButtonDown(2) && isJump)
+            if (Input.GetKey(KeyCode.LeftControl) || Input.GetMouseButtonDown(2) && isJump)
             {
                 StartSliding();
             }
@@ -225,4 +227,25 @@ public class Player : MonoBehaviour
     //        slidingCollider.enabled = false;
     //    }
     //}
+
+
+    //아이템을 먹었을때 콜라이더 7초간 활성화
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Item")
+        { 
+            Debug.Log("Item collected");
+            mainshield.enabled = true; // 아이템 획득시 shield 콜라이더 활성화
+            Invoke("DisableShield", 7f); // 7초 후에 shield 콜라이더 비활성화
+            if (isSliding == true)
+            {
+                mainshield.enabled = false; // 슬라이딩 중에는 shield 콜라이더 비활성화
+                slidingshield.enabled = true; // 슬라이딩 중에는 slidingshield 콜라이더 활성화
+            }
+        }
+    }
+    void DisableShield()
+    {
+        mainshield.enabled = false; // shield 콜라이더 비활성화
+    }
 }
