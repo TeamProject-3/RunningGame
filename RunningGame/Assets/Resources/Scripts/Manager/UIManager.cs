@@ -170,6 +170,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     public void OnNameCheckButton()
     {
         DataManager.Instance.SetName(nameBox.text);
+        UpdatePlayerName();
         HideUI(4);
     }
     public void ShowNameSetMenu()

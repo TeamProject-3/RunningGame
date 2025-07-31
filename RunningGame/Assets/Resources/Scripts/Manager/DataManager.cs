@@ -43,7 +43,7 @@ public class DataManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        currentPlayerdata = null; // 초기화
+        currentPlayerdata = new PlayerData(); // 초기 플레이어 데이터 설정
         // Firebase Database의 루트 참조를 가져옵니다.
 
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
