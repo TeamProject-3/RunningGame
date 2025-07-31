@@ -721,8 +721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea46665a84dd64eafd43f58fa2c2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefabs: []
-  backGrounds: []
 --- !u!1 &1292728809
 GameObject:
   m_ObjectHideFlags: 0

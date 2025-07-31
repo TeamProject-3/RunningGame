@@ -9,6 +9,10 @@ public interface IOnButton
     {
         Debug.Log("Shop Button Clicked");
     }
+    public void OnBuyButton()
+    {
+        Debug.Log("Buy Button Clicked");
+    }
     public void OnGachaButton()
     {
         Debug.Log("Gacha Button Clicked");
@@ -61,5 +65,34 @@ public interface IOnButton
     public void OnOutShopButton()
     {
         Debug.Log("Out Shop Button Clicked");
+    }
+
+    public void OnNameCheckButton()
+    {
+        Debug.Log("Name Check Button Clicked");
+    }
+    public void OnBuySelectButton()
+    {
+        Debug.Log("Buy Character Button Clicked");
+    }
+    public void OnGachaSelectButton()
+    {
+    }
+    public void OnAlbumSelectButton1()
+    {
+
+    }
+    public void OnAlbumSelectButton2()
+    {
+    }
+    public void OnAlbumSelectButton3()
+    {
+    }
+    public void OnAlbumSelectButton4()
+    {
+    }
+    public void OnBackStageButton()
+    {
+        Debug.Log("Back Stage Button Clicked");
     }
 }
