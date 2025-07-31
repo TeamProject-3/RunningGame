@@ -83,7 +83,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     }
     public void UpdatePlayerName()
     {
-        playerNameText.text = playername;
+        playerNameText.text = DataManager.Instance.currentPlayerdata.userName;
     }
 
     public void OnShopButton()
