@@ -229,9 +229,9 @@ GameObject:
   - component: {fileID: 7959358132354147565}
   - component: {fileID: 7670103458312152480}
   - component: {fileID: 5985627439807306866}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Top
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,9 +374,9 @@ GameObject:
   - component: {fileID: 4118444355439472369}
   - component: {fileID: 6322153176811681378}
   - component: {fileID: 7777314039648219971}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -873,6 +873,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 628455562000294021, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1744560886047055656, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.78
@@ -917,6 +921,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4416092251196338140, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416092251196338140, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -935,6 +947,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 67679493592534168}
     m_Modifications:
+    - target: {fileID: 628455562000294021, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1744560886047055656, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.2
@@ -978,6 +994,14 @@ PrefabInstance:
     - target: {fileID: 4416092251196338140, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
       propertyPath: m_Name
       value: Box (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416092251196338140, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416092251196338140, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1063,9 +1087,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7959358132354147565}
     m_Modifications:
+    - target: {fileID: 1979327203048500042, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2459281922592297253, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
       propertyPath: m_Name
       value: Seaweed (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459281922592297253, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459281922592297253, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6821825134406582826, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1125,9 +1161,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7959358132354147565}
     m_Modifications:
+    - target: {fileID: 1979327203048500042, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2459281922592297253, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
       propertyPath: m_Name
       value: Seaweed (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459281922592297253, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459281922592297253, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6821825134406582826, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1191,6 +1239,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 628455562000294021, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1744560886047055656, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.5
@@ -1235,6 +1287,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box
       objectReference: {fileID: 0}
+    - target: {fileID: 4416092251196338140, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416092251196338140, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1253,9 +1313,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7959358132354147565}
     m_Modifications:
+    - target: {fileID: 1979327203048500042, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2459281922592297253, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
       propertyPath: m_Name
       value: Seaweed (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459281922592297253, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459281922592297253, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6821825134406582826, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1315,9 +1387,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7959358132354147565}
     m_Modifications:
+    - target: {fileID: 1979327203048500042, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2459281922592297253, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
       propertyPath: m_Name
       value: Seaweed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459281922592297253, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459281922592297253, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6821825134406582826, guid: 5d705eb500409a3458a5c3d5083146f7, type: 3}
       propertyPath: m_LocalPosition.x

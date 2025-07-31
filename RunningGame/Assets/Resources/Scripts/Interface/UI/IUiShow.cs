@@ -11,5 +11,11 @@ public interface IUiShow
     public void HideUI(GameObject UI)
     {
     }
+    public void ShowShopUI(GameObject UI)
+    {
+    }
 
+    public void HideShopUI(GameObject UI)
+    {
+    }
 }

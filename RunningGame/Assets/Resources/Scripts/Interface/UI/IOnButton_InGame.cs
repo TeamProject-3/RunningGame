@@ -4,8 +4,20 @@ using UnityEngine;
 
 public interface IOnButton_InGame
 {
-    public void OnStopButton()
+    public void OnPauseButton()
     {
-        Debug.Log("Stop Button Clicked");
+        Debug.Log("Pause Button Clicked");
+    }
+    public void OnContinueButton()
+    {
+        Debug.Log("Continue Button Clicked");
+    }
+    public void OnRestartButton()
+    {
+        Debug.Log("Restart Button Clicked");
+    }
+    public void OnExitButton()
+    {
+        Debug.Log("Exit Button Clicked");
     }
 }
