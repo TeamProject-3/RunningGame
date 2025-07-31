@@ -1,13 +1,6 @@
 using System.Threading.Tasks;
 using Firebase.Database;
 using UnityEngine;
-public enum CharacterType
-{
-    PlayerFishy,
-    PlayerOrcy,
-    PlayerPescy,
-    PlayerSharky
-}
 
 // 저장할 플레이어 데이터 구조체
 [System.Serializable]
