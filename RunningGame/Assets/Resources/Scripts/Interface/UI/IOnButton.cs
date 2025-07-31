@@ -62,4 +62,9 @@ public interface IOnButton
     {
         Debug.Log("Out Shop Button Clicked");
     }
+
+    public void OnNameCheckButton()
+    {
+    }
+
 }

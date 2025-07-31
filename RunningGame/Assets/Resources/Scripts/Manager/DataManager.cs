@@ -9,6 +9,7 @@ public class PlayerData
     public string userName;
     public int gold;
     public int bastScore;
+    public bool isSetName; //테스트용변수 서버에 값이 같이 저장되야함.
     // 캐릭터는 Dictionary (캐릭터 이름(캐릭터ID), 캐릭터 데이터(캐릭터 프리팹?))
     // 현재 장착중인 캐릭터
     public PlayerData() // 초기 데이터 설정 (변경 해야 함)
@@ -16,6 +17,7 @@ public class PlayerData
         userName = "NewPlayer";
         gold = 0;
         bastScore = 0;
+        isSetName = false;
         // 캐릭터 데이터 초기화 (예시로 빈 딕셔너리 사용)
         // 현재 장착중인 캐릭터 초기화
     }
@@ -42,12 +44,13 @@ public class DataManager : MonoBehaviour
             Destroy(gameObject);
         }
         currentPlayerdata = null; // 초기화
+        // Firebase Database의 루트 참조를 가져옵니다.
+
+        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
     void Start()
     {
-        // Firebase Database의 루트 참조를 가져옵니다.
-        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
     // 데이터 저장
@@ -108,5 +111,15 @@ public class DataManager : MonoBehaviour
         }
         // 3. uid로 저장
         await SaveData(uid);
+    }
+
+    public void SetName(string name)
+    {
+        if(currentPlayerdata.isSetName == false)
+        {
+            currentPlayerdata.userName = name;
+            currentPlayerdata.isSetName = true;
+        }
+
     }
 }

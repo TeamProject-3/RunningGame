@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
 {
     public GameObject[] controlUI;
-    //0 - MainMenu, 1 - StageMenu, 2 - StartMenu, 3- ShopMenu
+    //0 - MainMenu, 1 - StageMenu, 2 - StartMenu, 3- ShopMenu, 4 - NameSetMenu
     public Text diaText;
     public int diamondCount = 0;
     public Text coinText;
@@ -23,15 +23,30 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     public GameObject stageImage;
     public Sprite[] stageImages;
     public int stageIndex = 0;
+    public Text nameBox;
+    public GameManager SetNameMenu;
+    public static UIManager Instance { get; private set; }
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
-        InitializeUI(); // 테스트용
+        InitializeUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public void InitializeUI()
@@ -40,7 +55,8 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
         {
             HideUI(i);
         }
-        ShowUI(0); 
+        ShowUI(0);
+        FirstLoginCheeck();
     }
 
     public void ShowUI(int menu)
@@ -150,5 +166,22 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     {
         HideUI(3);
         ShowUI(0);
+    }
+    public void OnNameCheckButton()
+    {
+        DataManager.Instance.SetName(nameBox.text);
+        HideUI(4);
+    }
+    public void ShowNameSetMenu()
+    {
+        ShowUI(4);
+    }
+
+    public void FirstLoginCheeck()
+    {
+        if (!DataManager.Instance.currentPlayerdata.isSetName)
+        {
+            ShowNameSetMenu();
+        }
     }
 }
