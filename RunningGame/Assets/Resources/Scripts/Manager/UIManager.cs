@@ -24,7 +24,11 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     public Sprite[] stageImages;
     public int stageIndex = 0;
     public Text nameBox;
-    public GameManager SetNameMenu;
+    public GameObject[] shopMenu;
+    public Sprite[] characterImages;
+    public GameObject mainCharacterImage;
+
+    //0 - Shop, 1 - Gacha, 2 - Album
     public static UIManager Instance { get; private set; }
 
     void Awake()
@@ -68,6 +72,15 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     {
         controlUI[menu].SetActive(false);
     }
+    public void ShowShopUI(int menu)
+    {
+        shopMenu[menu].SetActive(true);
+    }
+    public void HideShopUI(int menu)
+    {
+        shopMenu[menu].SetActive(false);
+    }
+
 
     public void UpdateDiamont()
     {
@@ -90,13 +103,6 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     {
         HideUI(0); 
         ShowUI(3); 
-    }
-    public void OnGachaButton()
-    {
-    }
-
-    public void OnAlbum()
-    {
     }
 
     public void OnSettingButton()
@@ -184,5 +190,59 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
         {
             ShowNameSetMenu();
         }
+    }
+    public void OnBuyButton()
+    {
+        ShowShopUI(0);
+        HideShopUI(1);
+        HideShopUI(2);
+    }
+    public void OnGachaButton()
+    {
+        ShowShopUI(1);
+        HideShopUI(0);
+        HideShopUI(2);
+    }
+
+    public void OnAlbum()
+    {
+        ShowShopUI(2);
+        HideShopUI(0);
+        HideShopUI(1);
+    }
+    public void OnBuySelectButton()
+    {
+        // 캐릭터 구매 로직
+        // 구매한 캐릭터 스프라이트 변경
+        // 다시 클릭 해도 구매하지 않도록 로직필요
+        Debug.Log("Character Buy Button Clicked");
+    }
+
+    public void OnGachaSelectButton()
+    {
+        // 확률적으로 캐릭터를 구매할 수 있는 로직
+        // 구매한 캐릭터 스프라이트 변경
+        // 다시 클릭 해도 구매하지 않도록 로직필요
+        Debug.Log("Character Buy Button Clicked");
+    }
+    public void OnAlbumSelectButton1()
+    {
+        mainCharacterImage.GetComponent<Image>().sprite = characterImages[0];
+        //캐릭터 Data에도 변경하도록 로직필요
+    }
+    public void OnAlbumSelectButton2()
+    {
+        mainCharacterImage.GetComponent<Image>().sprite = characterImages[1];
+        //캐릭터 Data에도 변경하도록 로직필요
+    }
+    public void OnAlbumSelectButton3()
+    {
+        mainCharacterImage.GetComponent<Image>().sprite = characterImages[2];
+        //캐릭터 Data에도 변경하도록 로직필요
+    }
+    public void OnAlbumSelectButton4()
+    {
+        mainCharacterImage.GetComponent<Image>().sprite = characterImages[3];
+        //캐릭터 Data에도 변경하도록 로직필요
     }
 }
