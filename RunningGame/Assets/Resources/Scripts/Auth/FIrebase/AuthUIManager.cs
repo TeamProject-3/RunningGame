@@ -42,6 +42,7 @@ public class AuthUIManager : MonoBehaviour
             statusText.text = $"Logged in as {user.Email}";
             // 로그인 성공 시 데이터 불러오기
             DataManager.Instance.currentPlayerdata = await DataManager.Instance.LoadData(user.UserId);
+
         }
         else
         {
