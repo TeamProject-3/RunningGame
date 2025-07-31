@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStat : MonoBehaviour
 {
-    [Range(0, 100)][SerializeField] private float hp = 10;
+    [Range(0, 10)][SerializeField] private float hp = 10;
     public float Hp
     {
         get { return hp; }

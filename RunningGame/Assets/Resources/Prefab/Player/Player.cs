@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     Rigidbody2D _rigidbody;
     SpriteRenderer spriteRenderer;
     PlayerStat playerstat;
+    Transform _transform;
 
     [SerializeField] private Collider2D mainCollier;
     [SerializeField] private Collider2D slidingCollider;
@@ -17,7 +18,9 @@ public class Player : MonoBehaviour
     public int jumpCount = 0;
     public int maxJumpCount = 2; // Maximum number of jumps allowed
     public bool isDead = false;
+    public bool isJump = false;
     public bool isSliding = false;
+     
     public float hpDecreaseRate = 0.8f; //HP 감소속도
 
 
@@ -29,6 +32,7 @@ public class Player : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         playerstat = GetComponent<PlayerStat>();
+        _transform = GetComponent<Transform>();
 
 
         if (animator == null)
@@ -62,21 +66,28 @@ public class Player : MonoBehaviour
             {
                 if (jumpCount < maxJumpCount)
                 {
+                    
                     _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0); // Y축 속도 초기화
                     _rigidbody.AddForce(Vector2.up * playerstat.jumpForce, ForceMode2D.Impulse);
                     jumpCount++;
                     animator.SetTrigger("Jump");
                     animator.SetBool("Jump", true);
+
+                    isJump = true;
                 }
             }
-            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetMouseButtonDown(2) && jumpCount == 0)
+            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetMouseButtonDown(2) && isJump)
             {
                 StartSliding();
             }
-            else if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetMouseButtonUp(2))
+            else if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetMouseButtonUp(2) && isJump)
             {
                 StopSliding();
             }
+        }
+        if (_transform.position.y < -6)
+        {
+            DeathTrigger(); // 일정 y축 이하로 떨어지면 죽음 처리
         }
 
         _rigidbody.velocity = new Vector2(playerstat.moveSpeed, _rigidbody.velocity.y);
@@ -101,6 +112,8 @@ public class Player : MonoBehaviour
                         jumpCount = 0;
                         animator.SetBool("Jump", false);
                         Debug.Log("Raycast hit: " + rayhit.collider.name);
+
+                        isJump = false;
                     }
                 }
             }
@@ -109,6 +122,7 @@ public class Player : MonoBehaviour
     // 슬라이딩 
     void StartSliding()
     {
+        if(!isJump)
         if (!isSliding)
         {
             isSliding = true;
@@ -122,7 +136,8 @@ public class Player : MonoBehaviour
 
     void StopSliding()
     {
-        if (isSliding)
+        if (!isJump)
+         if (isSliding)
         {
             isSliding = false;
             mainCollier.enabled = true; // 메인 콜라이더 활성화
@@ -180,6 +195,17 @@ public class Player : MonoBehaviour
             _rigidbody.velocity = Vector2.zero; // 플레이어 정지
             Debug.Log("Player is dead");
         }
+    }
+
+    // 일정 y축 이하로 떨어지면 죽음 처리
+    void DeathTrigger()
+    {
+        isDead = true;
+        mainCollier.enabled = false; // 메인 콜라이더 비활성화
+        slidingCollider.enabled = false; // 슬라이딩 콜라이더 비활성화
+        animator.SetTrigger("isDie");
+        _rigidbody.velocity = Vector2.zero; // 플레이어 정지
+        _rigidbody.simulated = false;
     }
     //private void OnEnable()
     //{
