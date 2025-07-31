@@ -9,6 +9,7 @@ TagManager:
   - Spring
   - BackGround
   - ReLoad
+  - Item
   layers:
   - Default
   - TransparentFX
