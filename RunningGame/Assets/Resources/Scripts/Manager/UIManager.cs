@@ -245,4 +245,18 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
         mainCharacterImage.GetComponent<Image>().sprite = characterImages[3];
         //캐릭터 Data에도 변경하도록 로직필요
     }
+    public void OnBackStageButton()
+    {
+        HideUI(1);
+        ShowUI(0);
+        stageIndex = 0;
+        stageImage.GetComponent<Image>().sprite = stageImages[stageIndex];
+    }
+    public void OnBackStartButton()
+    {
+        HideUI(2);
+        ShowUI(1);
+        stageIndex = 0;
+        stageImage.GetComponent<Image>().sprite = stageImages[stageIndex];
+    }
 }

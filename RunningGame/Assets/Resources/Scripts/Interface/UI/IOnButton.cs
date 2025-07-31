@@ -91,4 +91,8 @@ public interface IOnButton
     public void OnAlbumSelectButton4()
     {
     }
+    public void OnBackStageButton()
+    {
+        Debug.Log("Back Stage Button Clicked");
+    }
 }
