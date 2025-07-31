@@ -4,9 +4,9 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
     private string stage_One = "Prefab\\Obstacle\\Stage01";
-    private string stage_Two = "Prefab\\Obstacle\\Stage01";
+    private string stage_Two = "Prefab\\Obstacle\\Stage02";
 
-    protected GameObject[] obstaclePrefabs;
+    [SerializeField]protected GameObject[] obstaclePrefabs;
 
     private List<GameObject> obstacles = new List<GameObject>();
 

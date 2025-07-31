@@ -21,7 +21,7 @@ public class JellyFish : MonoBehaviour
     void Update()
     {
         if (updateCheck)
-            if (player.transform.position.x > positions.x + 2)
+            if (player.transform.position.x > positions.x - 2)
             {
                 foreach (Animator animator in animators)
                     animator.SetBool("IsMove", true);
