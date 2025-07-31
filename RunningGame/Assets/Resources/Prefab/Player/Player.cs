@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public enum CharacterType
+{
+    PlayerFishy,
+    PlayerOrcy,
+    PlayerPescy,
+    PlayerSharky
+}
+
 public class Player : MonoBehaviour
 {
     Animator animator;
