@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea46665a84dd64eafd43f58fa2c2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageSelectNum: 2
+  stageSelectNum: 1
   stageMaxNum: 40
   fixWidth: 0
 --- !u!156049354 &487597202
