@@ -13,6 +13,8 @@ public class InGameManager : MonoBehaviour
     private Transform playerTransform;
 
     private Player player;
+
+    private bool isGameOver = false;
     private void Awake()
     {
         if (Instance == null)
@@ -42,6 +44,7 @@ public class InGameManager : MonoBehaviour
             PlayerStat playerstat = player.GetComponent<PlayerStat>();
             SetSpeed(playerstat.moveSpeed + 2);
         }
+        IsDaed();
     }
     public void AddScore(int amount)
     {
@@ -80,5 +83,18 @@ public class InGameManager : MonoBehaviour
 
         // 4. 계산된 중력 값을 Rigidbody에 즉시 적용
         // playerP._rigidbody.gravityScale = playerstat.currentGravityScale;
+    }
+
+    public void IsDaed()
+    {
+        if(player.isDead && !isGameOver)
+        {
+            isGameOver = true;
+            // 플레이어가 죽었을 때 호출되는 함수
+            // 예를 들어, 게임 오버 UI를 표시하거나 리스타트하는 로직을 여기에 추가할 수 있습니다.
+            Debug.Log("Player is dead. Implement game over logic here.");
+            UIManager_InGame.Instance.ShowResultUI(); // StopButton
+        }
+
     }
 }

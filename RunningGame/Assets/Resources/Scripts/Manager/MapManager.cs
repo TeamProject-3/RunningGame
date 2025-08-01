@@ -8,7 +8,8 @@ public class MapManager : MonoBehaviour
     private string stage_One = "Prefab\\Obstacle\\Stage01";
     private string stage_Two = "Prefab\\Obstacle\\Stage02";
 
-    public int stageSelectNum = 1;
+    [SerializeField]
+    private int stageSelectNum = 1;
     protected GameObject[] obstaclePrefabs;
     protected GameObject[] stageBackGrounds;
 
@@ -25,7 +26,7 @@ public class MapManager : MonoBehaviour
     {
         grid = FindObjectOfType<MapManager>();
         stageBackGrounds = Resources.LoadAll<GameObject>(stageBackGround);
-
+        stageSelectNum = DataManager.Instance.crrentDungeon;
         //스테이지 변경
         StageSelect(stageSelectNum);
     }
