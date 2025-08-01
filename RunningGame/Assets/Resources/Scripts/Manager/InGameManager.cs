@@ -79,6 +79,6 @@ public class InGameManager : MonoBehaviour
         playerstat.currentGravityScale = playerstat.baseGravityScale * Mathf.Pow(speedRatio, 2);
 
         // 4. 계산된 중력 값을 Rigidbody에 즉시 적용
-        playerP._rigidbody.gravityScale = playerstat.currentGravityScale;
+        // playerP._rigidbody.gravityScale = playerstat.currentGravityScale;
     }
 }
