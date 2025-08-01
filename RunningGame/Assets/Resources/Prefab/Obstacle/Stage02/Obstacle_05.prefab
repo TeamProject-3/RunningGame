@@ -1080,7 +1080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5441759069672845481, guid: fc7e083e208411b4b944f1f0cb7690a8, type: 3}
       propertyPath: jumpHigh
-      value: 12.2
+      value: 28
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1192,7 +1192,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 403440226767288257, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 628455562000294021, guid: 89643a9380a6a8c419801b59ca14e1cf, type: 3}
       propertyPath: m_Layer
