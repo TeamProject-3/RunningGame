@@ -8,6 +8,7 @@ public class BackGround : MonoBehaviour
     private List<GameObject> obstaclPrefabs;
    
     bool mapCheck = false;
+    bool progressMaxCheck = false;
 
     float mapfixWidth = 17.92f;
 
@@ -28,8 +29,9 @@ public class BackGround : MonoBehaviour
         if (collision.CompareTag("BackGround"))
         {
 
-            CountMapSetting();
-            mapManager.StageNumSubtraction();
+            mapCheck = CountMapSetting();
+            progressMaxCheck = mapManager.ProgressMaxCheck();
+            mapManager.StageNumAddition(mapCheck);
 
             GameObject check = collision.gameObject;
 
@@ -56,16 +58,23 @@ public class BackGround : MonoBehaviour
                 foreach (GameObject obj in obstaclPrefabs)
                 {
                     if (obj.activeSelf && obj.transform.position.x + mapManager.fixWidth - mapfixWidth < gameObject.transform.position.x)
-                    {
                         obj.SetActive(false);
-                    }
-                }
 
+                    if (obj.activeSelf && obj.name == "Obstacle_07")
+                        mapManager.StageNumSubtraction(mapCheck);
+                }
+                    
                 foreach (GameObject obj in obstaclPrefabs)
                 {
                     
                     if (!obj.activeSelf)
                     {
+                        if (!progressMaxCheck && obj.name == "Obstacle_07") continue;
+
+                        if (progressMaxCheck && obj.name != "Obstacle_07") continue;
+                        else if (progressMaxCheck && obj.name == "Obstacle_07")
+                            mapManager.ProgressMaxCheckFalse();
+
                         obj.SetActive(true);
                         if (mapCheck)
                         {
@@ -79,6 +88,7 @@ public class BackGround : MonoBehaviour
                                 backGround[findBackground].transform.position +
                                  new Vector3(mapManager.fixWidth, 0f, 0f);
                         }
+                        
                         break;
                     }
                 }
@@ -98,6 +108,8 @@ public class BackGround : MonoBehaviour
                         backGround[nextBackgroundCheck].transform.position +
                         new Vector3(mapfixWidth, 0f, 0f);
                 }
+
+                
             }
         }
     }
@@ -114,12 +126,12 @@ public class BackGround : MonoBehaviour
         }
     }
 
-    private void CountMapSetting()
+    private bool CountMapSetting()
     {
         if (!(Mathf.Abs(mapfixWidth - mapManager.fixWidth) < 0.001f))
         {
-            mapCheck = true;
+            return true;
         }
-      
+        return false;
     }
 }

@@ -10,25 +10,44 @@ public class MapManager : MonoBehaviour
 
     [SerializeField]
     private int stageSelectNum = 1;
+    
     protected GameObject[] obstaclePrefabs;
     protected GameObject[] stageBackGrounds;
 
     private List<GameObject> obstacles = new List<GameObject>();
     private List<GameObject> backObjects = new List<GameObject>();
 
-    [SerializeField] int stageMaxNum = 40;
+    private int MaxStageNum = 4;
+    [SerializeField]
+    private int stageNum = 0;
+
+    private bool progressMax = false;
 
     [HideInInspector] public float fixWidth = 0;
 
     MapManager grid;
+    UIManager_InGame ui_Ingame;
 
     private void Awake()
     {
         grid = FindObjectOfType<MapManager>();
+
+        ui_Ingame = UIManager_InGame.Instance;
+
         stageBackGrounds = Resources.LoadAll<GameObject>(stageBackGround);
         stageSelectNum = DataManager.Instance.crrentDungeon;
         //스테이지 변경
         StageSelect(stageSelectNum);
+    }
+
+    private void FixedUpdate()
+    {
+
+        ui_Ingame.UpdateProgressSlider(stageNum <= 0 ? 0 : (float)stageNum / (float)MaxStageNum);
+
+        if (stageNum / MaxStageNum == 1) stageNum = 0;
+        else if (stageNum == 3) progressMax = true;
+
     }
 
     public List<GameObject> GetObstaclePrefabs()
@@ -82,14 +101,23 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    public void StageNumSubtraction()
+    public void StageNumAddition(bool checks)
     {
-        stageMaxNum--;
+        stageNum += checks ? 3 : 1;
     }
 
-    public float FixWidthValue()
+    public void StageNumSubtraction(bool checks)
     {
-        return fixWidth;
+        stageNum -= checks ? 3 : 1;
     }
 
+    public bool ProgressMaxCheck()
+    {
+        return progressMax;
+    }
+
+    public void ProgressMaxCheckFalse()
+    {
+        progressMax = false;
+    }
 }

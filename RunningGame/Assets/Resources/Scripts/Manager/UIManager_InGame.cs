@@ -69,7 +69,7 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     }
     public void UpdateProgressSlider(float value)
     {
-        Debug.Log("Progress Updated: " + value);
+        //Debug.Log("Progress Updated: " + value);
         progressSlider.value = value;
     }
     public void UpdateHighScoreText()
