@@ -47,4 +47,9 @@ MonoBehaviour:
   currentPlayerdata:
     userName: NewPlayer
     gold: 100
-    bastScore: 0
+    bastScores: 00000000
+    isSetName: 0
+    characters: 00000000
+    currentCharacter: 0
+  crrentDungeon: 0
+  changeCharacters: {fileID: 0}

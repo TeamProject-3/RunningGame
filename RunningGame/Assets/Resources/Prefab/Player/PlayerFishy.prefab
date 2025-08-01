@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 6003542970399285174}
   - component: {fileID: -1768232315636456506}
   - component: {fileID: 2699849365686002115}
+  - component: {fileID: 5486656552586763616}
   m_Layer: 6
   m_Name: PlayerFishy
   m_TagString: Player
@@ -354,6 +355,8 @@ MonoBehaviour:
   isDead: 0
   isJump: 0
   isSliding: 0
+  isMoveCheck: 0
+  isShield: 0
   hpDecreaseRate: 0.8
 --- !u!114 &2699849365686002115
 MonoBehaviour:
@@ -372,3 +375,17 @@ MonoBehaviour:
   slideSpeed: 5
   moveSpeed: 5
   currentGravityScale: 0
+--- !u!114 &5486656552586763616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624974109037216785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e66c1660a8ad7e04784fd0034e8ed8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMagnet: 0
+  magnetRange: 5

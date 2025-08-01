@@ -24,14 +24,17 @@ public class Player : MonoBehaviour
     [SerializeField] private Collider2D slidingCollider;
     [SerializeField] private Collider2D mainshield;
     [SerializeField] private Collider2D slidingshield;
+    Coroutine shieldCoroutine; // 슬라이딩 중에 방패를 활성화하기 위한 코루틴
 
-   
     public int jumpCount = 0;
     public int maxJumpCount = 2; // Maximum number of jumps allowed
     public bool isDead = false;
     public bool isJump = false;
     public bool isSliding = false;
     public bool isMoveCheck = false; // MoveCheck 오브젝트와 충돌 여부
+    public bool isShield = false;
+
+
 
     public float hpDecreaseRate = 0.8f; //HP 감소속도
 
@@ -57,21 +60,23 @@ public class Player : MonoBehaviour
             Debug.LogError("Rigidbody2D component not found on Player.");
         }
 
-        if(slidingCollider != null)
+        if (slidingCollider != null)
         {
             slidingCollider.enabled = false;
         }
+
+        DeActivateShield();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _rigidbody.velocity = new Vector2(playerstat.moveSpeed, _rigidbody.velocity.y);
         if (isDead)
         {
             return;
         }
-        if(!isMoveCheck)
+        _rigidbody.velocity = new Vector2(playerstat.moveSpeed, _rigidbody.velocity.y);
+        if (!isMoveCheck)
         {
             // MoveCheck 오브젝트와 충돌 전에는 플레이어의 입력을 무시하고 HP 감소를 하지 않음
             return;
@@ -82,7 +87,7 @@ public class Player : MonoBehaviour
             {
                 if (jumpCount < maxJumpCount)
                 {
-                    
+
                     _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0); // Y축 속도 초기화
                     _rigidbody.AddForce(Vector2.up * playerstat.jumpForce, ForceMode2D.Impulse);
                     jumpCount++;
@@ -106,7 +111,7 @@ public class Player : MonoBehaviour
             DeathTrigger(); // 일정 y축 이하로 떨어지면 죽음 처리
         }
 
-       
+
         DecreaseHpOverTime();
     }
 
@@ -138,49 +143,67 @@ public class Player : MonoBehaviour
     // 슬라이딩 
     void StartSliding()
     {
-        if(!isJump)
-        if (!isSliding)
-        {
-            isSliding = true;
-            mainCollier.enabled = false; // 메인 콜라이더 비활성화
-            slidingCollider.enabled = true; // 슬라이딩 콜라이더 활성화
-            animator.SetBool("isSliding", true);
-            _rigidbody.velocity = new Vector2(playerstat.slideSpeed, _rigidbody.velocity.y); // X축 속도 설정
-
-        }
+        if (!isJump)
+            if (!isSliding)
+            {
+                if (isShield)
+                    isSliding = true;
+                mainCollier.enabled = false; // 메인 콜라이더 비활성화
+                slidingCollider.enabled = true; // 슬라이딩 콜라이더 활성화
+                animator.SetBool("isSliding", true);
+                _rigidbody.velocity = new Vector2(playerstat.slideSpeed, _rigidbody.velocity.y); // X축 속도 설정
+                UpdateShield();
+            }
     }
 
     void StopSliding()
     {
         if (!isJump)
-         if (isSliding)
-        {
-            isSliding = false;
-            mainCollier.enabled = true; // 메인 콜라이더 활성화
-            slidingCollider.enabled = false; // 슬라이딩 콜라이더 비활성화
-            animator.SetBool("isSliding", false);
-            _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y); // X축 속도 초기화
-        }
+            if (isSliding)
+            {
+                isSliding = false;
+                mainCollier.enabled = true; // 메인 콜라이더 활성화
+                slidingCollider.enabled = false; // 슬라이딩 콜라이더 비활성화
+                animator.SetBool("isSliding", false);
+                _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y); // X축 속도 초기화
+                UpdateShield();
+            }
     }
 
-    //피격시 무적 
+    //온트리거 이벤트
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;
-       
-            if (collision.gameObject.tag == "Enemy")
-            {
-                Debug.Log("Player hit by enemy");
-                OnDamaged(); //피격시 함수 호출
 
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (isShield)
+            {
+                Invoke("DeActivateShield", 0.5f); // 충돌 이후 0.5초뒤에 보호막 해제
+                Debug.Log("적과 충돌 실드해제됨");
+                return; // 방패가 활성화되어 있으면 피해를 받지 않음
             }
-        
-         else if (collision.CompareTag("MoveCheck"))
+            Debug.Log("Player hit by enemy");
+            OnDamaged(); //피격시 함수 호출
+
+        }
+
+        else if (collision.CompareTag("MoveCheck"))
         {
             // MoveCheck에 닿으면 동작 활성화
             isMoveCheck = true;
             Debug.Log("MoveCheck 충돌, 플레이어 조작 및 HP 감소 활성화!");
         }
+
+        else if (collision.CompareTag("ItemShield"))
+        {
+            // Shield에 닿으면 방패 활성화
+            if (shieldCoroutine != null) StopCoroutine(shieldCoroutine);
+            shieldCoroutine = StartCoroutine(ShieldTimer(7f));
+            Debug.Log("실드 아이템 획득: 7초간 실드 활성화");
+            Destroy(collision.gameObject); // 아이템 제거
+        }
+
     }
 
     void OnDamaged()
@@ -195,14 +218,14 @@ public class Player : MonoBehaviour
 
     void OffDamaged()
     {
-        
+
         gameObject.layer = 6; // "Player" 레이어로 변경
         spriteRenderer.color = new Color(1, 1, 1, 1); // 투명도 원래대로 변경
     }
 
 
     //HP가 시간이 지나면서 감소하는 함수
-   void DecreaseHpOverTime()
+    void DecreaseHpOverTime()
     {
         if (playerstat.Hp > 0)
         {
@@ -228,6 +251,57 @@ public class Player : MonoBehaviour
         _rigidbody.velocity = Vector2.zero; // 플레이어 정지
         _rigidbody.simulated = false;
     }
+  
+    void ActiveShield()
+    {
+        isShield = true;
+        UpdateShield();
+    }
+
+
+    // 처음 실행할때 초기화
+    void DeActivateShield()
+    {
+        isShield = false;
+        if (mainshield != null)
+        {
+            mainshield.enabled = false; // 메인 방패 콜라이더 비활성화
+        }
+        if (slidingshield != null)
+        {
+            slidingshield.enabled = false; // 슬라이딩 방패 콜라이더 비활성화
+        }
+    }
+
+    void UpdateShield()
+    {
+        if (!isShield)
+        {
+            if (mainshield != null) mainshield.enabled = false;
+            if (slidingshield != null) slidingshield.enabled = false;
+            return;
+        }
+        if (isSliding)
+        {
+            if (mainshield != null) mainshield.enabled = false;
+            if (slidingshield != null) slidingshield.enabled = true;
+        }
+        else
+        {
+            if (mainshield != null) mainshield.enabled = true;
+            if (slidingshield != null) slidingshield.enabled = false;
+        }
+    }
+
+    IEnumerator ShieldTimer(float duration)
+    {
+        ActiveShield(); // 방패 활성화
+        yield return new WaitForSeconds(duration); // 지정된 시간 동안 대기
+        DeActivateShield(); // 방패 비활성화
+        Debug.Log("실드 아이템 효과 종료");
+    }
+
+
     //private void OnEnable()
     //{
     //    isDead = false;
@@ -238,8 +312,5 @@ public class Player : MonoBehaviour
     //        slidingCollider.enabled = false;
     //    }
     //}
-
-    //tag MoveCheck가 있는 오브젝트와 충돌전에는 HP가 감소하지않고 플레이어의 입력도 무시된다
-  
 
 }

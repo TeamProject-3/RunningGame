@@ -11,6 +11,9 @@ TagManager:
   - ReLoad
   - Item
   - MoveCheck
+  - ItemShield
+  - ItemMagnet
+  - Jelly
   layers:
   - Default
   - TransparentFX
