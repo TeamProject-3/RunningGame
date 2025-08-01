@@ -4,9 +4,10 @@ public class Spring : MonoBehaviour
 {
     Animator animator;
     [SerializeField] float jumpHigh = 8f;
+    
     private void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponentInChildren<Animator>(); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

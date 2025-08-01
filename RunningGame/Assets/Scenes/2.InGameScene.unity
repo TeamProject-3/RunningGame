@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea46665a84dd64eafd43f58fa2c2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageSelectNum: 1
+  stageSelectNum: 2
   stageMaxNum: 40
   fixWidth: 0
 --- !u!156049354 &487597202
@@ -372,6 +372,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2699849365686002115, guid: febf9f5855604b644976089b896e3fc7, type: 3}
+      propertyPath: jumpForce
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699849365686002115, guid: febf9f5855604b644976089b896e3fc7, type: 3}
       propertyPath: moveSpeed
       value: 6.75
       objectReference: {fileID: 0}
@@ -385,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2845497566037575239, guid: febf9f5855604b644976089b896e3fc7, type: 3}
       propertyPath: m_GravityScale
-      value: 2.2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8530838890622662192, guid: febf9f5855604b644976089b896e3fc7, type: 3}
       propertyPath: m_Enabled
