@@ -1552,9 +1552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ea46665a84dd64eafd43f58fa2c2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageSelectNum: 1
-  stageMaxNum: 40
-  fixWidth: 0
 --- !u!156049354 &2125456126
 Grid:
   m_ObjectHideFlags: 0
@@ -1646,7 +1643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5475162299057172561, guid: 624e7147401310e4594911108239ead8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1818,7 +1815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 822467755780340820, guid: 7a92b1ae0fd5f5642a5bef6578a4bc0b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3570764450509579168, guid: 7a92b1ae0fd5f5642a5bef6578a4bc0b, type: 3}
       propertyPath: slidingCollider
@@ -1897,7 +1894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221550081792763289, guid: 70b861f627763c74f9cd993a4ea18159, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5966046851257431235, guid: 70b861f627763c74f9cd993a4ea18159, type: 3}
       propertyPath: m_Enabled

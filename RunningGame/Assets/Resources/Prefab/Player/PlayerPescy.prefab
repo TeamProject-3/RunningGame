@@ -156,7 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccccd6c21064074a85fa485a19c79bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 0}
   mainCollier: {fileID: 6807737913851696416}
   slidingCollider: {fileID: 6849160737262158614}
   mainshield: {fileID: 2425087740849327319}
