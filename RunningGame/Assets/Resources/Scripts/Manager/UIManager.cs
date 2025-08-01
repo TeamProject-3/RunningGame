@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     public Sprite[] characterImages;
     public GameObject mainCharacterImage;
     Image characterImage;
+    public Text alertyText;
     //0 - Shop, 1 - Gacha, 2 - Album
     public static UIManager Instance { get; private set; }
 
@@ -187,6 +188,27 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     }
     public void OnNameCheckButton()
     {
+        string input = nameBox.text;
+        bool hasKorean = false;
+
+        foreach (char c in input)
+        {
+            if (c >= 0xAC00 && c <= 0xD7A3) // 한글 유니코드 범위
+            {
+                hasKorean = true;
+                break;
+            }
+        }
+
+        int maxLength = hasKorean ? 8 : 10;
+
+        if (input.Length > maxLength)
+        {
+            alertyText.text = "이름은 한글 8글자 영어 10글자 이하로 입력해주세요.";
+            nameBox.text = input.Substring(0, maxLength);
+            return;
+        }
+
         DataManager.Instance.SetName(nameBox.text);
         UpdatePlayerName();
         HideUI(4);
