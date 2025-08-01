@@ -28,7 +28,13 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     public Sprite[] characterImages;
     public GameObject mainCharacterImage;
     Image characterImage;
-    //0 - Shop, 1 - Gacha, 2 - Album
+    public Text[] alertText;
+    //0 - name, 1 - gold
+    public GameObject[] characterButtons;
+    //0 - PlayerFishy, 1 - PlayerOrcy, 2 - PlayerPescy, 3 - PlayerSharky
+    public int[] itemValue; // 아이템 가격 설정용 변수
+    // 0 - Shop, 1 - Gacha
+
     public static UIManager Instance { get; private set; }
 
     void Awake()
@@ -65,6 +71,8 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
         ChangeCharacterImage();
         //UpdatePlayerSprite();
         ShowUI(5);
+        InitCharacterUI();
+        UpdateCoin();
     }
 
     public void ShowUI(int menu)
@@ -92,7 +100,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     }
     public void UpdateCoin()
     {
-        coinText.text = coinCount.ToString();
+        coinText.text = DataManager.Instance.currentPlayerdata.gold.ToString();
     }
     public void UpdateExp()
     {
@@ -188,6 +196,31 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     }
     public void OnNameCheckButton()
     {
+        string input = nameBox.text;
+        bool hasKorean = false;
+
+        foreach (char c in input)
+        {
+            if (c >= 0xAC00 && c <= 0xD7A3) // 한글 유니코드 범위
+            {
+                hasKorean = true;
+                break;
+            }
+        }
+
+        int maxLength = hasKorean ? 7 : 12;
+
+        if (input.Length > maxLength)
+        {
+            alertText[0].text = "이름은 한글 7글자, 영어 12글자 이하로 입력해주세요.";
+            alertText[0].gameObject.SetActive(true);
+            nameBox.text = input.Substring(0, maxLength);
+            return;
+        }
+        else
+        {
+            alertText[0].gameObject.SetActive(false);
+        }
         DataManager.Instance.SetName(nameBox.text);
         UpdatePlayerName();
         HideUI(4);
@@ -229,21 +262,73 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
         ShowUI(5);
         HideShopUI(0);
         HideShopUI(1);
+        UpdatdCharacterImage();
     }
+    public bool CheckCharacter(string name)
+    {
+        if (!System.Enum.TryParse<CharacterType>(name, out var characterType))
+        {
+            return false;
+        }
+        // 리스트에 해당 캐릭터가 있는지 확인
+        return DataManager.Instance.currentPlayerdata.characters.Contains(characterType);
+    }
+
     public void OnBuySelectButton()
     {
-        // 캐릭터 구매 로직
-        // 구매한 캐릭터 스프라이트 변경
-        // 다시 클릭 해도 구매하지 않도록 로직필요
-        Debug.Log("Character Buy Button Clicked");
+        if (CheckCharacter("PlayerOrcy"))
+        {
+            alertText[1].text = "이미 구매한 캐릭터 입니다.";
+        }
+        else
+        {
+            if (DataManager.Instance.currentPlayerdata.gold < itemValue[0])
+            {
+                alertText[1].text = "골드가 부족합니다.";
+                alertText[1].gameObject.SetActive(true);
+                return;
+            }
+            else
+            {
+                alertText[1].text = "구매가 완료됬습니다.";
+                DataManager.Instance.currentPlayerdata.gold -= itemValue[0];
+                DataManager.Instance.SetCharacter("PlayerOrcy");
+                UpdateCoin();
+            }
+        }
     }
 
     public void OnGachaSelectButton()
     {
-        // 확률적으로 캐릭터를 구매할 수 있는 로직
-        // 구매한 캐릭터 스프라이트 변경
-        // 다시 클릭 해도 구매하지 않도록 로직필요
-        Debug.Log("Character Buy Button Clicked");
+        if (CheckCharacter("PlayerSharky"))
+        {
+            alertText[2].text = "이미 구매한 캐릭터 입니다.";
+        }
+        else
+        {
+            if (DataManager.Instance.currentPlayerdata.gold < itemValue[1])
+            {
+                alertText[2].text = "골드가 부족합니다.";
+                alertText[2].gameObject.SetActive(true);
+                return;
+            }
+            else
+            {
+                DataManager.Instance.currentPlayerdata.gold -= itemValue[1];
+                UpdateCoin();
+                if (Random.Range(0, 319) == 0) // % 확률로 구매 성공
+                {
+                    alertText[2].text = "가챠에 성공했습니다.";
+                    DataManager.Instance.SetCharacter("PlayerSharky");
+                    return;
+                }
+                else
+                {
+                    alertText[2].text = "가챠에 실패했습니다.";
+                    return;
+                }
+            }
+        }
     }
     //public void OnAlbumSelectButton1()
     //{
@@ -358,5 +443,61 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
                 t.gameObject.SetActive(false);
             }
         }
+    }
+    public void UpdatdCharacterImage()
+    {
+        // 보유한 캐릭터에 해당하는 버튼만 활성화
+        foreach (var character in DataManager.Instance.currentPlayerdata.characters)
+        {
+            int idx = -1;
+            switch (character)
+            {
+                case CharacterType.PlayerFishy:
+                    idx = 0;
+                    break;
+                case CharacterType.PlayerOrcy:
+                    idx = 1;
+                    break;
+                case CharacterType.PlayerPescy:
+                    idx = 2;
+                    break;
+                case CharacterType.PlayerSharky:
+                    idx = 3;
+                    break;
+                default:
+                    Debug.LogWarning("알 수 없는 캐릭터 타입입니다.");
+                    break;
+            }
+            if (idx >= 0 && idx < characterButtons.Length)
+            {
+                Image btnImage = characterButtons[idx].GetComponent<Image>();
+                btnImage.color = Color.white; 
+                Button btn = characterButtons[idx].GetComponent<Button>();
+                btn.interactable = true;
+            }
+        }
+    }
+    public void InitCharacterUI()
+    {
+        for (int i = 0; i < characterButtons.Length; i++)
+        {
+            Image btnImage = characterButtons[i].GetComponent<Image>();
+            if (btnImage != null)
+            {
+                btnImage.color = Color.black;
+            }
+
+            Button btn = characterButtons[i].GetComponent<Button>();
+            if (btn != null)
+            {
+                btn.interactable = false;
+            }
+        }
+    }
+
+    public void AddGold()
+    {
+        DataManager.Instance.currentPlayerdata.gold += 1000; // 예시로 1000골드 추가
+        UpdateCoin();
     }
 }
