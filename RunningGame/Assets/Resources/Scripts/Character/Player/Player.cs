@@ -15,7 +15,7 @@ public enum CharacterType
 public class Player : MonoBehaviour
 {
     Animator animator;
-    public Rigidbody2D _rigidbody;
+    Rigidbody2D _rigidbody;
     SpriteRenderer spriteRenderer;
     PlayerStat playerstat;
     Transform _transform;

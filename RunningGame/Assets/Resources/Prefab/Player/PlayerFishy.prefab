@@ -285,7 +285,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1.6}
+  m_Size: {x: 1.3, y: 1.6}
   m_Direction: 0
 --- !u!61 &6003542970399285174
 BoxCollider2D:
@@ -344,7 +344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccccd6c21064074a85fa485a19c79bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 0}
   mainCollier: {fileID: 8530838890622662192}
   slidingCollider: {fileID: 8277482580662390781}
   mainshield: {fileID: 6003542970399285174}
