@@ -47,7 +47,7 @@ public class DataManager : MonoBehaviour
     public PlayerData currentPlayerdata;
 
     // 현재 플레이어가 선택한 던전
-    public int crrentDungeon;
+    public int currentDungeon;
 
 
     void Awake()
@@ -66,7 +66,7 @@ public class DataManager : MonoBehaviour
         // Firebase Database의 루트 참조를 가져옵니다.
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
 
-        crrentDungeon = 0;
+        currentDungeon = 2;
     }
 
     // 데이터 저장
@@ -171,7 +171,7 @@ public class DataManager : MonoBehaviour
     // 현재 던전 설정 (던전 들어갈 때 사용)
     public void GoingDungeon(int level)
     {
-        crrentDungeon = level;
+        currentDungeon = level;
     }
 
 

@@ -35,7 +35,7 @@ public class MapManager : MonoBehaviour
         ui_Ingame = UIManager_InGame.Instance;
 
         stageBackGrounds = Resources.LoadAll<GameObject>(stageBackGround);
-        stageSelectNum = DataManager.Instance.crrentDungeon;
+        stageSelectNum = DataManager.Instance.currentDungeon;
         //스테이지 변경
         StageSelect(stageSelectNum);
     }

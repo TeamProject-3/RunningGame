@@ -148,7 +148,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     public void UpdateMapData()
     {
         // 스테이지 이름 업데이트
-        DataManager.Instance.crrentDungeon = stageIndex + 1;
+        DataManager.Instance.currentDungeon = stageIndex + 1;
     }
 
     public void OnNextStageButton()
