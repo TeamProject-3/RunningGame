@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 822467755780340820}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.07, y: -3.31, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccccd6c21064074a85fa485a19c79bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 0}
   mainCollier: {fileID: 944738391857467544}
   slidingCollider: {fileID: 8784836714305501912}
   mainshield: {fileID: 8852139215998942769}
@@ -182,6 +183,7 @@ MonoBehaviour:
   jumpForce: 7
   slideSpeed: 5
   moveSpeed: 5
+  currentGravityScale: 0
 --- !u!1 &3837644840557499085
 GameObject:
   m_ObjectHideFlags: 0
