@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8852139215998942769}
   - component: {fileID: 3570764450509579168}
   - component: {fileID: 7760258050940438693}
+  - component: {fileID: 2527011454301722649}
   m_Layer: 6
   m_Name: PlayerSharky
   m_TagString: Player
@@ -165,6 +166,8 @@ MonoBehaviour:
   isDead: 0
   isJump: 0
   isSliding: 0
+  isMoveCheck: 0
+  isShield: 0
   hpDecreaseRate: 0.8
 --- !u!114 &7760258050940438693
 MonoBehaviour:
@@ -183,6 +186,20 @@ MonoBehaviour:
   slideSpeed: 5
   moveSpeed: 5
   currentGravityScale: 0
+--- !u!114 &2527011454301722649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822467755780340820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e66c1660a8ad7e04784fd0034e8ed8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMagnet: 0
+  magnetRange: 5
 --- !u!1 &3837644840557499085
 GameObject:
   m_ObjectHideFlags: 0
