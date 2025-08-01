@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGame, IUiShow_InGame
 {
@@ -75,12 +76,13 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     public void UpdateHighScoreText()
     {
         Debug.Log("High Score Updated: " + highScore);
-        highScoreText.text = highScore.ToString();
+        highScoreText.text = string.Format("{0:N0}", highScore);
     }
+    
     public void UpdateMyScoreText()
     {
         Debug.Log("My Score Updated: " + myScore);
-        myScorelText.text = myScore.ToString();
+        myScorelText.text = string.Format("{0:N0}", myScore);
     }
     public void UpdateMapNameText()
     {

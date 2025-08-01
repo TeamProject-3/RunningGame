@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InGameManager : MonoBehaviour
 {
     public static InGameManager Instance { get; private set; }
 
-    public int Score { get; private set; }
+    public float Score { get; private set; }
+
+    [SerializeField]
+    private int bastScore;
 
     // 플레이어가 생성될 위치
     [SerializeField]
     private Transform playerTransform;
 
     private Player player;
+
+    [SerializeField]
+    private GameObject changeCharacters;
 
     private bool isGameOver = false;
     private void Awake()
@@ -26,6 +30,7 @@ public class InGameManager : MonoBehaviour
             Destroy(gameObject);
         }
         MakePlayer();
+        changeCharacters = GameObject.Find("ChangeCharacters");
     }
 
     private void Start()
@@ -35,21 +40,53 @@ public class InGameManager : MonoBehaviour
 
         player = FindObjectOfType<Player>();
 
+        // bastScore 초기화
+        int dungeonIndex = DataManager.Instance.currentDungeon;
+        var bastScores = DataManager.Instance.currentPlayerdata.bastScores;
+
+        while (bastScores.Count <= dungeonIndex)
+        {
+            if (bastScores != null && dungeonIndex < bastScores.Count)
+            {
+                bastScore = bastScores[dungeonIndex];
+                break;
+            }
+            else
+            {
+                DataManager.Instance.currentPlayerdata.bastScores.Add(0);
+            }
+        }
+
+
+        //UI 점수 초기화
+        UIManager_InGame.Instance.myScore = (int)Score;
+        UIManager_InGame.Instance.highScore = bastScore;
+        UIManager_InGame.Instance.UpdateHighScoreText();
+        UIManager_InGame.Instance.UpdateMyScoreText();
+
+
+
+        // 맵 이름 업데이트
+        UIManager_InGame.Instance.mapNameText = dungeonIndex + " 스테이지";
+        UIManager_InGame.Instance.UpdateMapNameText();
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (player.isDead)
+        {
+            Debug.Log("Player is dead");
+            IsDaed();
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             PlayerStat playerstat = player.GetComponent<PlayerStat>();
             SetSpeed(playerstat.moveSpeed + 2);
         }
-        IsDaed();
-    }
-    public void AddScore(int amount)
-    {
-        Score += amount;
-        Debug.Log("Score added: " + amount + ". Total score: " + Score);
+
+        float amount = 1;
+        IncreaseScore(amount);
     }
 
     // 플레이어 생성 함수
@@ -57,7 +94,6 @@ public class InGameManager : MonoBehaviour
     {
         string characterName = DataManager.Instance.currentPlayerdata.currentCharacter.ToString();
         GameObject playerPrefab = Resources.Load<GameObject>("Prefab/Player/" + characterName);
-        Debug.Log("Player Prefab: " + playerPrefab?.name + characterName);
         Instantiate(playerPrefab, playerTransform);
     }
 
@@ -87,14 +123,54 @@ public class InGameManager : MonoBehaviour
 
     public void IsDaed()
     {
-        if(player.isDead && !isGameOver)
-        {
-            isGameOver = true;
-            // 플레이어가 죽었을 때 호출되는 함수
-            // 예를 들어, 게임 오버 UI를 표시하거나 리스타트하는 로직을 여기에 추가할 수 있습니다.
-            Debug.Log("Player is dead. Implement game over logic here.");
-            UIManager_InGame.Instance.ShowResultUI(); // StopButton
-        }
+        if (!isGameOver)
+            return;
 
+        isGameOver = true;
+        // 플레이어가 죽었을 때 호출되는 함수
+        // 예를 들어, 게임 오버 UI를 표시하거나 리스타트하는 로직을 여기에 추가할 수 있습니다.
+        DataManager.Instance.currentPlayerdata.bastScores[DataManager.Instance.currentDungeon] = bastScore;
+        UIManager_InGame.Instance.ShowResultUI(); // StopButton
+
+    }
+
+    // 스코어 증가
+    void IncreaseScore(float amount)
+    {
+        Score += amount;
+        UIManager_InGame.Instance.myScore = (int)Score;
+        UIManager_InGame.Instance.UpdateMyScoreText();
+        if (Score > bastScore)
+        {
+            UIManager_InGame.Instance.UpdateHighScoreText();
+            UIManager_InGame.Instance.highScore = bastScore;
+            bastScore = (int)Score;
+        }
+    }
+
+
+
+    public void ChangeCharacterImage()
+    {
+        // 자식 오브젝트 가져옴 
+        Transform[] gameObjects = changeCharacters.GetComponentsInChildren<Transform>(true);
+
+
+        foreach (Transform t in gameObjects)
+        {
+            // 부모 오브젝트는 건너뜀
+            if (t == changeCharacters.transform)
+                continue;
+
+            // 캐릭터 이름과 현재 플레이어 데이터의 캐릭터 이름 비교
+            if (t.name == DataManager.Instance.currentPlayerdata.currentCharacter.ToString())
+            {
+                t.gameObject.SetActive(true);
+            }
+            else
+            {
+                t.gameObject.SetActive(false);
+            }
+        }
     }
 }
