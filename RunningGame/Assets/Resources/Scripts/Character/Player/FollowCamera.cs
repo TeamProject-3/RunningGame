@@ -18,7 +18,7 @@ public class FollowCamera : MonoBehaviour
 
     private void Start()
     {
-       
+       player = FindObjectOfType<Player>().transform; // 플레이어 트랜스폼을 찾기
     }
     void FixedUpdate()
     {
