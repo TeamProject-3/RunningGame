@@ -63,7 +63,8 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
         }
         ShowUI(0);
         FirstLoginCheeck();
-        UpdatePlayerSprite();
+        ChangeCharacterImage();
+        //UpdatePlayerSprite();
         ShowUI(5);
     }
 
@@ -266,26 +267,26 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
         // 다시 클릭 해도 구매하지 않도록 로직필요
         Debug.Log("Character Buy Button Clicked");
     }
-    public void OnAlbumSelectButton1()
-    {
-        DataManager.Instance.SetCurrentCharacter(CharacterType.PlayerFishy);
-        UpdatePlayerSprite();
-    }
-    public void OnAlbumSelectButton2()
-    {
-        DataManager.Instance.SetCurrentCharacter(CharacterType.PlayerOrcy);
-        UpdatePlayerSprite();
-    }
-    public void OnAlbumSelectButton3()
-    {
-        DataManager.Instance.SetCurrentCharacter(CharacterType.PlayerPescy);
-        UpdatePlayerSprite();
-    }
-    public void OnAlbumSelectButton4()
-    {
-        DataManager.Instance.SetCurrentCharacter(CharacterType.PlayerSharky);
-        UpdatePlayerSprite();
-    }
+    //public void OnAlbumSelectButton1()
+    //{
+    //    DataManager.Instance.SetCurrentCharacter(CharacterType.PlayerFishy);
+    //    UpdatePlayerSprite();
+    //}
+    //public void OnAlbumSelectButton2()
+    //{
+    //    DataManager.Instance.SetCurrentCharacter(CharacterType.PlayerOrcy);
+    //    UpdatePlayerSprite();
+    //}
+    //public void OnAlbumSelectButton3()
+    //{
+    //    DataManager.Instance.SetCurrentCharacter(CharacterType.PlayerPescy);
+    //    UpdatePlayerSprite();
+    //}
+    //public void OnAlbumSelectButton4()
+    //{
+    //    DataManager.Instance.SetCurrentCharacter(CharacterType.PlayerSharky);
+    //    UpdatePlayerSprite();
+    //}
     public void OnBackStageButton()
     {
         HideUI(1);
@@ -301,32 +302,83 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
         stageIndex = 0;
         stageImage.GetComponent<Image>().sprite = stageImages[stageIndex];
     }
-    public void UpdatePlayerSprite()
-    {
-        Transform characterImageTransform = controlUI[5].transform.Find("CharacterImage(dummy)");
+    //public void UpdatePlayerSprite()
+    //{
+    //    Transform characterImageTransform = controlUI[5].transform.Find("CharacterImage(dummy)");
 
-        switch (DataManager.Instance.currentPlayerdata.currentCharacter)
-        {
-            case CharacterType.PlayerFishy:
-                characterImage.sprite = characterImages[0];
-                break;
-            case CharacterType.PlayerOrcy:
-                characterImage.sprite = characterImages[1];
-                break;
-            case CharacterType.PlayerPescy:
-                characterImage.sprite = characterImages[2];
-                break;
-            case CharacterType.PlayerSharky:
-                characterImage.sprite = characterImages[3];
-                break;
-            default:
-                Debug.LogWarning("알 수 없는 캐릭터 타입입니다.");
-                break;
-        }
-    }
+    //    switch (DataManager.Instance.currentPlayerdata.currentCharacter)
+    //    {
+    //        case CharacterType.PlayerFishy:
+    //            characterImage.sprite = characterImages[0];
+    //            break;
+    //        case CharacterType.PlayerOrcy:
+    //            characterImage.sprite = characterImages[1];
+    //            break;
+    //        case CharacterType.PlayerPescy:
+    //            characterImage.sprite = characterImages[2];
+    //            break;
+    //        case CharacterType.PlayerSharky:
+    //            characterImage.sprite = characterImages[3];
+    //            break;
+    //        default:
+    //            Debug.LogWarning("알 수 없는 캐릭터 타입입니다.");
+    //            break;
+    //    }
+    //}
     public void SetComponent()
     {
         Transform characterImageTransform = controlUI[5].transform.Find("CharacterImage(dummy)");
         characterImage = characterImageTransform.GetComponent<Image>();
+    }
+
+
+    public void ChangeCharacter(int characterIndex)
+    {
+        if (DataManager.Instance.currentPlayerdata.currentCharacter == (CharacterType)characterIndex)
+        {
+            Debug.Log("이미 선택된 캐릭터입니다: " + (CharacterType)characterIndex);
+            // 이미 선택된 캐릭터라고 띄우는 UI????
+            return;
+        }
+        else
+        {
+            // DataManager.Instance.SetCurrentCharacter(characterIndex);
+            DataManager.Instance.SetCurrentCharacter((CharacterType)characterIndex);
+
+
+            Debug.Log("캐릭터 변경됨: " + (CharacterType)characterIndex);
+
+            // 캐릭터 변경 UI 업데이트
+            // GameManager.Instance.ChangeCharacterImage();
+            ChangeCharacterImage();
+        }
+    }
+
+
+    [SerializeField]
+    private GameObject changeCharacters;
+
+    public void ChangeCharacterImage()
+    {
+        // 자식 오브젝트 가져옴 
+        Transform[] gameObjects = changeCharacters.GetComponentsInChildren<Transform>(true);
+
+
+        foreach (Transform t in gameObjects)
+        {
+            // 부모 오브젝트는 건너뜀
+            if (t == changeCharacters.transform)
+                continue;
+
+            // 캐릭터 이름과 현재 플레이어 데이터의 캐릭터 이름 비교
+            if (t.name == DataManager.Instance.currentPlayerdata.currentCharacter.ToString())
+            {
+                t.gameObject.SetActive(true);
+            }
+            else
+            {
+                t.gameObject.SetActive(false);
+            }
+        }
     }
 }

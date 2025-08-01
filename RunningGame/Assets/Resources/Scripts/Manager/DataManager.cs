@@ -180,55 +180,10 @@ public class DataManager : MonoBehaviour
 
 
     // 버튼에 호출할 함수 (UI 함수로 가져가야 함) (0. PlayerFishy, 2. MaPlayerOrcyge, 3. PlayerPescy, 4. PlayerSharky)
-    public void ChangeCharacter(int characterIndex)
-    {
-        if(currentPlayerdata.currentCharacter == (CharacterType)characterIndex)
-        {
-            Debug.Log("이미 선택된 캐릭터입니다: " + (CharacterType)characterIndex);
-            // 이미 선택된 캐릭터라고 띄우는 UI????
-            return;
-        }
-        else
-        {
-            // DataManager.Instance.SetCurrentCharacter(characterIndex);
-            SetCurrentCharacter((CharacterType)characterIndex);
-
-
-            Debug.Log("캐릭터 변경됨: " + (CharacterType)characterIndex);
-
-            // 캐릭터 변경 UI 업데이트
-            // GameManager.Instance.ChangeCharacterImage();
-            ChangeCharacterImage();
-        }
-    }
+    
 
     // GmamManager , UI(?)
-    [SerializeField]
-    private GameObject changeCharacters;
 
-    public void ChangeCharacterImage()
-    {
-        // 자식 오브젝트 가져옴 
-        Transform[] gameObjects = changeCharacters.GetComponentsInChildren<Transform>(true);
-
-
-        foreach (Transform t in gameObjects)
-        {
-            // 부모 오브젝트는 건너뜀
-            if (t == changeCharacters.transform)
-                continue;
-
-            // 캐릭터 이름과 현재 플레이어 데이터의 캐릭터 이름 비교
-            if (t.name == currentPlayerdata.currentCharacter.ToString())
-            {
-                t.gameObject.SetActive(true);
-            }
-            else
-            {
-                t.gameObject.SetActive(false);
-            }
-        }
-    }
 
 
 }
