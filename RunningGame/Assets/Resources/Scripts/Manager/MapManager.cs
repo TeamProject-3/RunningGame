@@ -26,7 +26,7 @@ public class MapManager : MonoBehaviour
     {
         grid = FindObjectOfType<MapManager>();
         stageBackGrounds = Resources.LoadAll<GameObject>(stageBackGround);
-        stageSelectNum = DataManager.Instance.crrentDungeon;
+        stageSelectNum = DataManager.Instance.currentDungeon;
         //스테이지 변경
         StageSelect(stageSelectNum);
     }
