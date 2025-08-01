@@ -1,6 +1,10 @@
-using System.Threading.Tasks;
 using Firebase.Database;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.TextCore.Text;
 
 // 저장할 플레이어 데이터 구조체
 [System.Serializable]
@@ -8,10 +12,10 @@ public class PlayerData
 {
     public string userName;
     public int gold;
-    public int bastScore;
+    public List<int> bastScores;
     public bool isSetName; //테스트용변수 서버에 값이 같이 저장되야함.
-    // 캐릭터는 Dictionary (캐릭터 이름(캐릭터ID), 캐릭터 데이터(캐릭터 프리팹?))
 
+    public List<CharacterType> characters; // 현재는 캐릭터 타입 배열로 설정 (나중에 확장 가능성 있음)
     // 현재 장착중인 캐릭터
     public CharacterType currentCharacter;
 
@@ -19,12 +23,16 @@ public class PlayerData
     {
         userName = "NewPlayer";
         gold = 0;
-        bastScore = 0;
+        bastScores = new List<int>();
+        bastScores.Add(0); // 0번째 배열은 버림 1번째 부터 사용
         isSetName = false;
-        // 캐릭터 데이터 초기화 (예시로 빈 딕셔너리 사용)
+
+        // 캐릭터 데이터 초기화
+        characters = new List<CharacterType>();
+        characters.Add(CharacterType.PlayerFishy); // 기본 캐릭터 추가
 
         // 현재 장착중인 캐릭터 초기화
-        currentCharacter = CharacterType.PlayerFishy; // 기본 캐릭터 설정
+        //currentCharacter = CharacterType.PlayerFishy; // 기본 캐릭터 설정
     }
 }
 
@@ -37,6 +45,10 @@ public class DataManager : MonoBehaviour
 
     // 현재 플레이어 데이터 (로그인 후 불러온 데이터)
     public PlayerData currentPlayerdata;
+
+    // 현재 플레이어가 선택한 던전
+    public int crrentDungeon;
+
 
     void Awake()
     {
@@ -53,10 +65,8 @@ public class DataManager : MonoBehaviour
 
         // Firebase Database의 루트 참조를 가져옵니다.
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
-    }
 
-    void Start()
-    {
+        crrentDungeon = 0;
     }
 
     // 데이터 저장
@@ -131,9 +141,25 @@ public class DataManager : MonoBehaviour
     }
 
     // 내가 가지고 있는 캐릭터 추가
-    public void SetCharacter()
+    public void SetCharacter(string characterName)
     {
+        // 문자열을 CharacterType으로 변환 시도
+        if (!Enum.TryParse<CharacterType>(characterName, out var characterType))
+        {
+            Debug.LogWarning("존재하지 않는 캐릭터 타입입니다: " + characterName);
+            return;
+        }
 
+        if (currentPlayerdata.characters.Contains(characterType))
+        {
+            Debug.Log("이미 가지고 있는 캐릭터입니다: " + characterName);
+        }
+        else
+        {
+            // 캐릭터 추가
+            currentPlayerdata.characters.Add(characterType);
+            Debug.Log("새로운 캐릭터 추가됨: " + characterName);
+        }
     }
 
     // 현재 캐릭터 설정 함수
@@ -141,6 +167,14 @@ public class DataManager : MonoBehaviour
     {
         currentPlayerdata.currentCharacter = characterType;
     }
+
+    // 현재 던전 설정 (던전 들어갈 때 사용)
+    public void GoingDungeon(int level)
+    {
+        crrentDungeon = level;
+    }
+
+
 
     //---------------------------------------------------------------------------------------------------------------------
 

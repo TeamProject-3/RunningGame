@@ -133,8 +133,15 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
         //스테이지 인덱스를 받는 로직이 필요하다
         HideUI(1);
         ShowUI(2);
+        UpdateMapData();
         UpdateHighScore();
     }
+    public void UpdateMapData()
+    {
+        // 스테이지 이름 업데이트
+        DataManager.Instance.crrentDungeon = stageIndex + 1;
+    }
+
     public void OnNextStageButton()
     {
         if(stageIndex>=4) // 스테이지 인덱스가 5보다 크면 초기화
@@ -163,8 +170,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     }
     public void OnRunButton()
     {
-        SceneManager.LoadScene("TestScene 4_InGame");//추후변경필요
-
+        SceneManager.LoadScene("2.InGameScene");//추후변경필요
     }
     public void UpdateHighScore()
     {
@@ -195,6 +201,10 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
         if (!DataManager.Instance.currentPlayerdata.isSetName)
         {
             ShowNameSetMenu();
+        }
+        else
+        {
+            UpdatePlayerName();
         }
     }
     public void OnBuyButton()

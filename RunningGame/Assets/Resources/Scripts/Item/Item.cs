@@ -33,30 +33,30 @@ public class Item : MonoBehaviour
     //    }
     //}
 
-    // 아이템별 효과 적용
-    //private void ApplyEffect(Player player)
-    //{
-    //    switch (type)
-    //    {
-    //        case ItemType.Coin:
-    //            player.AddMoney((int)value);
-    //            break;
-    //        case ItemType.Magnet:
-    //            player.ActivateMagnet(value);
-    //            break;
-    //        case ItemType.Heart:
-    //            player.Heal((int)value);
-    //            break;
-    //        case ItemType.Boost:
-    //            player.ActivateBoost(value);
-    //            break;
-    //        case ItemType.Food:
-    //            player.AddScore((int)value);
-    //            break;
-    //        case ItemType.Shield:
-    //            player.ActivateShield(value);
-    //            break;
-    //            // 추가 아이템 효과 구현
-    //    }
-    //}
+//    아이템별 효과 적용
+//    private void ApplyEffect(Player player)
+//    {
+//        switch (type)
+//        {
+//            case ItemType.Coin:
+//                player.AddMoney((int)value);
+//                break;
+//            case ItemType.Magnet:
+//                player.ActivateMagnet(value);
+//                break;
+//            case ItemType.Heart:
+//                player.Heal((int)value);
+//                break;
+//            case ItemType.Boost:
+//                player.ActivateBoost(value);
+//                break;
+//            case ItemType.Food:
+//                player.AddScore((int)value);
+//                break;
+//            case ItemType.Shield:
+//                player.ActivateShield(value);
+//                break;
+//                // 추가 아이템 효과 구현
+//        }
+//    }
 }
