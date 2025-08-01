@@ -344,6 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccccd6c21064074a85fa485a19c79bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 0}
   mainCollier: {fileID: 8141065571815265381}
   slidingCollider: {fileID: 5829321704552608714}
   mainshield: {fileID: 5966046851257431235}
