@@ -139,7 +139,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     public void UpdateMapData()
     {
         // 스테이지 이름 업데이트
-        DataManager.Instance.crrentDungeon = stageIndex;
+        DataManager.Instance.crrentDungeon = stageIndex + 1;
     }
 
     public void OnNextStageButton()
@@ -170,8 +170,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     }
     public void OnRunButton()
     {
-        SceneManager.LoadScene("TestScene 4_InGame");//추후변경필요
-
+        SceneManager.LoadScene("2.InGameScene");//추후변경필요
     }
     public void UpdateHighScore()
     {
