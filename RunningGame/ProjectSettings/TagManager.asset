@@ -10,6 +10,7 @@ TagManager:
   - BackGround
   - ReLoad
   - Item
+  - MoveCheck
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Ground
   - Enemy
   - PlayerDamage
-  - 
+  - MoveCheck
   - 
   - 
   - 

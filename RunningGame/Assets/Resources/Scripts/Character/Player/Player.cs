@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public enum CharacterType
@@ -30,7 +31,8 @@ public class Player : MonoBehaviour
     public bool isDead = false;
     public bool isJump = false;
     public bool isSliding = false;
-     
+    public bool isMoveCheck = false; // MoveCheck 오브젝트와 충돌 여부
+
     public float hpDecreaseRate = 0.8f; //HP 감소속도
 
 
@@ -64,9 +66,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        _rigidbody.velocity = new Vector2(playerstat.moveSpeed, _rigidbody.velocity.y);
         if (isDead)
         {
+            return;
+        }
+        if(!isMoveCheck)
+        {
+            // MoveCheck 오브젝트와 충돌 전에는 플레이어의 입력을 무시하고 HP 감소를 하지 않음
             return;
         }
         else
@@ -99,7 +106,7 @@ public class Player : MonoBehaviour
             DeathTrigger(); // 일정 y축 이하로 떨어지면 죽음 처리
         }
 
-        _rigidbody.velocity = new Vector2(playerstat.moveSpeed, _rigidbody.velocity.y);
+       
         DecreaseHpOverTime();
     }
 
@@ -160,14 +167,19 @@ public class Player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;
-        else
-        {
+       
             if (collision.gameObject.tag == "Enemy")
             {
                 Debug.Log("Player hit by enemy");
                 OnDamaged(); //피격시 함수 호출
 
             }
+        
+         else if (collision.CompareTag("MoveCheck"))
+        {
+            // MoveCheck에 닿으면 동작 활성화
+            isMoveCheck = true;
+            Debug.Log("MoveCheck 충돌, 플레이어 조작 및 HP 감소 활성화!");
         }
     }
 
@@ -226,4 +238,8 @@ public class Player : MonoBehaviour
     //        slidingCollider.enabled = false;
     //    }
     //}
+
+    //tag MoveCheck가 있는 오브젝트와 충돌전에는 HP가 감소하지않고 플레이어의 입력도 무시된다
+  
+
 }
