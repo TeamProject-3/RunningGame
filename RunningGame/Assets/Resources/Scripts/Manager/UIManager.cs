@@ -203,6 +203,10 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
         {
             ShowNameSetMenu();
         }
+        else
+        {
+            UpdatePlayerName();
+        }
     }
     public void OnBuyButton()
     {
