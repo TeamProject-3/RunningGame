@@ -168,9 +168,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6089873121930993547}
   - component: {fileID: 641235112665480400}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MoveCheck
-  m_TagString: Untagged
+  m_TagString: MoveCheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
