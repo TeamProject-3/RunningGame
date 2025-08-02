@@ -75,8 +75,10 @@ public class InGameManager : MonoBehaviour
     {
         if (player.isDead)
         {
+            if (isGameOver)
+                return;
             Debug.Log("Player is dead");
-            IsDaed();
+            Daed();
             return;
         }
         if (Input.GetKeyDown(KeyCode.Q))
@@ -86,7 +88,11 @@ public class InGameManager : MonoBehaviour
         }
 
         float amount = 1;
-        IncreaseScore(amount);
+
+        if (player.isMoveCheck)
+        {
+            IncreaseScore(amount);
+        }
     }
 
     // 플레이어 생성 함수
@@ -127,14 +133,10 @@ public class InGameManager : MonoBehaviour
         playerP._rigidbody.gravityScale = playerstat.currentGravityScale;
     }
 
-    public void IsDaed()
+    public void Daed()
     {
-        if (!isGameOver)
-            return;
-
         isGameOver = true;
-        // 플레이어가 죽었을 때 호출되는 함수
-        // 예를 들어, 게임 오버 UI를 표시하거나 리스타트하는 로직을 여기에 추가할 수 있습니다.
+
         DataManager.Instance.currentPlayerdata.bastScores[DataManager.Instance.currentDungeon] = bastScore;
         UIManager_InGame.Instance.ShowResultUI(); // StopButton
 

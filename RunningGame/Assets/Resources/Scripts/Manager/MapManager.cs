@@ -18,22 +18,23 @@ public class MapManager : MonoBehaviour
 
     private List<GameObject> obstacles = new List<GameObject>();
     private List<GameObject> backObjects = new List<GameObject>();
+    private GameObject empthyBackObjects;
 
-    // 최대 스테이지 수는 3단위로 끊어서 설정
-    // 1스테이지가 3단위로 설정되어있음
-    private int MaxStageNum = 3;
+    // 최대 스테이지
+    private int MaxStageNum = 2;
 
     public int stageNum = 0;
 
 
-    private float fixWidth = 17.92f;
+    [HideInInspector] public float fixWidth = 17.92f;
 
     [HideInInspector] public float totalWidth = 0;
     [HideInInspector] public float totalMapLength;
 
     [HideInInspector] public int loopPoint = 0;
 
-    [HideInInspector] public bool mapCheck = false;
+    //[HideInInspector] 
+    public bool mapCheck = false;
 
     private void Awake()
     {
@@ -52,11 +53,6 @@ public class MapManager : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
-    {
-        
-
-    }
 
     public List<GameObject> GetObstaclePrefabs()
     {
@@ -86,6 +82,16 @@ public class MapManager : MonoBehaviour
 
         return backObjects.ToArray();
     }
+    public GameObject GetstageEmpthyBackGrounds()
+    {
+
+        GameObject background = GameObject.Find("EmpthyBackGround");
+
+        if (background != null)
+            empthyBackObjects = background;
+
+        return empthyBackObjects;
+    }
 
     private void StageSelect(int selectNum)
     {
@@ -109,10 +115,11 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    public void StageNumAddition()
+    public void StageNumAdd()
     {
         stageNum++;
     }
+
 
     public void MapCheck()
     {
