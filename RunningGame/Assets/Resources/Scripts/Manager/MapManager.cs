@@ -17,36 +17,51 @@ public class MapManager : MonoBehaviour
     private List<GameObject> obstacles = new List<GameObject>();
     private List<GameObject> backObjects = new List<GameObject>();
 
+    
     private int MaxStageNum = 4;
-    [SerializeField]
-    private int stageNum = 0;
 
-    private bool progressMax = false;
+    public int stageNum = 0;
 
+    //private bool progressMax = false;
+    private bool mapCheck = false;
+
+    [HideInInspector] public int loopPoint = 0;
     [HideInInspector] public float fixWidth = 0;
+    [HideInInspector] public float totalMapLength;
+
 
     MapManager grid;
-    UIManager_InGame ui_Ingame;
+    
 
     private void Awake()
     {
         grid = FindObjectOfType<MapManager>();
 
-        ui_Ingame = UIManager_InGame.Instance;
-
         stageBackGrounds = Resources.LoadAll<GameObject>(stageBackGround);
         stageSelectNum = DataManager.Instance.currentDungeon;
+
+        totalMapLength = 18f * MaxStageNum;
+
         //스테이지 변경
         StageSelect(stageSelectNum);
     }
 
+
     private void FixedUpdate()
     {
 
-        ui_Ingame.UpdateProgressSlider(stageNum <= 0 ? 0 : (float)stageNum / (float)MaxStageNum);
+        //ui_Ingame.UpdateProgressSlider(stageNum <= 0 ? 0 : (float)stageNum / (float)MaxStageNum);
 
-        if (stageNum / MaxStageNum == 1) stageNum = 0;
-        else if (stageNum == 3) progressMax = true;
+       // if (stageNum == (MaxStageNum - 1)) progressMax = true;
+
+        /*
+        if (stageNum > MaxStageNum)
+        {
+            stageNum = 0;
+            loopPoint++;
+        }*/
+        mapCheck = stageNum == 0 ? true : false;
+        Debug.Log($"mapcheck값 : {mapCheck} / 스테이지넘 : {stageNum}");
 
     }
 
@@ -104,13 +119,15 @@ public class MapManager : MonoBehaviour
     public void StageNumAddition(bool checks)
     {
         stageNum += checks ? 3 : 1;
+
+        if (stageNum > MaxStageNum)
+        {
+            stageNum = 0;
+            loopPoint++;
+        }
     }
 
-    public void StageNumSubtraction(bool checks)
-    {
-        stageNum -= checks ? 3 : 1;
-    }
-
+    /*
     public bool ProgressMaxCheck()
     {
         return progressMax;
@@ -120,4 +137,10 @@ public class MapManager : MonoBehaviour
     {
         progressMax = false;
     }
+
+    public bool ProgressMapCheck()
+    {
+        return mapCheck;
+    }
+    */
 }

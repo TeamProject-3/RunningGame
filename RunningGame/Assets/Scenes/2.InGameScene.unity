@@ -1211,7 +1211,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageSelectNum: 1
+  stageNum: 0
+  loopPoint: 0
   fixWidth: 0
+  totalMapLength: 0
 --- !u!156049354 &487597202
 Grid:
   m_ObjectHideFlags: 0

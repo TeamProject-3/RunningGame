@@ -1,13 +1,17 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spring : MonoBehaviour
 {
     Animator animator;
-    [SerializeField] float jumpForce = 0.5f;
+    [SerializeField] float jumpBaseForce = 1f;
+
+    float jumpChangeForce;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+
+       
     }
 
 
@@ -20,7 +24,11 @@ public class Spring : MonoBehaviour
             PlayerStat playerStat = collision.gameObject.GetComponent< PlayerStat>();
             if (_rigidbody == null) return;
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
-            _rigidbody.AddForce(Vector2.up * playerStat.jumpForce +  new Vector2(jumpForce * playerStat.jumpForce,0), ForceMode2D.Impulse);
+
+            jumpChangeForce = (jumpBaseForce * playerStat.jumpForce) * playerStat.baseJumpForce;
+
+            _rigidbody.AddForce(Vector2.up * playerStat.jumpForce +  
+                new Vector2(0, jumpChangeForce), ForceMode2D.Impulse);
         }
     }
 

@@ -11,7 +11,6 @@ public class BackGround : MonoBehaviour
     bool progressMaxCheck = false;
 
     float mapfixWidth = 17.92f;
-
     
     MapManager mapManager;
 
@@ -28,9 +27,8 @@ public class BackGround : MonoBehaviour
         
         if (collision.CompareTag("BackGround"))
         {
-
             mapCheck = CountMapSetting();
-            progressMaxCheck = mapManager.ProgressMaxCheck();
+            //progressMaxCheck = mapManager.ProgressMaxCheck();
             mapManager.StageNumAddition(mapCheck);
 
             GameObject check = collision.gameObject;
@@ -59,9 +57,6 @@ public class BackGround : MonoBehaviour
                 {
                     if (obj.activeSelf && obj.transform.position.x + mapManager.fixWidth - mapfixWidth < gameObject.transform.position.x)
                         obj.SetActive(false);
-
-                    if (obj.activeSelf && obj.name == "Obstacle_07")
-                        mapManager.StageNumSubtraction(mapCheck);
                 }
                     
                 foreach (GameObject obj in obstaclPrefabs)
@@ -72,8 +67,8 @@ public class BackGround : MonoBehaviour
                         if (!progressMaxCheck && obj.name == "Obstacle_07") continue;
 
                         if (progressMaxCheck && obj.name != "Obstacle_07") continue;
-                        else if (progressMaxCheck && obj.name == "Obstacle_07")
-                            mapManager.ProgressMaxCheckFalse();
+                        //else if (progressMaxCheck && obj.name == "Obstacle_07")
+                            //mapManager.ProgressMaxCheckFalse();
 
                         obj.SetActive(true);
                         if (mapCheck)
@@ -112,7 +107,10 @@ public class BackGround : MonoBehaviour
                 
             }
         }
+
     }
+
+    
 
     private void ObstacleShuffle()
     {

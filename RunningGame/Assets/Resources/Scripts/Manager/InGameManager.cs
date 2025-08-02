@@ -18,7 +18,13 @@ public class InGameManager : MonoBehaviour
     [SerializeField]
     private GameObject changeCharacters;
 
+    private MapManager mapManager;
+
     private bool isGameOver = false;
+
+    private float progressBarNum = 0f;
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -39,6 +45,7 @@ public class InGameManager : MonoBehaviour
         // Player 클래스를 가져와서 플레이어를 player에 할당
 
         player = FindObjectOfType<Player>();
+        mapManager = FindObjectOfType<MapManager>();
 
         // bastScore 초기화
         int dungeonIndex = DataManager.Instance.currentDungeon;
@@ -86,7 +93,13 @@ public class InGameManager : MonoBehaviour
         }
 
         float amount = 1;
-        IncreaseScore(amount);
+
+        //맨 처음 플레이어 충돌시 점수 및 프로그래스바 증가
+        if (player.isMoveCheck)
+        {
+            IncreaseScore(amount);
+            IncreaseBar();
+        }
     }
 
     // 플레이어 생성 함수
@@ -96,7 +109,6 @@ public class InGameManager : MonoBehaviour
         GameObject playerPrefab = Resources.Load<GameObject>("Prefab/Player/" + characterName);
         Instantiate(playerPrefab, playerTransform);
     }
-
 
     public void SetSpeed(float newSpeed)
     {
@@ -125,13 +137,11 @@ public class InGameManager : MonoBehaviour
     {
         if (!isGameOver)
             return;
-
         isGameOver = true;
         // 플레이어가 죽었을 때 호출되는 함수
         // 예를 들어, 게임 오버 UI를 표시하거나 리스타트하는 로직을 여기에 추가할 수 있습니다.
         DataManager.Instance.currentPlayerdata.bastScores[DataManager.Instance.currentDungeon] = bastScore;
         UIManager_InGame.Instance.ShowResultUI(); // StopButton
-
     }
 
     // 스코어 증가
@@ -146,6 +156,25 @@ public class InGameManager : MonoBehaviour
             UIManager_InGame.Instance.highScore = bastScore;
             bastScore = (int)Score;
         }
+    }
+
+    void IncreaseBar()
+    {
+
+        //if (mapManager.ProgressMapCheck()) return;
+        float playerX = player.transform.position.x + 8.5f - (mapManager.loopPoint * 54f);
+        //float playerX = player.transform.position.x + 8.5f;
+        float loopX = playerX % (mapManager.totalMapLength - 18f);
+
+        if (loopX < 0)
+            loopX += mapManager.totalMapLength + 9.5f;
+
+        progressBarNum = Mathf.Clamp01(loopX  / (mapManager.totalMapLength - 18f) );
+
+        UIManager_InGame.Instance.UpdateProgressSlider(progressBarNum);
+
+       // Debug.Log(progressBarNum);
+
     }
 
 

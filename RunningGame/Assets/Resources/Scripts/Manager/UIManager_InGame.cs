@@ -75,13 +75,13 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     }
     public void UpdateHighScoreText()
     {
-        Debug.Log("High Score Updated: " + highScore);
+        //Debug.Log("High Score Updated: " + highScore);
         highScoreText.text = string.Format("{0:N0}", highScore);
     }
     
     public void UpdateMyScoreText()
     {
-        Debug.Log("My Score Updated: " + myScore);
+        //Debug.Log("My Score Updated: " + myScore);
         myScorelText.text = string.Format("{0:N0}", myScore);
     }
     public void UpdateMapNameText()
