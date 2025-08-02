@@ -30,7 +30,7 @@ public class InGameManager : MonoBehaviour
             Destroy(gameObject);
         }
         MakePlayer();
-        changeCharacters = GameObject.Find("ChangeCharacters");
+        
     }
 
     private void Start()
@@ -56,14 +56,14 @@ public class InGameManager : MonoBehaviour
                 DataManager.Instance.currentPlayerdata.bastScores.Add(0);
             }
         }
-
+        ChangeCharacterImage();
 
         //UI 점수 초기화
         UIManager_InGame.Instance.myScore = (int)Score;
         UIManager_InGame.Instance.highScore = bastScore;
         UIManager_InGame.Instance.UpdateHighScoreText();
         UIManager_InGame.Instance.UpdateMyScoreText();
-
+        changeCharacters = GameObject.Find("ChangeCharacters");
 
 
         // 맵 이름 업데이트
@@ -98,6 +98,7 @@ public class InGameManager : MonoBehaviour
     }
 
 
+    // playerstat.moveSpeed 30 까지
     public void SetSpeed(float newSpeed)
     {
         // 플레이어의 PlayerStat 컴포넌트를 가져옴
@@ -105,6 +106,11 @@ public class InGameManager : MonoBehaviour
         Player playerP = player.GetComponent<Player>();
         // 1. 현재 속도 업데이트
         playerstat.moveSpeed = newSpeed;
+
+        if (playerstat.moveSpeed > 30)
+        {
+            playerstat.moveSpeed = 30; // 최대 속도 제한
+        }
 
         // 2. 기준 속도와의 비율 계산 (0으로 나누는 오류 방지)
         float speedRatio = 1f;
@@ -118,7 +124,7 @@ public class InGameManager : MonoBehaviour
         playerstat.currentGravityScale = playerstat.baseGravityScale * Mathf.Pow(speedRatio, 2);
 
         // 4. 계산된 중력 값을 Rigidbody에 즉시 적용
-        // playerP._rigidbody.gravityScale = playerstat.currentGravityScale;
+        playerP._rigidbody.gravityScale = playerstat.currentGravityScale;
     }
 
     public void IsDaed()
@@ -139,13 +145,13 @@ public class InGameManager : MonoBehaviour
     {
         Score += amount;
         UIManager_InGame.Instance.myScore = (int)Score;
-        UIManager_InGame.Instance.UpdateMyScoreText();
-        if (Score > bastScore)
+        UIManager_InGame.Instance.UpdateMyScoreText(); 
+        if (Score >= bastScore)
         {
-            UIManager_InGame.Instance.UpdateHighScoreText();
-            UIManager_InGame.Instance.highScore = bastScore;
             bastScore = (int)Score;
-        }
+            UIManager_InGame.Instance.highScore = bastScore;
+            UIManager_InGame.Instance.UpdateHighScoreText();
+        } 
     }
 
 

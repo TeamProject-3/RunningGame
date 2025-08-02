@@ -66,7 +66,7 @@ public class FoodPath : MonoBehaviour
         // 경로 첫번째 점에 음식 생성
         Instantiate(foodPrefab, points[0].position, Quaternion.identity, transform);
 
-        // 2. 경로 전체에 걸쳐 누적된 거리
+        // 경로 전체에 걸쳐 누적된 거리
         float distanceSinceLastFood = 0f;
 
         // 경로의 모든 선을 순회
@@ -98,7 +98,5 @@ public class FoodPath : MonoBehaviour
             // 현재 선분을 다 지나고도 다음 음식를 놓을 만큼의 거리가 되지 않으면, 남은 거리를 다음 선분 계산을 위해 누적
             distanceSinceLastFood += distance;
         }
-
-
     }
 }
