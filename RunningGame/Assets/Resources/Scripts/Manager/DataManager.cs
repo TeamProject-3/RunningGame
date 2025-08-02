@@ -116,6 +116,8 @@ public class DataManager : MonoBehaviour
 
     public async void OnSaveData()
     {
+        if (FIrebaseAuthManager.Instance == null)
+            return;
         // AuthManager로부터 현재 유저의 UID
         string uid = FIrebaseAuthManager.Instance.GetUserUID();
 
@@ -125,7 +127,6 @@ public class DataManager : MonoBehaviour
             Debug.LogWarning("로그인 상태가 아닙니다. 데이터를 저장할 수 없습니다.");
                 return;
         }
-
         // uid로 저장
         await SaveData(uid);
     }
