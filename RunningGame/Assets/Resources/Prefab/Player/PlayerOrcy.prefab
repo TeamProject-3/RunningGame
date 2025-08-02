@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 5966046851257431235}
   - component: {fileID: 6184683067805588376}
   - component: {fileID: 8604398862053849711}
+  - component: {fileID: 7688339670490054374}
   m_Layer: 6
   m_Name: PlayerOrcy
   m_TagString: Player
@@ -353,6 +354,8 @@ MonoBehaviour:
   isDead: 0
   isJump: 0
   isSliding: 0
+  isMoveCheck: 0
+  isShield: 0
   hpDecreaseRate: 0.8
 --- !u!114 &8604398862053849711
 MonoBehaviour:
@@ -371,3 +374,17 @@ MonoBehaviour:
   slideSpeed: 5
   moveSpeed: 5
   currentGravityScale: 0
+--- !u!114 &7688339670490054374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221550081792763289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e66c1660a8ad7e04784fd0034e8ed8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMagnet: 0
+  magnetRange: 5
