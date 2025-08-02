@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
+    public static MapManager Instance { get; private set; }
+
     private string stageBackGround = "Prefab\\Obstacle\\StageSetting";
 
     private string stage_One = "Prefab\\Obstacle\\Stage01";
@@ -17,51 +19,42 @@ public class MapManager : MonoBehaviour
     private List<GameObject> obstacles = new List<GameObject>();
     private List<GameObject> backObjects = new List<GameObject>();
 
-    
-    private int MaxStageNum = 4;
+    // 최대 스테이지 수는 3단위로 끊어서 설정
+    // 1스테이지가 3단위로 설정되어있음
+    private int MaxStageNum = 3;
 
     public int stageNum = 0;
 
-    //private bool progressMax = false;
-    private bool mapCheck = false;
 
-    [HideInInspector] public int loopPoint = 0;
-    [HideInInspector] public float fixWidth = 0;
+    private float fixWidth = 17.92f;
+
+    [HideInInspector] public float totalWidth = 0;
     [HideInInspector] public float totalMapLength;
 
+    [HideInInspector] public int loopPoint = 0;
 
-    MapManager grid;
-    
+    [HideInInspector] public bool mapCheck = false;
 
     private void Awake()
     {
-        grid = FindObjectOfType<MapManager>();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
 
         stageBackGrounds = Resources.LoadAll<GameObject>(stageBackGround);
         stageSelectNum = DataManager.Instance.currentDungeon;
 
-        totalMapLength = 18f * MaxStageNum;
-
         //스테이지 변경
         StageSelect(stageSelectNum);
+
+        totalMapLength = totalWidth * MaxStageNum;
     }
 
 
     private void FixedUpdate()
     {
-
-        //ui_Ingame.UpdateProgressSlider(stageNum <= 0 ? 0 : (float)stageNum / (float)MaxStageNum);
-
-       // if (stageNum == (MaxStageNum - 1)) progressMax = true;
-
-        /*
-        if (stageNum > MaxStageNum)
-        {
-            stageNum = 0;
-            loopPoint++;
-        }*/
-        mapCheck = stageNum == 0 ? true : false;
-        Debug.Log($"mapcheck값 : {mapCheck} / 스테이지넘 : {stageNum}");
+        
 
     }
 
@@ -69,7 +62,7 @@ public class MapManager : MonoBehaviour
     {
         foreach (GameObject prefab in obstaclePrefabs)
         {
-            GameObject instance = Instantiate(prefab, grid.transform);
+            GameObject instance = Instantiate(prefab, gameObject.transform);
             instance.name = prefab.name;
             instance.SetActive(instance.name == "Obstacle_00" ? true : false);
             obstacles.Add(instance);
@@ -102,13 +95,13 @@ public class MapManager : MonoBehaviour
             case 1:
                 
                 obstaclePrefabs = Resources.LoadAll<GameObject>(stage_One);
-                instance = Instantiate(stageBackGrounds[0], grid.transform);
-                fixWidth = 53.76f;
+                instance = Instantiate(stageBackGrounds[0], gameObject.transform);
+                totalWidth = fixWidth * 3;
                 break;
             case 2:
                 obstaclePrefabs = Resources.LoadAll<GameObject>(stage_Two);
-                instance = Instantiate(stageBackGrounds[1], grid.transform);
-                fixWidth = 17.92f;
+                instance = Instantiate(stageBackGrounds[1], gameObject.transform);
+                totalWidth = fixWidth ;
                 break;
             default:
                 obstaclePrefabs = null;
@@ -116,31 +109,18 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    public void StageNumAddition(bool checks)
+    public void StageNumAddition()
     {
-        stageNum += checks ? 3 : 1;
+        stageNum++;
+    }
 
-        if (stageNum > MaxStageNum)
+    public void MapCheck()
+    {
+        if (stageNum >= MaxStageNum)
         {
+            mapCheck = true;
             stageNum = 0;
-            loopPoint++;
         }
     }
 
-    /*
-    public bool ProgressMaxCheck()
-    {
-        return progressMax;
-    }
-
-    public void ProgressMaxCheckFalse()
-    {
-        progressMax = false;
-    }
-
-    public bool ProgressMapCheck()
-    {
-        return mapCheck;
-    }
-    */
 }

@@ -183,7 +183,7 @@ public class Player : MonoBehaviour
                 Debug.Log("적과 충돌 실드해제됨");
                 return; // 방패가 활성화되어 있으면 피해를 받지 않음
             }
-            Debug.Log("Player hit by enemy");
+            //Debug.Log("Player hit by enemy");
             OnDamaged(); //피격시 함수 호출
 
         }

@@ -7,19 +7,17 @@ public class BackGround : MonoBehaviour
     [SerializeField]private GameObject[] backGround;
     private List<GameObject> obstaclPrefabs;
    
-    bool mapCheck = false;
-    bool progressMaxCheck = false;
-
-    float mapfixWidth = 17.92f;
+    float mapfixWidth = 0f;
     
-    MapManager mapManager;
 
     private void Start()
     {
-        mapManager = FindObjectOfType<MapManager>();
-        backGround = mapManager.GetstageBackGrounds();
-        obstaclPrefabs = mapManager.GetObstaclePrefabs();
+        //MapManager에서 맵 길이를 가져옮
+        
+        backGround = MapManager.Instance.GetstageBackGrounds();
+        obstaclPrefabs = MapManager.Instance.GetObstaclePrefabs();
         obstaclPrefabs.RemoveAll(mapManager => mapManager.name == "Obstacle_00");
+        mapfixWidth = MapManager.Instance.totalWidth;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,13 +25,12 @@ public class BackGround : MonoBehaviour
         
         if (collision.CompareTag("BackGround"))
         {
-            mapCheck = CountMapSetting();
-            //progressMaxCheck = mapManager.ProgressMaxCheck();
-            mapManager.StageNumAddition(mapCheck);
+            MapManager.Instance.StageNumAddition();
+            MapManager.Instance.MapCheck();
 
             GameObject check = collision.gameObject;
 
-            int findBackground = -1;
+            int findBackground = 0;
 
             for (int i = 0; i < backGround.Length; i++)
             {
@@ -55,7 +52,7 @@ public class BackGround : MonoBehaviour
 
                 foreach (GameObject obj in obstaclPrefabs)
                 {
-                    if (obj.activeSelf && obj.transform.position.x + mapManager.fixWidth - mapfixWidth < gameObject.transform.position.x)
+                    if (obj.activeSelf && obj.transform.position.x + MapManager.Instance.totalWidth - mapfixWidth < gameObject.transform.position.x)
                         obj.SetActive(false);
                 }
                     
@@ -64,53 +61,27 @@ public class BackGround : MonoBehaviour
                     
                     if (!obj.activeSelf)
                     {
-                        if (!progressMaxCheck && obj.name == "Obstacle_07") continue;
-
-                        if (progressMaxCheck && obj.name != "Obstacle_07") continue;
-                        //else if (progressMaxCheck && obj.name == "Obstacle_07")
-                            //mapManager.ProgressMaxCheckFalse();
-
                         obj.SetActive(true);
-                        if (mapCheck)
+                        if (MapManager.Instance.mapCheck)
                         {
-                            obj.transform.position = 
-                                backGround[3].transform.position +
-                                new Vector3(mapfixWidth, 0f, 0f); ;
+
+                            break;
                         }
-                        else
-                        {
-                            obj.transform.position =
-                                backGround[findBackground].transform.position +
-                                 new Vector3(mapManager.fixWidth, 0f, 0f);
-                        }
-                        
+                        obj.transform.position =
+                            backGround[findBackground].transform.position +
+                             new Vector3(mapfixWidth, 0f, 0f);
+
                         break;
                     }
                 }
 
-                if (mapCheck)
-                {
-                    for (int j = 0; j < 4; j++)
-                        backGround[j].transform.position =
-                            backGround[3].transform.position +
-                            new Vector3(mapfixWidth*j, 0f, 0f);
-                    mapCheck = false;
-                    break;
-                }
-                else
-                {
-                    backGround[i].transform.position =
-                        backGround[nextBackgroundCheck].transform.position +
-                        new Vector3(mapfixWidth, 0f, 0f);
-                }
-
-                
+                backGround[i].transform.position =
+                    backGround[nextBackgroundCheck].transform.position +
+                    new Vector3(mapfixWidth, 0f, 0f);
             }
         }
 
     }
-
-    
 
     private void ObstacleShuffle()
     {
@@ -124,12 +95,17 @@ public class BackGround : MonoBehaviour
         }
     }
 
-    private bool CountMapSetting()
+
+    private bool CheckPoint()
     {
-        if (!(Mathf.Abs(mapfixWidth - mapManager.fixWidth) < 0.001f))
+        bool check = false;
+
+        foreach (GameObject obj in obstaclPrefabs)
         {
-            return true;
+            if (obj.activeSelf && obj.transform.position.x + MapManager.Instance.totalWidth - mapfixWidth < gameObject.transform.position.x)
+                obj.SetActive(false);
         }
-        return false;
+
+        return true;
     }
 }
