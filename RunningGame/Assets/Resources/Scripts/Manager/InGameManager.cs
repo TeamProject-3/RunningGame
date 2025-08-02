@@ -18,13 +18,7 @@ public class InGameManager : MonoBehaviour
     [SerializeField]
     private GameObject changeCharacters;
 
-    private MapManager mapManager;
-
     private bool isGameOver = false;
-
-    private float progressBarNum = 0f;
-
-
     private void Awake()
     {
         if (Instance == null)
@@ -36,7 +30,7 @@ public class InGameManager : MonoBehaviour
             Destroy(gameObject);
         }
         MakePlayer();
-        changeCharacters = GameObject.Find("ChangeCharacters");
+        
     }
 
     private void Start()
@@ -45,7 +39,6 @@ public class InGameManager : MonoBehaviour
         // Player 클래스를 가져와서 플레이어를 player에 할당
 
         player = FindObjectOfType<Player>();
-        mapManager = FindObjectOfType<MapManager>();
 
         // bastScore 초기화
         int dungeonIndex = DataManager.Instance.currentDungeon;
@@ -63,14 +56,14 @@ public class InGameManager : MonoBehaviour
                 DataManager.Instance.currentPlayerdata.bastScores.Add(0);
             }
         }
-
+        ChangeCharacterImage();
 
         //UI 점수 초기화
         UIManager_InGame.Instance.myScore = (int)Score;
         UIManager_InGame.Instance.highScore = bastScore;
         UIManager_InGame.Instance.UpdateHighScoreText();
         UIManager_InGame.Instance.UpdateMyScoreText();
-
+        changeCharacters = GameObject.Find("ChangeCharacters");
 
 
         // 맵 이름 업데이트
@@ -93,13 +86,7 @@ public class InGameManager : MonoBehaviour
         }
 
         float amount = 1;
-
-        //맨 처음 플레이어 충돌시 점수 및 프로그래스바 증가
-        if (player.isMoveCheck)
-        {
-            IncreaseScore(amount);
-            IncreaseBar();
-        }
+        IncreaseScore(amount);
     }
 
     // 플레이어 생성 함수
@@ -110,6 +97,8 @@ public class InGameManager : MonoBehaviour
         Instantiate(playerPrefab, playerTransform);
     }
 
+
+    // playerstat.moveSpeed 30 까지
     public void SetSpeed(float newSpeed)
     {
         // 플레이어의 PlayerStat 컴포넌트를 가져옴
@@ -117,6 +106,11 @@ public class InGameManager : MonoBehaviour
         Player playerP = player.GetComponent<Player>();
         // 1. 현재 속도 업데이트
         playerstat.moveSpeed = newSpeed;
+
+        if (playerstat.moveSpeed > 30)
+        {
+            playerstat.moveSpeed = 30; // 최대 속도 제한
+        }
 
         // 2. 기준 속도와의 비율 계산 (0으로 나누는 오류 방지)
         float speedRatio = 1f;
@@ -130,18 +124,20 @@ public class InGameManager : MonoBehaviour
         playerstat.currentGravityScale = playerstat.baseGravityScale * Mathf.Pow(speedRatio, 2);
 
         // 4. 계산된 중력 값을 Rigidbody에 즉시 적용
-        // playerP._rigidbody.gravityScale = playerstat.currentGravityScale;
+        playerP._rigidbody.gravityScale = playerstat.currentGravityScale;
     }
 
     public void IsDaed()
     {
         if (!isGameOver)
             return;
+
         isGameOver = true;
         // 플레이어가 죽었을 때 호출되는 함수
         // 예를 들어, 게임 오버 UI를 표시하거나 리스타트하는 로직을 여기에 추가할 수 있습니다.
         DataManager.Instance.currentPlayerdata.bastScores[DataManager.Instance.currentDungeon] = bastScore;
         UIManager_InGame.Instance.ShowResultUI(); // StopButton
+
     }
 
     // 스코어 증가
@@ -149,32 +145,13 @@ public class InGameManager : MonoBehaviour
     {
         Score += amount;
         UIManager_InGame.Instance.myScore = (int)Score;
-        UIManager_InGame.Instance.UpdateMyScoreText();
-        if (Score > bastScore)
+        UIManager_InGame.Instance.UpdateMyScoreText(); 
+        if (Score >= bastScore)
         {
-            UIManager_InGame.Instance.UpdateHighScoreText();
-            UIManager_InGame.Instance.highScore = bastScore;
             bastScore = (int)Score;
-        }
-    }
-
-    void IncreaseBar()
-    {
-
-        //if (mapManager.ProgressMapCheck()) return;
-        float playerX = player.transform.position.x + 8.5f - (mapManager.loopPoint * 54f);
-        //float playerX = player.transform.position.x + 8.5f;
-        float loopX = playerX % (mapManager.totalMapLength - 18f);
-
-        if (loopX < 0)
-            loopX += mapManager.totalMapLength + 9.5f;
-
-        progressBarNum = Mathf.Clamp01(loopX  / (mapManager.totalMapLength - 18f) );
-
-        UIManager_InGame.Instance.UpdateProgressSlider(progressBarNum);
-
-       // Debug.Log(progressBarNum);
-
+            UIManager_InGame.Instance.highScore = bastScore;
+            UIManager_InGame.Instance.UpdateHighScoreText();
+        } 
     }
 
 

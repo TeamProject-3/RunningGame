@@ -53,7 +53,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 7
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccccd6c21064074a85fa485a19c79bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 0}
   mainCollier: {fileID: 6807737913851696416}
   slidingCollider: {fileID: 6849160737262158614}
   mainshield: {fileID: 2425087740849327319}
@@ -181,10 +182,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91ac14af6f56874b87e66de7a514607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
-  jumpForce: 7
-  slideSpeed: 5
-  moveSpeed: 5
+  hp: 100
+  jumpForce: 22
+  moveSpeed: 6.75
   currentGravityScale: 0
 --- !u!114 &3843457624523984083
 MonoBehaviour:
@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMagnet: 0
   magnetRange: 5
+  magnetpower: 10
 --- !u!1 &6856842483708602730
 GameObject:
   m_ObjectHideFlags: 0

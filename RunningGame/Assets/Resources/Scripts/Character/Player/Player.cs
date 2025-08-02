@@ -15,7 +15,7 @@ public enum CharacterType
 public class Player : MonoBehaviour
 {
     Animator animator;
-    Rigidbody2D _rigidbody;
+    public Rigidbody2D _rigidbody;
     SpriteRenderer spriteRenderer;
     PlayerStat playerstat;
     Transform _transform;
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
                     isJump = true;
                 }
             }
-            if (Input.GetKey(KeyCode.LeftControl) || Input.GetMouseButtonDown(2) && isJump)
+            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetMouseButtonDown(2) && isJump)
             {
                 StartSliding();
             }
@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
                 mainCollier.enabled = false; // 메인 콜라이더 비활성화
                 slidingCollider.enabled = true; // 슬라이딩 콜라이더 활성화
                 animator.SetBool("isSliding", true);
-                _rigidbody.velocity = new Vector2(playerstat.slideSpeed, _rigidbody.velocity.y); // X축 속도 설정
+                _rigidbody.velocity = new Vector2(playerstat.moveSpeed, _rigidbody.velocity.y); // X축 속도 설정
                 UpdateShield();
             }
     }
