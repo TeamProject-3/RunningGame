@@ -31,10 +31,9 @@ public class MapManager : MonoBehaviour
     [HideInInspector] public float totalWidth = 0;
     [HideInInspector] public float totalMapLength;
 
-    [HideInInspector] public int loopPoint = 0;
+    [HideInInspector] public int loopPoint = 1;
 
-    //[HideInInspector] 
-    public bool mapCheck = false;
+    [HideInInspector] public bool mapCheck = false;
 
     private void Awake()
     {
@@ -118,6 +117,7 @@ public class MapManager : MonoBehaviour
     public void StageNumAdd()
     {
         stageNum++;
+        if(stageNum == 1) loopPoint++;
     }
 
 

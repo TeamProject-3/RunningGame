@@ -67,15 +67,11 @@ public class BackGround : MonoBehaviour
                 if (!MapManager.Instance.mapCheck && obj.name == "Obstacle_07") continue;
                 else if (MapManager.Instance.mapCheck && obj.name != "Obstacle_07") continue;
 
-                Debug.Log($"맵체크 : {MapManager.Instance.mapCheck} ");
-                Debug.Log($"이름 확인 : {obj.name} ");
-
                 if (!obj.activeSelf)
                 {
                     obj.SetActive(true);
                     if (MapManager.Instance.mapCheck)
                     {
-                        Debug.Log($"0");
                         obj.transform.position =
                             backGround[findBackground].transform.position +
                             new Vector3(mapfixWidth, 0f, 0f);
@@ -85,14 +81,12 @@ public class BackGround : MonoBehaviour
                     {
                         if (healthMapCheck)
                         {
-                            Debug.Log($"1");
                             obj.transform.position =
                                 empthyBackGround.transform.position +
                                 new Vector3(MapManager.Instance.fixWidth, 0f, 0f);
                         }
                         else
                         {
-                            Debug.Log($"2");
                             obj.transform.position =
                                  backGround[findBackground].transform.position +
                                  new Vector3(mapfixWidth, 0f, 0f);
@@ -143,16 +137,4 @@ public class BackGround : MonoBehaviour
     }
 
 
-    private bool CheckPoint()
-    {
-        bool check = false;
-
-        foreach (GameObject obj in obstaclPrefabs)
-        {
-            if (obj.activeSelf && obj.transform.position.x + MapManager.Instance.totalWidth - mapfixWidth < gameObject.transform.position.x)
-                obj.SetActive(false);
-        }
-
-        return true;
-    }
 }
