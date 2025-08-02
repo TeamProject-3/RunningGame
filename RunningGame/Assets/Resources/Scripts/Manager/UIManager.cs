@@ -109,6 +109,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     public void UpdatePlayerName()
     {
         playerNameText.text = DataManager.Instance.currentPlayerdata.userName;
+        DataManager.Instance.OnSaveData();
     }
 
     public void OnShopButton()
@@ -183,10 +184,10 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     }
     public void UpdateHighScore()
     {
-        for (int i = 0; i < highScoretext.Length; i++)
-        {
-            //highScoretext[i].text = 하이스코어 변수값을 받는 로직 필요
-        }
+        stageName.text =(DataManager.Instance.currentDungeon).ToString() + " 스테이지";
+        RankingManager RM = this.GetComponent<RankingManager>();
+
+        RM.ShowRanking(DataManager.Instance.currentDungeon);
     }
     public void OnOutShopButton()
     {
@@ -414,6 +415,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
             // 캐릭터 변경 UI 업데이트
             // GameManager.Instance.ChangeCharacterImage();
             ChangeCharacterImage();
+            DataManager.Instance.OnSaveData();
         }
     }
 

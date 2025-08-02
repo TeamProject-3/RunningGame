@@ -103,14 +103,14 @@ public class RankingManager : MonoBehaviour
 
             rankText.text = (i + 1).ToString();
             nameText.text = rankingList[i].username;
-            scoreText.text = rankingList[i].score.ToString();
+            scoreText.text = string.Format("{0:N0}", rankingList[i].score);
         }
     }
 
     // 던전별 랭킹을 보여주는 함수로 변경
     public async void ShowRanking(int dungeonIndex)
     {
-        var top10 = await GetTopRankings(10, dungeonIndex); // 상위 10명 랭킹 불러오기
-        DisplayRankings(top10);
+        var top = await GetTopRankings(3, dungeonIndex); // 상위 10명 랭킹 불러오기
+        DisplayRankings(top);
     }
 }
