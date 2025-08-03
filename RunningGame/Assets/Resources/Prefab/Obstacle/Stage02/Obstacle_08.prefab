@@ -60,11 +60,43 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3980677870595402153}
   - {fileID: 4800229321994689960}
   - {fileID: 3498379724566973050}
   - {fileID: 99681152808899766}
   - {fileID: 3548350752149432512}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1560799695403706734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3980677870595402153}
+  m_Layer: 0
+  m_Name: Items
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3980677870595402153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560799695403706734}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 53360918313570255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2220645517191270563
 GameObject:
@@ -499,7 +531,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -534,10 +566,10 @@ Tilemap:
     m_Data: {fileID: -107561497, guid: 429f6bae8ddb0dd489fac2dacd6dc3da, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 883883950, guid: 429f6bae8ddb0dd489fac2dacd6dc3da, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1177655871, guid: 429f6bae8ddb0dd489fac2dacd6dc3da, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 1177655871, guid: 429f6bae8ddb0dd489fac2dacd6dc3da, type: 3}
   - m_RefCount: 9
     m_Data: {fileID: 1271076630, guid: 429f6bae8ddb0dd489fac2dacd6dc3da, type: 3}
   - m_RefCount: 3
