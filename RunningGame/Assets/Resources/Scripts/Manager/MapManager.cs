@@ -21,7 +21,7 @@ public class MapManager : MonoBehaviour
     private GameObject empthyBackObjects;
 
     // 최대 스테이지
-    private int MaxStageNum = 5;
+    private int MaxStageNum = 10;
 
     public int stageNum = 0;
 
@@ -116,7 +116,6 @@ public class MapManager : MonoBehaviour
     public void StageNumAdd()
     {
         stageNum++;
-        if(stageNum == 1) loopPoint++;
     }
 
 

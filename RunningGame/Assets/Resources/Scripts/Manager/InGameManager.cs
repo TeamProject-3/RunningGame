@@ -95,7 +95,7 @@ public class InGameManager : MonoBehaviour
         if (player.isMoveCheck)
         {
             //IncreaseScore(amount);
-            //IncreaseProgressSliderUIBar();
+            IncreaseProgressSliderUIBar();
         }
     }
 
@@ -167,15 +167,15 @@ public class InGameManager : MonoBehaviour
         //Debug.Log($"이거보단 작아야함 : {MapManager.Instance.totalMapLength * MapManager.Instance.loopPoint + MapManager.Instance.fixWidth -8.5f}");
         //Debug.Log($"MapManager.Instance.loopPoint : {player.transform.position.x + 8.5f >= (((MapManager.Instance.loopPoint) * MapManager.Instance.totalMapLength) + MapManager.Instance.fixWidth - 8.5f)}");
 
-        if (MapManager.Instance.totalMapLength * MapManager.Instance.loopPoint - 8.5f <= player.transform.position.x + 8.5f &&
-            MapManager.Instance.totalMapLength * MapManager.Instance.loopPoint + MapManager.Instance.fixWidth - 8.5f  >= player.transform.position.x + 8.5f) return;
+        //if (MapManager.Instance.totalMapLength * MapManager.Instance.loopPoint - 8.5f <= player.transform.position.x + 8.5f &&
+            //MapManager.Instance.totalMapLength * MapManager.Instance.loopPoint + MapManager.Instance.fixWidth - 8.5f  >= player.transform.position.x + 8.5f) return;
   
         float playerPosX = player.transform.position.x + 8.5f + (MapManager.Instance.loopPoint * MapManager.Instance.fixWidth);
-        float a = playerPosX % (MapManager.Instance.totalMapLength-8.5f);
-
-        //Debug.Log($"playerPosX : {a}");
-        a =  a / (MapManager.Instance.totalMapLength-8.5f);
-        //Debug.Log($"totalMapLength : {a}");
+        //float a = playerPosX % (MapManager.Instance.totalMapLength-8.5f);
+        float a = playerPosX / (MapManager.Instance.totalMapLength + MapManager.Instance.fixWidth);
+        a = a - (int)(playerPosX / (MapManager.Instance.totalMapLength + MapManager.Instance.fixWidth));
+        Debug.Log($"playerPosX : {playerPosX}");
+        Debug.Log($"MapManager.Instance.totalMapLength : {MapManager.Instance.totalMapLength}");
 
 
         UIManager_InGame.Instance.UpdateProgressSlider(a);
