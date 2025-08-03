@@ -85,6 +85,11 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
+                if (isSliding)
+                {
+                    StopSliding();
+                }
+
                 if (jumpCount < maxJumpCount)
                 {
 
@@ -97,11 +102,11 @@ public class Player : MonoBehaviour
                     isJump = true;
                 }
             }
-            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetMouseButtonDown(2) && isJump)
+            else if (Input.GetKey(KeyCode.LeftControl) || Input.GetMouseButtonDown(2))
             {
                 StartSliding();
             }
-            else if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetMouseButtonUp(2) && isJump)
+            else if (isSliding)
             {
                 StopSliding();
             }
@@ -146,7 +151,7 @@ public class Player : MonoBehaviour
         if (!isJump)
             if (!isSliding)
             {
-                if (isShield)
+                //  if (isShield)
                     isSliding = true;
                 mainCollier.enabled = false; // 메인 콜라이더 비활성화
                 slidingCollider.enabled = true; // 슬라이딩 콜라이더 활성화
@@ -158,8 +163,9 @@ public class Player : MonoBehaviour
 
     void StopSliding()
     {
-        if (!isJump)
-            if (isSliding)
+        //if (!isJump)
+        Debug.Log("슬라이딩 중지");
+        if (isSliding)
             {
                 isSliding = false;
                 mainCollier.enabled = true; // 메인 콜라이더 활성화

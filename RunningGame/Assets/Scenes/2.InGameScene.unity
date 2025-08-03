@@ -3924,6 +3924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bastScore: 0
   playerTransform: {fileID: 1977115953}
+  MaxSpeed: 20
   changeCharacters: {fileID: 1744631465}
 --- !u!4 &1871885289
 Transform:
