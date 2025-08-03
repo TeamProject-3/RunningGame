@@ -88,14 +88,11 @@ public class BackGround : MonoBehaviour
                     if (obj.name != "Obstacle_07")
                         foreach (Transform child in obj.transform.Find("FoodPath"))
                             child.gameObject.SetActive(true);
-                    else if (obj.name == "Obstacle_07")
-                    {
-                        GameObject items = obj.transform.Find("Items").gameObject;
-                        if (items != null)
-                            foreach (Transform child in items.transform)
-                                child.gameObject.SetActive(true);
-                        //obj.transform.Find("Items").transform.Find("TestHeart").transform.gameObject.SetActive(true);
-                    }
+
+                    GameObject items = obj.transform.Find("Items").gameObject;
+                    if (items != null)
+                        foreach (Transform child in items.transform)
+                            child.gameObject.SetActive(true);
 
                     if (MapManager.Instance.mapCheck)
                     {
@@ -115,6 +112,10 @@ public class BackGround : MonoBehaviour
 
                             PlayerStat playerStat = FindObjectOfType<PlayerStat>();
                             InGameManager.Instance.SetSpeed(playerStat.moveSpeed + InGameManager.Instance.speedIncrease);
+
+                            Player player = FindObjectOfType<Player>();
+                            player.damage += player.damage / 5;
+                           
                         }
                         else
                         {
