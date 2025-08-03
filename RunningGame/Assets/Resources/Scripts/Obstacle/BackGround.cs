@@ -112,6 +112,9 @@ public class BackGround : MonoBehaviour
                             obj.transform.position =
                                 empthyBackGround.transform.position +
                                 new Vector3(MapManager.Instance.fixWidth, 0f, 0f);
+
+                            PlayerStat playerStat = FindObjectOfType<PlayerStat>();
+                            InGameManager.Instance.SetSpeed(playerStat.moveSpeed + InGameManager.Instance.speedIncrease);
                         }
                         else
                         {
