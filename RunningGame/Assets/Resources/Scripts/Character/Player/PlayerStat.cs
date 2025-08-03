@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStat : MonoBehaviour
 {
     [Range(0, 100)][SerializeField] private float hp = 100;
+    public float maxHp;
     public float Hp
     {
         get { return hp; }

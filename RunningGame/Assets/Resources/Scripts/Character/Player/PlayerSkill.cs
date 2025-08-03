@@ -31,7 +31,6 @@ public class PlayerSkill : MonoBehaviour
                 }
             }
         }
-
     }
     public void ActivateMagnet(float duration)
     {

@@ -41,7 +41,8 @@ public class Item : MonoBehaviour
                 //player.ActivateMagnet(value);
                 break;
             case ItemType.Heart:
-                //player.Heal((int)value);
+                Player player = FindObjectOfType<Player>();
+                player.Heal(value);
                 break;
             case ItemType.Boost:
                 //player.ActivateBoost(value);

@@ -149,9 +149,10 @@ public class InGameManager : MonoBehaviour
         isGameOver = true;
 
         DataManager.Instance.currentPlayerdata.bastScores[DataManager.Instance.currentDungeon] = bastScore;
+        UIManager_InGame.Instance.ExitScoreText();
         UIManager_InGame.Instance.ShowResultUI(); // StopButton
         DataManager.Instance.currentPlayerdata.gold += coinCount;
-
+        
         DataManager.Instance.OnSaveData();
 
     }

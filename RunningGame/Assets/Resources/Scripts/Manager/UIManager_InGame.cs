@@ -12,11 +12,11 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     // 8 - ResultMenu
     public Text coinText;
     public int coinCount = 0;
-    public Text starText;
     public int starCount = 0;
     public Slider progressSlider;
     public int highScore = 0;
     public int myScore = 0;
+    public Text exitScoreText;
     public Text highScoreText;
     public Text myScorelText;
     public Text mapName;
@@ -64,11 +64,6 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
         coinText.text = string.Format("{0:N0}", coinCount);
     }
     
-    public void UpdateStarText()
-    {
-        Debug.Log("Star Updated: " + starCount);
-        starText.text = starCount.ToString();
-    }
     public void UpdateProgressSlider(float value)
     {
         //Debug.Log("Progress Updated: " + value);
@@ -89,6 +84,11 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     {
         Debug.Log("Map Name Updated: " + mapNameText);
         mapName.text = mapNameText;
+    }
+
+    public void ExitScoreText()
+    {
+        exitScoreText.text = string.Format("{0:N0}", myScore);
     }
 
     public void OnPauseButton()

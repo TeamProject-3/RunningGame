@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
             slidingCollider.enabled = false;
         }
 
+        playerstat.maxHp = playerstat.Hp; // 플레이어의 최대 HP 설정
         DeActivateShield();
     }
 
@@ -73,7 +74,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        _rigidbody.velocity = new Vector2(playerstat.moveSpeed, _rigidbody.velocity.y);
+
         if (!isMoveCheck)
         {
             // MoveCheck 오브젝트와 충돌 전에는 플레이어의 입력을 무시하고 HP 감소를 하지 않음
@@ -139,7 +140,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        if (isDead) return;
+        _rigidbody.velocity = new Vector2(playerstat.moveSpeed, _rigidbody.velocity.y);
     }
     // 슬라이딩 
     void StartSliding()
@@ -295,6 +297,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    // HP 회복 함수
+    public void Heal(float amount)
+    {
+        playerstat.Hp += amount;
+        if (playerstat.Hp > playerstat.maxHp)
+        {
+            playerstat.Hp = playerstat.maxHp; // 최대 HP를 초과하지 않도록 제한
+        }
+        Debug.Log("Player healed: " + amount + ", Current HP: " + playerstat.Hp);
+    }
+
+
     IEnumerator ShieldTimer(float duration)
     {
         ActiveShield(); // 방패 활성화
@@ -302,7 +316,6 @@ public class Player : MonoBehaviour
         DeActivateShield(); // 방패 비활성화
         Debug.Log("실드 아이템 효과 종료");
     }
-
 
     //private void OnEnable()
     //{

@@ -17,8 +17,9 @@ public class Spring : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             animator.SetBool("IsMove", true);
-            Rigidbody2D _rigidbody = collision.gameObject.GetComponent<Rigidbody2D>(); 
-            PlayerStat playerStat = collision.gameObject.GetComponent< PlayerStat>();
+            Player player = FindAnyObjectByType<Player>();
+            Rigidbody2D _rigidbody = player.gameObject.GetComponent<Rigidbody2D>();
+            PlayerStat playerStat = player.gameObject.GetComponent<PlayerStat>();
             if (_rigidbody == null) return;
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
 

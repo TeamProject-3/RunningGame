@@ -352,6 +352,7 @@ MonoBehaviour:
   slidingshield: {fileID: 3643272409454328347}
   jumpCount: 0
   maxJumpCount: 2
+  damage: 1
   isDead: 0
   isJump: 0
   isSliding: 0
@@ -371,6 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+  maxHp: 0
   jumpForce: 22
   moveSpeed: 6.75
   currentGravityScale: 0
