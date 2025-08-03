@@ -58,11 +58,12 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     public void HideUI(GameObject UI)
     {
     }
+
     public void UpdateCoinText()
     {
-        Debug.Log("Coin Updated: " + coinCount);
-        coinText.text = coinCount.ToString();
+        coinText.text = string.Format("{0:N0}", coinCount);
     }
+    
     public void UpdateStarText()
     {
         Debug.Log("Star Updated: " + starCount);
@@ -101,7 +102,9 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     }
     public void OnRestartButton()
     {
-        SceneManager.LoadScene("TestScene 4_InGame");//게임 재시작 로직 변경필요}
+        //현재 씬 다시 로드
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
     public void OnExitButton()
     {
