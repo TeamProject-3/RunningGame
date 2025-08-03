@@ -21,7 +21,7 @@ public class MapManager : MonoBehaviour
     private GameObject empthyBackObjects;
 
     // 최대 스테이지
-    private int MaxStageNum = 2;
+    private int MaxStageNum = 5;
 
     public int stageNum = 0;
 
@@ -59,10 +59,9 @@ public class MapManager : MonoBehaviour
         {
             GameObject instance = Instantiate(prefab, gameObject.transform);
             instance.name = prefab.name;
-            instance.SetActive(instance.name == "Obstacle_00" ? true : false);
             obstacles.Add(instance);
         }
-
+        
         return obstacles;
     }
 

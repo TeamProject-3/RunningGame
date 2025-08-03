@@ -29,7 +29,7 @@ public class Item : MonoBehaviour
             {
                 ApplyEffect(player);
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false); // 아이템을 비활성화
         }
     }
 

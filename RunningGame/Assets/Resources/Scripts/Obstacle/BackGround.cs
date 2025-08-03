@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BackGround : MonoBehaviour
@@ -22,6 +23,20 @@ public class BackGround : MonoBehaviour
         obstaclPrefabs = MapManager.Instance.GetObstaclePrefabs();
         empthyBackGround = MapManager.Instance.GetstageEmpthyBackGrounds();
         obstaclPrefabs.RemoveAll(mapManager => mapManager.name == "Obstacle_00");
+        foreach (GameObject obj in obstaclPrefabs)
+        {
+            obj.SetActive(true);
+            obj.transform.position = new Vector3(-900, 80, 0);
+
+            if (obj.name != "Obstacle_07")
+                foreach (Transform child in obj.transform.Find("FoodPath"))
+                {
+                    if (child.name.StartsWith("GameObject"))
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+        }
         mapfixWidth = MapManager.Instance.totalWidth;
     }
 
@@ -43,8 +58,6 @@ public class BackGround : MonoBehaviour
                 {
 
                     findBackground = i;
-                    Debug.Log("backGround[i] Name: " + backGround[i].name);
-                    Debug.Log("findBackground: " + findBackground);
                     break;
                 }
             }
@@ -69,7 +82,12 @@ public class BackGround : MonoBehaviour
 
                 if (!obj.activeSelf)
                 {
+                    if (obj.name != "Obstacle_07")
+                        foreach (Transform child in obj.transform.Find("FoodPath"))
+                            child.gameObject.SetActive(true);
+
                     obj.SetActive(true);
+
                     if (MapManager.Instance.mapCheck)
                     {
                         obj.transform.position =
