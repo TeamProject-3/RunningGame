@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BackGround : MonoBehaviour
@@ -23,8 +22,10 @@ public class BackGround : MonoBehaviour
         obstaclPrefabs = MapManager.Instance.GetObstaclePrefabs();
         empthyBackGround = MapManager.Instance.GetstageEmpthyBackGrounds();
         obstaclPrefabs.RemoveAll(mapManager => mapManager.name == "Obstacle_00");
+        
         foreach (GameObject obj in obstaclPrefabs)
         {
+            Debug.Log("Obstacle Prefab name: " + obj.name);
             obj.SetActive(true);
             obj.transform.position = new Vector3(-900, 80, 0);
 
@@ -36,6 +37,7 @@ public class BackGround : MonoBehaviour
                         Destroy(child.gameObject);
                     }
                 }
+
         }
         mapfixWidth = MapManager.Instance.totalWidth;
     }

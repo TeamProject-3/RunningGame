@@ -2651,14 +2651,14 @@ Tilemap:
   - m_RefCount: 0
     m_Data:
       e00: 3.1372884e+19
-      e01: 6.3e-44
+      e01: NaN
       e02: -2.6886245e-31
       e03: 0
       e10: 3.18e-43
       e11: NaN
       e12: 4.5905e-41
       e13: 0
-      e20: 2.38291e-40
+      e20: 2.40499e-40
       e21: 0
       e22: 3.137285e+19
       e23: 0
@@ -2908,7 +2908,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6226167916578820764}
   m_Layer: 0
-  m_Name: Obstacle_01
+  m_Name: Obstacle_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

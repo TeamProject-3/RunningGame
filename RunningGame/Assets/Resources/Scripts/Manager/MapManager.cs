@@ -21,7 +21,8 @@ public class MapManager : MonoBehaviour
     private GameObject empthyBackObjects;
 
     // 최대 스테이지
-    private int MaxStageNum = 10;
+    // 최대 스테이지는 3단위로 설정 필요 : 1스테이지가 길어서
+    private int MaxStageNum = 12;
 
     public int stageNum = 0;
 
@@ -101,10 +102,11 @@ public class MapManager : MonoBehaviour
                 obstaclePrefabs = Resources.LoadAll<GameObject>(stage_One);
                 instance = Instantiate(stageBackGrounds[0], gameObject.transform);
                 totalWidth = fixWidth * 3;
+                MaxStageNum = (int)(MaxStageNum / 3);
                 break;
             case 2:
                 obstaclePrefabs = Resources.LoadAll<GameObject>(stage_Two);
-                instance = Instantiate(stageBackGrounds[1], gameObject.transform);
+                instance = Instantiate(stageBackGrounds[1], gameObject.transform); 
                 totalWidth = fixWidth ;
                 break;
             default:
