@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum ItemType
@@ -41,15 +39,20 @@ public class Item : MonoBehaviour
                 //player.ActivateMagnet(value);
                 break;
             case ItemType.Heart:
-                Player player = FindObjectOfType<Player>();
-                player.Heal(value);
+                {
+                    Player player = FindObjectOfType<Player>();
+                    player.Heal(value);
+                }
                 break;
             case ItemType.Boost:
-                //player.ActivateBoost(value);
+                {
+                    PlayerSkill player = FindObjectOfType<PlayerSkill>();
+                    player.ActivateBoost();
+                }
                 break;
             case ItemType.Food:
                 InGameManager.Instance.IncreaseScore(value);
-                if(Random.Range(0, 100) < 1f)
+                if (Random.Range(0, 100) < 1f)
                 {
                     InGameManager.Instance.coinCount += 100;
                     UIManager_InGame.Instance.coinCount += InGameManager.Instance.coinCount;
@@ -57,7 +60,10 @@ public class Item : MonoBehaviour
                 }
                 break;
             case ItemType.Shield:
-                //player.ActivateShield(value);
+                {
+                    Player player = FindObjectOfType<Player>();
+                    player.ShieldSkill();
+                }
                 break;
                 // 추가 아이템 효과 구현
         }
