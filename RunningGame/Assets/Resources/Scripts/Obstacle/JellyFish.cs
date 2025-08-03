@@ -1,14 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class JellyFish : MonoBehaviour
+public class JellyFish : PlayerStat
 {
     Animator[] animators;
     GameObject player;
 
     Vector3 positions;
 
-    private float speed = 0.02f;
+    private float speed = 0.00296f;
     bool updateCheck = false;
 
     private void Awake()
@@ -26,7 +26,7 @@ public class JellyFish : MonoBehaviour
                 foreach (Animator animator in animators)
                     animator.SetBool("IsMove", true);
 
-                transform.position += new Vector3(0, speed, 0);
+                transform.position += new Vector3(0, speed * moveSpeed, 0);
             }
         else
             foreach (Animator animator in animators)

@@ -84,14 +84,21 @@ public class BackGround : MonoBehaviour
 
                 if (!obj.activeSelf)
                 {
+                    obj.SetActive(true);
+
+
                     if (obj.name != "Obstacle_07")
                         foreach (Transform child in obj.transform.Find("FoodPath"))
                             child.gameObject.SetActive(true);
-
-                    obj.SetActive(true);
+                    else if (obj.name == "Obstacle_07")
+                    {
+                        Debug.Log("Find : " + obj.transform.Find("Bottom").transform.Find("TestHeart"));
+                        obj.transform.Find("Bottom").transform.Find("TestHeart").transform.gameObject.SetActive(true);
+                    }
 
                     if (MapManager.Instance.mapCheck)
                     {
+                        
                         obj.transform.position =
                             backGround[findBackground].transform.position +
                             new Vector3(mapfixWidth, 0f, 0f);
