@@ -14,6 +14,7 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     public int coinCount = 0;
     public int starCount = 0;
     public Slider progressSlider;
+    public Slider hpSlider;
     public int highScore = 0;
     public int myScore = 0;
     public Text exitScoreText;
@@ -68,6 +69,12 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     {
         //Debug.Log("Progress Updated: " + value);
         progressSlider.value = value;
+    }
+
+    public void UpdateHpSlider(float value)
+    {
+        //Debug.Log("Progress Updated: " + value);
+        hpSlider.value = value;
     }
     public void UpdateHighScoreText()
     {

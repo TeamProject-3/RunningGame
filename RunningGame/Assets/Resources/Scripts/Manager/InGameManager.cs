@@ -19,11 +19,20 @@ public class InGameManager : MonoBehaviour
     private int MaxSpeed = 15;
 
     private Player player;
+    public float currentSpeed = 0;
 
     [SerializeField]
     private GameObject changeCharacters;
 
     private bool isGameOver = false;
+
+    [SerializeField]
+    public GameObject boostColliderPrefab;
+
+
+    
+    public int speedIncrease = 2; // 속도 증가량
+
     private void Awake()
     {
         if (Instance == null)
@@ -81,6 +90,9 @@ public class InGameManager : MonoBehaviour
         // 맵 이름 업데이트
         UIManager_InGame.Instance.mapNameText = dungeonIndex + " 스테이지";
         UIManager_InGame.Instance.UpdateMapNameText();
+        // 프리팹 생성
+        boostColliderPrefab = Instantiate(boostColliderPrefab, new Vector2(player.transform.position.x, -4.5f), Quaternion.identity);
+        boostColliderPrefab.SetActive(false);
     }
 
     private void Update()
@@ -99,14 +111,19 @@ public class InGameManager : MonoBehaviour
             SetSpeed(playerstat.moveSpeed + 2);
         }
 
-        float amount = 1;
-
         if (player.isMoveCheck)
         {
-            //IncreaseScore(amount);
             IncreaseProgressSliderUIBar();
+            DecreaseHpSliderUIBar();
+        }
+
+        if(player.isSBoost)
+        {
+            BoostColliderMove();
         }
     }
+
+    
 
     // 플레이어 생성 함수
     private void MakePlayer()
@@ -116,11 +133,16 @@ public class InGameManager : MonoBehaviour
         Instantiate(playerPrefab, playerTransform);
     }
 
+    // SetSpeed(Playerstat.moveSpeed + InGameManager.Inst~.speedIncrese)
     public void SetSpeed(float newSpeed)
     {
         // 플레이어의 PlayerStat 컴포넌트를 가져옴
         PlayerStat playerstat = player.GetComponent<PlayerStat>();
-        Player playerP = player.GetComponent<Player>();
+
+        if(player.isSBoost)
+        {
+            currentSpeed = currentSpeed + speedIncrease;
+        }
         // 1. 현재 속도 업데이트
         playerstat.moveSpeed = newSpeed;
 
@@ -141,7 +163,14 @@ public class InGameManager : MonoBehaviour
         playerstat.currentGravityScale = playerstat.baseGravityScale * Mathf.Pow(speedRatio, 2);
 
         // 4. 계산된 중력 값을 Rigidbody에 즉시 적용
-        playerP._rigidbody.gravityScale = playerstat.currentGravityScale;
+        player._rigidbody.gravityScale = playerstat.currentGravityScale;
+    }
+
+    // 부스터시 떨어지지 않게 콜라이더 이동
+    public void BoostColliderMove()
+    {
+
+        boostColliderPrefab.transform.position = new Vector2(player.transform.position.x, -4.5f);
     }
 
     public void Daed()
@@ -184,6 +213,17 @@ public class InGameManager : MonoBehaviour
 
         UIManager_InGame.Instance.UpdateProgressSlider(a);
     }
+
+    void DecreaseHpSliderUIBar()
+    {
+               // 플레이어의 HP를 가져옴
+        PlayerStat playerStat = player.GetComponent<PlayerStat>();
+        float hpPercentage = playerStat.Hp / playerStat.maxHp;
+        // UI 슬라이더 업데이트
+        UIManager_InGame.Instance.UpdateHpSlider(hpPercentage);
+    }
+
+
 
     public void ChangeCharacterImage()
     {

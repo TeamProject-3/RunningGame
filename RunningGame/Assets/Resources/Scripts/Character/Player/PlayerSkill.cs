@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour
@@ -7,6 +8,8 @@ public class PlayerSkill : MonoBehaviour
     public bool isMagnet = false; // 자석 스킬 활성화 여부
     public float magnetRange = 5f; // 자석 스킬 범위
     public float magnetpower = 10f; // 자석 스킬 힘
+    public float boostDuration = 5f; // 부스트 지속 시간
+    public float boostSpeed = 30f; // 부스트 속도
 
     Coroutine magnetCoroutine; // 자석 스킬을 활성화하기 위한 코루틴
 
@@ -70,5 +73,40 @@ public class PlayerSkill : MonoBehaviour
             Destroy(collision.gameObject); // 젤리 아이템 제거
         }
     }
+
+    public void ActivateBoost()
+    {
+
+        PlayerStat playerStat = GetComponent<PlayerStat>(); 
+        Player player = GetComponent<Player>();
+        InGameManager inGame = InGameManager.Instance;
+        inGame.currentSpeed = playerStat.moveSpeed;
+        inGame.boostColliderPrefab.SetActive(true);
+        inGame.SetSpeed(boostSpeed);
+        player.isSBoost = true;
+
+        player.gameObject.layer = 9;
+        Invoke("BoostEnd", boostDuration);
+    }
+
+    private void BoostEnd()
+    {
+        PlayerStat playerStat = GetComponent<PlayerStat>();
+        Player player = GetComponent<Player>();
+        InGameManager inGame = InGameManager.Instance;
+        player.isSBoost = false;
+        inGame.SetSpeed(inGame.currentSpeed);
+        Invoke("BoostColliderOff", 1);
+    }
+
+    private void BoostColliderOff()
+    {
+        InGameManager inGame = InGameManager.Instance;
+        Player player = GetComponent<Player>();
+        inGame.boostColliderPrefab.SetActive(false);
+
+        player.gameObject.layer = 6;
+    }
+
 }
 

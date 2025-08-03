@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Collider2D slidingCollider;
     [SerializeField] private Collider2D mainshield;
     [SerializeField] private Collider2D slidingshield;
+    [SerializeField] private GameObject shieldObj;
     Coroutine shieldCoroutine; // 슬라이딩 중에 방패를 활성화하기 위한 코루틴
 
     public int jumpCount = 0;
@@ -31,6 +32,8 @@ public class Player : MonoBehaviour
     public bool isSliding = false;
     public bool isMoveCheck = false; // MoveCheck 오브젝트와 충돌 여부
     public bool isShield = false;
+    public bool isSBoost = false;
+
 
 
 
@@ -46,7 +49,6 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         playerstat = GetComponent<PlayerStat>();
         _transform = GetComponent<Transform>();
-
 
         if (animator == null)
         {
@@ -199,15 +201,15 @@ public class Player : MonoBehaviour
             Debug.Log("MoveCheck 충돌, 플레이어 조작 및 HP 감소 활성화!");
         }
 
-        else if (collision.CompareTag("ItemShield"))
-        {
-            // Shield에 닿으면 방패 활성화
-            if (shieldCoroutine != null) StopCoroutine(shieldCoroutine);
-            shieldCoroutine = StartCoroutine(ShieldTimer(7f));
-            Debug.Log("실드 아이템 획득: 7초간 실드 활성화");
-            Destroy(collision.gameObject); // 아이템 제거
-        }
+    }
 
+    public void ShieldSkill()
+    {
+        // Shield에 닿으면 방패 활성화
+        if (shieldCoroutine != null) StopCoroutine(shieldCoroutine);
+        shieldCoroutine = StartCoroutine(ShieldTimer(7f));
+        shieldObj.SetActive(true); // 방패 오브젝트 활성화
+        Debug.Log("실드 아이템 획득: 7초간 실드 활성화");
     }
 
     void OnDamaged()
@@ -275,6 +277,7 @@ public class Player : MonoBehaviour
         {
             slidingshield.enabled = false; // 슬라이딩 방패 콜라이더 비활성화
         }
+        shieldObj.SetActive(false);
     }
 
     void UpdateShield()

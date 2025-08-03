@@ -550,7 +550,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -57.1, y: 0}
+  m_AnchoredPosition: {x: 161.5, y: 4.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &179124289
@@ -1156,11 +1156,11 @@ MonoBehaviour:
   - {fileID: 1593135480}
   coinText: {fileID: 673779691}
   coinCount: 0
-  starText: {fileID: 0}
   starCount: 0
   progressSlider: {fileID: 924724982}
   highScore: 0
   myScore: 0
+  exitScoreText: {fileID: 801535855}
   highScoreText: {fileID: 1126837232}
   myScorelText: {fileID: 406428928}
   mapName: {fileID: 992674479}
@@ -1497,6 +1497,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578963983}
   m_CullTransparentMesh: 1
+--- !u!1001 &592826364
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4522458738102230836, guid: 06097b49fe810a844bd66810694e1a27, type: 3}
+      propertyPath: m_Name
+      value: TestShield
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812803877076052383, guid: 06097b49fe810a844bd66810694e1a27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812803877076052383, guid: 06097b49fe810a844bd66810694e1a27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812803877076052383, guid: 06097b49fe810a844bd66810694e1a27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812803877076052383, guid: 06097b49fe810a844bd66810694e1a27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812803877076052383, guid: 06097b49fe810a844bd66810694e1a27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812803877076052383, guid: 06097b49fe810a844bd66810694e1a27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812803877076052383, guid: 06097b49fe810a844bd66810694e1a27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812803877076052383, guid: 06097b49fe810a844bd66810694e1a27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812803877076052383, guid: 06097b49fe810a844bd66810694e1a27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812803877076052383, guid: 06097b49fe810a844bd66810694e1a27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06097b49fe810a844bd66810694e1a27, type: 3}
 --- !u!1 &673779689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,8 +2032,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 46.450012, y: 0}
-  m_SizeDelta: {x: 107.1, y: 100}
+  m_AnchoredPosition: {x: -57.2, y: 4.7}
+  m_SizeDelta: {x: 301.3038, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &801535855
 MonoBehaviour:
@@ -2000,12 +2057,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 50
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 4
-    m_MaxSize: 40
-    m_Alignment: 4
+    m_MaxSize: 50
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3936,7 +3993,7 @@ Transform:
   m_GameObject: {fileID: 1871885287}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.789005, y: 2.9112782, z: -0.7240654}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4506,3 +4563,4 @@ SceneRoots:
   - {fileID: 1977115953}
   - {fileID: 446191942}
   - {fileID: 512028248}
+  - {fileID: 592826364}
