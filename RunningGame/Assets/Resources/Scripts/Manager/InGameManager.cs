@@ -13,6 +13,9 @@ public class InGameManager : MonoBehaviour
     [SerializeField]
     private Transform playerTransform;
 
+    [SerializeField]
+    private int MaxSpeed = 20;
+
     private Player player;
 
     [SerializeField]
@@ -91,7 +94,7 @@ public class InGameManager : MonoBehaviour
 
         if (player.isMoveCheck)
         {
-            IncreaseScore(amount);
+            //IncreaseScore(amount);
             //IncreaseProgressSliderUIBar();
         }
     }
@@ -114,9 +117,9 @@ public class InGameManager : MonoBehaviour
         // 1. 현재 속도 업데이트
         playerstat.moveSpeed = newSpeed;
 
-        if (playerstat.moveSpeed > 30)
+        if (playerstat.moveSpeed > MaxSpeed)
         {
-            playerstat.moveSpeed = 30; // 최대 속도 제한
+            playerstat.moveSpeed = MaxSpeed; // 최대 속도 제한
         }
 
         // 2. 기준 속도와의 비율 계산 (0으로 나누는 오류 방지)
@@ -144,7 +147,7 @@ public class InGameManager : MonoBehaviour
     }
 
     // 스코어 증가
-    void IncreaseScore(float amount)
+    public void IncreaseScore(float amount)
     {
         Score += amount;
         UIManager_InGame.Instance.myScore = (int)Score;
