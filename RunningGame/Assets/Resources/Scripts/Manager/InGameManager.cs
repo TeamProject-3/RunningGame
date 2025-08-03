@@ -9,12 +9,14 @@ public class InGameManager : MonoBehaviour
     [SerializeField]
     private int bastScore;
 
+    
+    public int coinCount;
     // 플레이어가 생성될 위치
     [SerializeField]
     private Transform playerTransform;
 
     [SerializeField]
-    private int MaxSpeed = 20;
+    private int MaxSpeed = 15;
 
     private Player player;
 
@@ -51,14 +53,16 @@ public class InGameManager : MonoBehaviour
         {
             if (bastScores != null && dungeonIndex < bastScores.Count)
             {
-                bastScore = bastScores[dungeonIndex];
+                
+                Debug.Log($"Bast Score for dungeon {dungeonIndex}: {bastScore}");
                 break;
             }
             else
             {
                 DataManager.Instance.currentPlayerdata.bastScores.Add(0);
             }
-        }
+        } 
+        bastScore = bastScores[dungeonIndex];
         ChangeCharacterImage();
 
         //UI 점수 초기화
@@ -66,6 +70,11 @@ public class InGameManager : MonoBehaviour
         UIManager_InGame.Instance.highScore = bastScore;
         UIManager_InGame.Instance.UpdateHighScoreText();
         UIManager_InGame.Instance.UpdateMyScoreText();
+
+        // 코인 초기화
+        UIManager_InGame.Instance.coinCount = DataManager.Instance.currentPlayerdata.gold;
+        UIManager_InGame.Instance.UpdateCoinText();
+
         changeCharacters = GameObject.Find("ChangeCharacters");
 
 
@@ -107,8 +116,6 @@ public class InGameManager : MonoBehaviour
         Instantiate(playerPrefab, playerTransform);
     }
 
-
-    // playerstat.moveSpeed 30 까지
     public void SetSpeed(float newSpeed)
     {
         // 플레이어의 PlayerStat 컴포넌트를 가져옴
@@ -143,6 +150,9 @@ public class InGameManager : MonoBehaviour
 
         DataManager.Instance.currentPlayerdata.bastScores[DataManager.Instance.currentDungeon] = bastScore;
         UIManager_InGame.Instance.ShowResultUI(); // StopButton
+        DataManager.Instance.currentPlayerdata.gold += coinCount;
+
+        DataManager.Instance.OnSaveData();
 
     }
 
@@ -158,18 +168,11 @@ public class InGameManager : MonoBehaviour
             UIManager_InGame.Instance.highScore = bastScore;
             UIManager_InGame.Instance.UpdateHighScoreText();
         } 
+
     }
 
     void IncreaseProgressSliderUIBar()
-    {
-        //Debug.Log($"player.transform.position.x : {player.transform.position.x + 8.5f}");
-        //Debug.Log($"이거보단 커야함 : {MapManager.Instance.totalMapLength * MapManager.Instance.loopPoint - 8.5f}");
-        //Debug.Log($"이거보단 작아야함 : {MapManager.Instance.totalMapLength * MapManager.Instance.loopPoint + MapManager.Instance.fixWidth -8.5f}");
-        //Debug.Log($"MapManager.Instance.loopPoint : {player.transform.position.x + 8.5f >= (((MapManager.Instance.loopPoint) * MapManager.Instance.totalMapLength) + MapManager.Instance.fixWidth - 8.5f)}");
-
-        //if (MapManager.Instance.totalMapLength * MapManager.Instance.loopPoint - 8.5f <= player.transform.position.x + 8.5f &&
-            //MapManager.Instance.totalMapLength * MapManager.Instance.loopPoint + MapManager.Instance.fixWidth - 8.5f  >= player.transform.position.x + 8.5f) return;
-  
+    {  
         float playerPosX = player.transform.position.x + 8.5f + (MapManager.Instance.loopPoint * MapManager.Instance.fixWidth);
         //float a = playerPosX % (MapManager.Instance.totalMapLength-8.5f);
         float a = playerPosX / (MapManager.Instance.totalMapLength + MapManager.Instance.fixWidth);

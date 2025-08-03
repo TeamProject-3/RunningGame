@@ -24,17 +24,13 @@ public class Item : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Player player = other.GetComponent<Player>();
-            if (player != null)
-            {
-                ApplyEffect(player);
-            }
+            ApplyEffect();
             gameObject.SetActive(false); // 아이템을 비활성화
         }
     }
 
     //아이템별 효과 적용
-    private void ApplyEffect(Player player)
+    private void ApplyEffect()
     {
         switch (type)
         {
@@ -52,6 +48,12 @@ public class Item : MonoBehaviour
                 break;
             case ItemType.Food:
                 InGameManager.Instance.IncreaseScore(value);
+                if(Random.Range(0, 100) < 1f)
+                {
+                    InGameManager.Instance.coinCount += 100;
+                    UIManager_InGame.Instance.coinCount += InGameManager.Instance.coinCount;
+                    UIManager_InGame.Instance.UpdateCoinText();
+                }
                 break;
             case ItemType.Shield:
                 //player.ActivateShield(value);

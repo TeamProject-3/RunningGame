@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public enum CharacterType
@@ -28,6 +25,7 @@ public class Player : MonoBehaviour
 
     public int jumpCount = 0;
     public int maxJumpCount = 2; // Maximum number of jumps allowed
+    [SerializeField] private int damage = 1; // Maximum number of jumps allowed
     public bool isDead = false;
     public bool isJump = false;
     public bool isSliding = false;
@@ -116,34 +114,32 @@ public class Player : MonoBehaviour
             DeathTrigger(); // 일정 y축 이하로 떨어지면 죽음 처리
         }
 
-
-        DecreaseHpOverTime();
-    }
-
-
-    private void FixedUpdate()
-    {
         if (isDead) return;
         else
         {
             if (_rigidbody.velocity.y < -1)
             {
                 animator.SetBool("Jump", true);
-                Debug.DrawRay(_rigidbody.position, Vector2.down, Color.green);
+                Debug.DrawRay(_rigidbody.position, Vector2.down * 2, Color.green);
                 RaycastHit2D rayhit = Physics2D.Raycast(_rigidbody.position, Vector2.down, 2, LayerMask.GetMask("Ground"));
                 if (rayhit.collider != null)
                 {
-                    if (rayhit.distance < 1)
-                    {
-                        jumpCount = 0;
-                        animator.SetBool("Jump", false);
-                        //Debug.Log("Raycast hit: " + rayhit.collider.name);
 
-                        isJump = false;
-                    }
+                    jumpCount = 0;
+                    animator.SetBool("Jump", false);
+                    //Debug.Log("Raycast hit: " + rayhit.collider.name);
+
+                    isJump = false;
                 }
             }
         }
+        DecreaseHpOverTime();
+    }
+
+
+    private void FixedUpdate()
+    {
+
     }
     // 슬라이딩 
     void StartSliding()
@@ -152,7 +148,7 @@ public class Player : MonoBehaviour
             if (!isSliding)
             {
                 //  if (isShield)
-                    isSliding = true;
+                isSliding = true;
                 mainCollier.enabled = false; // 메인 콜라이더 비활성화
                 slidingCollider.enabled = true; // 슬라이딩 콜라이더 활성화
                 animator.SetBool("isSliding", true);
@@ -166,14 +162,14 @@ public class Player : MonoBehaviour
         //if (!isJump)
         Debug.Log("슬라이딩 중지");
         if (isSliding)
-            {
-                isSliding = false;
-                mainCollier.enabled = true; // 메인 콜라이더 활성화
-                slidingCollider.enabled = false; // 슬라이딩 콜라이더 비활성화
-                animator.SetBool("isSliding", false);
-                _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y); // X축 속도 초기화
-                UpdateShield();
-            }
+        {
+            isSliding = false;
+            mainCollier.enabled = true; // 메인 콜라이더 활성화
+            slidingCollider.enabled = false; // 슬라이딩 콜라이더 비활성화
+            animator.SetBool("isSliding", false);
+            _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y); // X축 속도 초기화
+            UpdateShield();
+        }
     }
 
     //온트리거 이벤트
@@ -218,7 +214,7 @@ public class Player : MonoBehaviour
 
         spriteRenderer.color = new Color(1, 1, 1, 0.4f); // 피격시 투명하게 변경
         animator.SetTrigger("isOnhit"); // 피격 애니메이션 트리거
-        playerstat.Hp -= 1; // HP 감소
+        playerstat.Hp -= damage; // HP 감소
         Invoke("OffDamaged", 1); //1초 동안 무적후에 호출
     }
 
@@ -257,7 +253,7 @@ public class Player : MonoBehaviour
         _rigidbody.velocity = Vector2.zero; // 플레이어 정지
         _rigidbody.simulated = false;
     }
-  
+
     void ActiveShield()
     {
         isShield = true;
