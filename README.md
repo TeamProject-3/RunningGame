@@ -34,8 +34,8 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 <details><summary>접기/펼치기</summary>
 <img width="875" height="734" alt="image" src="https://github.com/user-attachments/assets/1e49e4cc-bf6e-4342-82f7-f63af96f8a02" />
 
-IOnButton, IUiShow, IUiUpdate 인터페이스를 사용하여 기능 메소드를 관리했습니다. <br>
-UIManager에서 필드값을 관리하였고 인터페이스를 상속하여 기능 메소드를 상속받았습니다. <br>
+IOnButton, IUiShow, IUiUpdate 인터페이스를 사용하여 기능관련 메소드를 관리했습니다. <br>
+UIManager에서 필드값을 관리하였고 인터페이스를 상속받아서 기능관련 메소드를 구현했습니다.. <br>
 
 
     
