@@ -101,11 +101,13 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     public void OnPauseButton()
     {
         ShowUI(7);
+        Time.timeScale = 0f; // 게임 일시정지
     }
     public void OnContinueButton()
     {
         HideUI(7);
         //타이머 3초 후 게임시작 하도록 로직 필요
+        Time.timeScale = 1f; // 게임 일시정지
     }
     public void OnRestartButton()
     {

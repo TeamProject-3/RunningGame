@@ -111,6 +111,11 @@ public class Player : MonoBehaviour
             {
                 StopSliding();
             }
+
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                UIManager_InGame.Instance.OnPauseButton();
+            }
         }
         if (_transform.position.y < -6)
         {
