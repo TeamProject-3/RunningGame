@@ -91,13 +91,13 @@ Firebase (Cloud Firestore)
 ```
 
 users (노드)
-└ userId (key)<br>
-├ userName: string<br>
-├ gold: int<br>
-├ bastScores: List<int><br>
-├ isSetName: bool<br>
-├ characters: List<string> (CharacterType enum)<br>
-└ currentCharacter: string (CharacterType)<br>
+└ userId (key)
+├ userName: string
+├ gold: int
+├ bastScores: List<int>
+├ isSetName: bool
+├ characters: List<string> (CharacterType enum)
+└ currentCharacter: string (CharacterType)
 ```
 
 
@@ -105,35 +105,35 @@ users (노드)
 ```
 
 Asset<br>
-├ Animator<br>
-│ ├ Opstacle<br>
-│ └ Player<br>
+├ Animator
+│ ├ Opstacle
+│ └ Player
 ├ Image<br>
-│ ├ Dark UI<br>
-│ ├ FishFight<br>
-│ ├ Free 2D Cartoon Parallax Background<br>
-│ ├ Pixel Cursors<br>
-│ ├ PlayerJump<br>
-│ ├ Stage<br>
-│ └ TileMaps<br>
-├ Model<br>
-├ Prefeb<br>
-│ ├ Item<br>
-│ ├ Obstacle<br>
-│ ├ Player<br>
-│ └ RankingUI<br>
-├ Scenes<br>
-│ ├ Work<br>
-│ ├ 1.MainScene<br>
-│ ├ 2.InGameScene<br>
-│ └ AnimScene<br>
-└ Scripts<br>
+│ ├ Dark UI
+│ ├ FishFight
+│ ├ Free 2D Cartoon Parallax Background
+│ ├ Pixel Cursors
+│ ├ PlayerJump
+│ ├ Stage
+│ └ TileMaps
+├ Model
+├ Prefeb
+│ ├ Item
+│ ├ Obstacle
+│ ├ Player
+│ └ RankingUI
+├ Scenes
+│ ├ Work
+│ ├ 1.MainScene
+│ ├ 2.InGameScene
+│ └ AnimScene
+└ Scripts
   ├ Auth<br>
-  ├ Character<br>
-  ├ Interface<br>
-  ├ Item<br>
-  ├ Manager<br>
-  └ Obstacle<br>
+  ├ Character
+  ├ Interface
+  ├ Item
+  ├ Manager
+  └ Obstacle
 ```
 
 
