@@ -44,7 +44,7 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 
     
 </details>
-
+---
 기능 2 : UI 관리 - 박진우
 <details><summary>접기/펼치기</summary>
 <img width="875" height="734" alt="image" src="https://github.com/user-attachments/assets/1e49e4cc-bf6e-4342-82f7-f63af96f8a02" />
@@ -55,22 +55,22 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 
     
 </details>
-
+---
 기능 3 : 맵 관리
 <details><summary>접기/펼치기</summary>
     
 </details>
-
+---
 기능 4 : 캐릭터 관리
 <details><summary>접기/펼치기</summary>
     
 </details>
-
+---
 기능 5 : 아이템 관리
 <details><summary>접기/펼치기</summary>
     
 </details>
-
+---
 
 ## ⏲️ 개발기간
 - 2025.07.29(화) ~ 2024.08.01(월)
@@ -191,17 +191,17 @@ Asset<br>
 - 돌 감지 모드(Collision Detection)도 적절하게 설정해야 터널링 등 물리 버그를 예방할 수 있음
     
 </details>
-
+---
 2. 김우민
 <details><summary>접기/펼치기</summary>
     
 </details>
-
+---
 3. 권진석
 <details><summary>접기/펼치기</summary>
     
 </details>
-
+---
 4. 박진우
 <details><summary>접기/펼치기</summary>
 
@@ -228,12 +228,12 @@ Asset<br>
 https://zjaxjrhkd.tistory.com/210
     
 </details>
-
+---
 5. 신명철
 <details><summary>접기/펼치기</summary>
     
 </details>
-
+---
 ## WorkFlow
 <details><summary>접기/펼치기</summary>
     
@@ -274,4 +274,3 @@ StartDate DeadLine입력하기
 
 8. 매일 7시 30분 코드리뷰
 </details>
-   
