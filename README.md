@@ -26,11 +26,11 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 프로젝트 레퍼런스 중에 선택할 수 있던 것이 궁수의전설, 쿠키런, Fire&Water 세가지였습니다.<br>
 그 중 쿠키런이 모두가 알고 있었고, 로직을 구현하는데 큰 문제가 없을것이라 판단되어 프로젝트를 시작하게 되었습니다.<br>
 ## 💜 주요기능
-- 기능 1 : 데이터 관리
+기능 1 : 데이터 관리
 <details><summary>접기/펼치기</summary>
 </details>
 
-- 기능 2 : UI 관리
+기능 2 : UI 관리
 <details><summary>접기/펼치기</summary>
 <img width="875" height="734" alt="image" src="https://github.com/user-attachments/assets/1e49e4cc-bf6e-4342-82f7-f63af96f8a02" />
 
@@ -41,17 +41,17 @@ UIManager에서 필드값을 관리하였고 인터페이스를 상속받아서 
     
 </details>
 
-- 기능 3 : 맵 관리
+기능 3 : 맵 관리
 <details><summary>접기/펼치기</summary>
     
 </details>
 
-- 기능 4 : 캐릭터 관리
+기능 4 : 캐릭터 관리
 <details><summary>접기/펼치기</summary>
     
 </details>
 
-- 기능 5 : 아이템 관리
+기능 5 : 아이템 관리
 <details><summary>접기/펼치기</summary>
     
 </details>
@@ -144,6 +144,7 @@ Asset<br>
 
 
 ## Trouble Shooting
+
 1. 박종현
 <details><summary>접기/펼치기</summary>
     
