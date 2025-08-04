@@ -144,23 +144,23 @@ Asset<br>
 
 
 ## Trouble Shooting
-- 기능 1 : 데이터 관리
+1. 박종현
 <details><summary>접기/펼치기</summary>
     
 </details>
-- 기능 2 : UI 관리
+2. 김우민
 <details><summary>접기/펼치기</summary>
     
 </details>
-- 기능 3 : 맵 관리
+3. 권진석
 <details><summary>접기/펼치기</summary>
     
 </details>
-- 기능 4 : 캐릭터 관리
+4. 박진우
 <details><summary>접기/펼치기</summary>
     
 </details>
-- 기능 5 : 아이템 관리
+5. 신명철
 <details><summary>접기/펼치기</summary>
     
 </details>
