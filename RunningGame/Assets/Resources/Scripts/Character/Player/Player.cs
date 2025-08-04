@@ -149,6 +149,7 @@ public class Player : MonoBehaviour
     {
         if (isDead) return;
         _rigidbody.velocity = new Vector2(playerstat.moveSpeed, _rigidbody.velocity.y);
+
     }
     // 슬라이딩 
     void StartSliding()
@@ -184,6 +185,7 @@ public class Player : MonoBehaviour
     //온트리거 이벤트
     void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (isDead) return;
 
         if (collision.gameObject.tag == "Enemy")
@@ -206,7 +208,13 @@ public class Player : MonoBehaviour
             Debug.Log("MoveCheck 충돌, 플레이어 조작 및 HP 감소 활성화!");
         }
 
-    }
+        if (collision.CompareTag("Down"))
+        {
+            playerstat.moveSpeed = 0f;
+        }
+    
+
+}
 
     public void ShieldSkill()
     {
