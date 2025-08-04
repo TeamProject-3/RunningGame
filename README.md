@@ -180,6 +180,7 @@ Asset<br>
 -> Scale With Screen Size를 설정하여 해상도가 변경되어도 UI의 Scale값에 보정을 줄 수 있도록 수정하였습니다.
 
 결말 - 해상도 변경시 보정값을 주어 UI가 유지될 수 있도록 수정할 수 있었습니다.
+
 https://zjaxjrhkd.tistory.com/210
     
 </details>
