@@ -65,13 +65,13 @@ Firebase (Cloud Firestore)
 
 ## API 명세서
 | 기능 | 메서드 | 설명 |
-| 데이터 저장 | `public async Task SaveData(string uid)` | `users/uid` 경로에 `currentPlayerdata`를 JSON으로 저장 |
-| 데이터 불러오기 | `public async Task<PlayerData> LoadData(string uid)` | `GetValueAsync()`로 Firebase에서 데이터 로드 후 `FromJson` 파싱 |
-| 이름 설정 | `public void SetName(string name)` | `userName`과 `isSetName` 값을 설정 (최초 1회) |
-| 캐릭터 추가 | `public void SetCharacter(string characterName)` | 문자열을 `CharacterType`으로 변환 후 보유 캐릭터 목록에 추가 |
-| 캐릭터 장착 | `public void SetCurrentCharacter(CharacterType characterType)` | 현재 장착 캐릭터를 설정 |
-| 던전 진입 설정 | `public void GoingDungeon(int level)` | 현재 진입할 던전 번호를 설정 |
-| 로그인 상태 UID 확인 후 저장 | `public async void OnSaveData()` | `FirebaseAuthManager.Instance.GetUserUID()`로 UID 조회 후 저장 트리거 |
+| 데이터 저장 | `public async Task SaveData(string uid)` | `users/uid` 경로에 `currentPlayerdata`를 JSON으로 저장 | <br>
+| 데이터 불러오기 | `public async Task<PlayerData> LoadData(string uid)` | `GetValueAsync()`로 Firebase에서 데이터 로드 후 `FromJson` 파싱 |<br>
+| 이름 설정 | `public void SetName(string name)` | `userName`과 `isSetName` 값을 설정 (최초 1회) |<br>
+| 캐릭터 추가 | `public void SetCharacter(string characterName)` | 문자열을 `CharacterType`으로 변환 후 보유 캐릭터 목록에 추가 |<br>
+| 캐릭터 장착 | `public void SetCurrentCharacter(CharacterType characterType)` | 현재 장착 캐릭터를 설정 |<br>
+| 던전 진입 설정 | `public void GoingDungeon(int level)` | 현재 진입할 던전 번호를 설정 |<br>
+| 로그인 상태 UID 확인 후 저장 | `public async void OnSaveData()` | `FirebaseAuthManager.Instance.GetUserUID()`로 UID 조회 후 저장 트리거 |<br>
 
 
 ## ERD
