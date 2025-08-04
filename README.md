@@ -15,43 +15,45 @@
 12. [Trouble Shooting](#trouble-shooting)
     
 ## 👨‍🏫 프로젝트 소개
-
+TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 
 ## 팀소개
-
+팀장 : 박종현
+팀원 : 김우민, 권진석, 박진우, 신명철
 
 ## 프로젝트 계기
-
+프로젝트 레퍼런스 중에 선택할 수 있던 것이 궁수의전설, 쿠키런, Fire&Water 세가지였습니다.
+그 중 쿠키런이 모두가 알고 있었고, 로직을 구현하는데 큰 문제가 없을것이라 판단되어 프로젝트를 시작하게 되었습니다.
 
 ## 💜 주요기능
 
-- 기능 1
+- 기능 1 : 데이터 관리
 
-- 기능 2
+- 기능 2 : UI 관리
 
-- 기능 3
+- 기능 3 : 맵 관리
 
-- 기능 4
+- 기능 4 : 캐릭터 관리
+
+- 기능 5 : 아이템 관리
 
 
 ## ⏲️ 개발기간
-- 2024.02.26(월) ~ 2024.04.04(목)
+- 2025.07.29(화) ~ 2024.08.01(월)
 
 ## 📚️ 기술스택
 
 ### ✔️ Language
-
+C#, Unity, git
 
 ### ✔️ Version Control
-
-### ✔️ IDE
-
-### ✔️ Framework
+Unity : 2022.3.17f1, git DeskTop
 
 ### ✔️ Deploy
 
 
 ### ✔️  DBMS
+Firebase (Cloud Firestore)
 
 ## 서비스 구조
 
@@ -62,10 +64,23 @@
 
 
 ## API 명세서
-
+데이터 저장	public async Task SaveData(string uid) — dbReference.Child("users").Child(uid).SetRawJsonValueAsync(jsonData)
+데이터 불러오기	public async Task<PlayerData> LoadData(string uid) — GetValueAsync() 후 JsonUtility.FromJson
+이름 설정	public void SetName(string name) — currentPlayerdata.userName과 isSetName 설정
+캐릭터 추가	public void SetCharacter(string characterName) — Enum.TryParse로 변환 후 리스트에 추가
+캐릭터 장착	public void SetCurrentCharacter(CharacterType characterType) — 현재 캐릭터 설정
+던전 진입 설정	public void GoingDungeon(int level) — currentDungeon 설정
+로그인 상태 UID 확인 후 저장	public async void OnSaveData() — FirebaseAuthManager.Instance.GetUserUID()로 UID 조회 후 저장
 
 ## ERD
-
+users (노드)
+ ┗ userId (key)
+     ┣ userName: string
+     ┣ gold: int
+     ┣ bastScores: List<int>
+     ┣ isSetName: bool
+     ┣ characters: List<string> (CharacterType enum)
+     ┗ currentCharacter: string (CharacterType)
 
 ## 프로젝트 파일 구조
 
