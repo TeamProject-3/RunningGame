@@ -13,6 +13,7 @@
 10. [ERD](#ERD)
 11. [프로젝트 파일 구조](#프로젝트-파일-구조)
 12. [Trouble Shooting](#trouble-shooting)
+13. [WorkFlow](#워크플로우)
     
 ## 👨‍🏫 프로젝트 소개
 TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
@@ -26,16 +27,26 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 그 중 쿠키런이 모두가 알고 있었고, 로직을 구현하는데 큰 문제가 없을것이라 판단되어 프로젝트를 시작하게 되었습니다.
 
 ## 💜 주요기능
-
 - 기능 1 : 데이터 관리
-
+<details><summary>접기/펼치기</summary>
+    
+</details>
 - 기능 2 : UI 관리
-
+<details><summary>접기/펼치기</summary>
+    
+</details>
 - 기능 3 : 맵 관리
-
+<details><summary>접기/펼치기</summary>
+    
+</details>
 - 기능 4 : 캐릭터 관리
-
+<details><summary>접기/펼치기</summary>
+    
+</details>
 - 기능 5 : 아이템 관리
+<details><summary>접기/펼치기</summary>
+    
+</details>
 
 
 ## ⏲️ 개발기간
