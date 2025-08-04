@@ -13,6 +13,9 @@ public class PlayerSkill : MonoBehaviour
 
     Coroutine magnetCoroutine; // 자석 스킬을 활성화하기 위한 코루틴
 
+    //부스터 중일때 부스터 아이템 먹었을때 저장하는 불값 변수
+    public bool isBoostItem = false; // 부스터 아이템을 먹었는지 여부
+
     // Start is called before the first frame update
 
     void Update()
@@ -35,6 +38,7 @@ public class PlayerSkill : MonoBehaviour
             }
         }
     }
+
     public void ActivateMagnet(float duration)
     {
         if (magnetCoroutine != null)
@@ -51,40 +55,24 @@ public class PlayerSkill : MonoBehaviour
         isMagnet = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("ItemMagnet"))
-        {
-            // 자석 스킬 활성화
-            ActivateMagnet(5f); // 5초 동안 자석 스킬 활성화
-            Destroy(collision.gameObject); // 자석 아이템 제거
-            Debug.Log("자석 스킬 활성화!");
-        }
-
-        if(collision.CompareTag("Jelly"))
-        {
-           Destroy(collision.gameObject); // 젤리 제거
-        }
-
-        if (collision.CompareTag("ItemBoost"))
-        {
-            // 젤리 아이템 획득
-            Debug.Log("부스트 5초간 활성화");
-            Destroy(collision.gameObject); // 젤리 아이템 제거
-        }
-    }
 
     public void ActivateBoost()
     {
-
-        PlayerStat playerStat = GetComponent<PlayerStat>(); 
+        PlayerStat playerStat = GetComponent<PlayerStat>();
         Player player = GetComponent<Player>();
         InGameManager inGame = InGameManager.Instance;
+
+        if (player.isSBoost)
+        {
+            isBoostItem = true;
+            return; // 이미 부스트 중이면 중복 실행 방지
+        }
+
+
         inGame.currentSpeed = playerStat.moveSpeed;
         inGame.boostColliderPrefab.SetActive(true);
         inGame.SetSpeed(boostSpeed);
         player.isSBoost = true;
-
         player.gameObject.layer = 9;
         Invoke("BoostEnd", boostDuration);
     }
@@ -96,7 +84,13 @@ public class PlayerSkill : MonoBehaviour
         InGameManager inGame = InGameManager.Instance;
         player.isSBoost = false;
         inGame.SetSpeed(inGame.currentSpeed);
-        Invoke("BoostColliderOff", 1);
+        if(isBoostItem)
+        {
+            isBoostItem = false; // 부스터 아이템을 먹었음을 초기화
+            ActivateBoost();
+        }
+        else
+            Invoke("BoostColliderOff", 1);
     }
 
     private void BoostColliderOff()
@@ -104,7 +98,6 @@ public class PlayerSkill : MonoBehaviour
         InGameManager inGame = InGameManager.Instance;
         Player player = GetComponent<Player>();
         inGame.boostColliderPrefab.SetActive(false);
-
         player.gameObject.layer = 6;
     }
 

@@ -113,11 +113,12 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     {
         //현재 씬 다시 로드
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
+        Time.timeScale = 1f;
     }
     public void OnExitButton()
     {
         SceneManager.LoadScene("TestScene 4_Main");
+        Time.timeScale = 1f;
     }
     public void ShowResultUI()
     {

@@ -101,7 +101,6 @@ public class InGameManager : MonoBehaviour
         {
             if (isGameOver)
                 return;
-            Debug.Log("Player is dead");
             Daed();
             return;
         }
@@ -203,8 +202,6 @@ public class InGameManager : MonoBehaviour
         //float a = playerPosX % (MapManager.Instance.totalMapLength-8.5f);
         float a = playerPosX / (MapManager.Instance.totalMapLength + MapManager.Instance.fixWidth);
         a = a - (int)(playerPosX / (MapManager.Instance.totalMapLength + MapManager.Instance.fixWidth));
-        Debug.Log($"playerPosX : {playerPosX}");
-        Debug.Log($"MapManager.Instance.totalMapLength : {MapManager.Instance.totalMapLength}");
 
 
         UIManager_InGame.Instance.UpdateProgressSlider(a);

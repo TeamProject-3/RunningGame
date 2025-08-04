@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1763867408904108249}
   - component: {fileID: 709808707740854774}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BoostCollider
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
