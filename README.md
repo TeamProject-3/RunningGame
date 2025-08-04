@@ -164,6 +164,8 @@ Asset<br>
 <details><summary>접기/펼치기</summary>
 
 사례1 : 해상도 변경시 UI 이미지, 위치 변경 문제
+<img width="1132" height="669" alt="image" src="https://github.com/user-attachments/assets/a6f61953-3b3a-465e-a1f7-a7f599eb2428" />
+
 
 배경 - 기준으로 삼았던 해상도에서 다른 해상도로 변경이 가능한지 테스트 하던 중 해상도 변경시 이미지의 크기와 위치가 유지되지 않은것을 발견하였습니다. 
 
