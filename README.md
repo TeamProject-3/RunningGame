@@ -59,7 +59,7 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 </details>
 <hr>
 기능 3 : 맵 관리
-<details><summary>접기/펼치기
+<details><summary>접기/펼치기</summary>
 
 <img width="1159" height="238" alt="image" src="https://github.com/user-attachments/assets/3b110920-8779-4a8d-96a0-aa2be7482a8b" />
 
@@ -69,12 +69,12 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 다음맵 지나갈시 이전맵 확인후 맵 재활용
 장애물 배치 및 애니메이션 생성
 현재 맵 진행도에 따른 HP 회복스테이지 및 프로그레스바 적용
-</summary>
     
 </details>
+
 <hr>
 기능 4 : 캐릭터 관리
-<details><summary>접기/펼치기
+<details><summary>접기/펼치기</summary>
 
 캐릭터 기능    - 김우민
 플레이어 더블점프 및 슬라이딩
@@ -84,8 +84,7 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 
  카메라 기능
 처음시작시 카메라는 가만히 있다가 플레이어가 확인되면 플레이어를 추적
-</summary>
-    
+
 </details>
 <hr>
 기능 5 : 아이템 - 권진석
