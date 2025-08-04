@@ -114,7 +114,7 @@ Firebase (Cloud Firestore)
 
 
 ## API 명세서
-| 기능 | 메서드 | 설명 |
+| 기능 | 메서드 | 설명 |<br>
 | 데이터 저장 | `public async Task SaveData(string uid)` | `users/uid` 경로에 `currentPlayerdata`를 JSON으로 저장 | <br>
 | 데이터 불러오기 | `public async Task<PlayerData> LoadData(string uid)` | `GetValueAsync()`로 Firebase에서 데이터 로드 후 `FromJson` 파싱 |<br>
 | 이름 설정 | `public void SetName(string name)` | `userName`과 `isSetName` 값을 설정 (최초 1회) |<br>
