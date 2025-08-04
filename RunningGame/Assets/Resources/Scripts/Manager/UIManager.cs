@@ -154,7 +154,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
 
     public void OnNextStageButton()
     {
-        if(stageIndex>=4) // 스테이지 인덱스가 5보다 크면 초기화
+        if(stageIndex>=1) // 스테이지 인덱스가 5보다 크면 초기화
         {
             stageIndex = 0;
         }
@@ -169,7 +169,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     {
         if (stageIndex <= 0) // 스테이지 인덱스가 5보다 크면 초기화
         {
-            stageIndex = 4;
+            stageIndex = 1;
         }
         else
         {
