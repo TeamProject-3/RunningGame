@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1104777114, guid: 1428047db5481b3429a178716893ae79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -360,6 +360,7 @@ MonoBehaviour:
   isSliding: 0
   isMoveCheck: 0
   isShield: 0
+  isSBoost: 0
   hpDecreaseRate: 2
 --- !u!114 &2699849365686002115
 MonoBehaviour:
@@ -393,6 +394,8 @@ MonoBehaviour:
   isMagnet: 0
   magnetRange: 5
   magnetpower: 10
+  boostDuration: 5
+  boostSpeed: 30
 --- !u!1 &9021645526644463682
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +468,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.12941177}
   m_FlipX: 0

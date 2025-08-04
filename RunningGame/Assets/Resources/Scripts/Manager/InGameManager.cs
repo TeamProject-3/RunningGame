@@ -139,12 +139,13 @@ public class InGameManager : MonoBehaviour
         // 플레이어의 PlayerStat 컴포넌트를 가져옴
         PlayerStat playerstat = player.GetComponent<PlayerStat>();
 
-        if(player.isSBoost)
+        if (player.isSBoost)
         {
             currentSpeed = currentSpeed + speedIncrease;
         }
-        // 1. 현재 속도 업데이트
-        playerstat.moveSpeed = newSpeed;
+   
+            // 1. 현재 속도 업데이트
+            playerstat.moveSpeed = newSpeed;
 
         if (playerstat.moveSpeed > MaxSpeed)
         {

@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
     public int jumpCount = 0;
     public int maxJumpCount = 2; // Maximum number of jumps allowed
-    [SerializeField] private int damage = 1; // Maximum number of jumps allowed
+    public float damage = 10; // Maximum number of jumps allowed
     public bool isDead = false;
     public bool isJump = false;
     public bool isSliding = false;
@@ -110,6 +110,11 @@ public class Player : MonoBehaviour
             else if (isSliding)
             {
                 StopSliding();
+            }
+
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                UIManager_InGame.Instance.OnPauseButton();
             }
         }
         if (_transform.position.y < -6)

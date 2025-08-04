@@ -66,8 +66,6 @@ public class BackGround : MonoBehaviour
 
             int nextBackgroundCheck = (findBackground + 1) % backGround.Length;
 
-            
-
             ObstacleShuffle();
 
             foreach (GameObject obj in obstaclPrefabs)
@@ -90,11 +88,11 @@ public class BackGround : MonoBehaviour
                     if (obj.name != "Obstacle_07")
                         foreach (Transform child in obj.transform.Find("FoodPath"))
                             child.gameObject.SetActive(true);
-                    else if (obj.name == "Obstacle_07")
-                    {
-                        Debug.Log("Find : " + obj.transform.Find("Bottom").transform.Find("TestHeart"));
-                        obj.transform.Find("Bottom").transform.Find("TestHeart").transform.gameObject.SetActive(true);
-                    }
+
+                    GameObject items = obj.transform.Find("Items").gameObject;
+                    if (items != null)
+                        foreach (Transform child in items.transform)
+                            child.gameObject.SetActive(true);
 
                     if (MapManager.Instance.mapCheck)
                     {
@@ -111,6 +109,13 @@ public class BackGround : MonoBehaviour
                             obj.transform.position =
                                 empthyBackGround.transform.position +
                                 new Vector3(MapManager.Instance.fixWidth, 0f, 0f);
+
+                            PlayerStat playerStat = FindObjectOfType<PlayerStat>();
+                            InGameManager.Instance.SetSpeed(playerStat.moveSpeed + InGameManager.Instance.speedIncrease);
+
+                            Player player = FindObjectOfType<Player>();
+                            player.damage += player.damage / 5;
+                           
                         }
                         else
                         {

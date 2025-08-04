@@ -22,7 +22,7 @@ public class MapManager : MonoBehaviour
 
     // 최대 스테이지
     // 최대 스테이지는 3단위로 설정 필요 : 1스테이지가 길어서
-    private int MaxStageNum = 12;
+    private int MaxStageNum = 9;
 
     public int stageNum = 0;
 
@@ -130,4 +130,8 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    private void SetSpeed()
+    {
+        
+    }
 }
