@@ -44,7 +44,10 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 
     
 </details>
----
+
+<p>--- CUT HERE ---</p>
+<hr>
+
 기능 2 : UI 관리 - 박진우
 <details><summary>접기/펼치기</summary>
 <img width="875" height="734" alt="image" src="https://github.com/user-attachments/assets/1e49e4cc-bf6e-4342-82f7-f63af96f8a02" />
