@@ -75,26 +75,71 @@ Firebase (Cloud Firestore)
 
 
 ## ERD
-users (노드)
- ┗ userId (key)
-     ┣ userName: string
-     ┣ gold: int
-     ┣ bastScores: List<int>
-     ┣ isSetName: bool
-     ┣ characters: List<string> (CharacterType enum)
-     ┗ currentCharacter: string (CharacterType)
+users (노드)<br>
+ ┗ userId (key)<br>
+     ┣ userName: string<br>
+     ┣ gold: int<br>
+     ┣ bastScores: List<int><br>
+     ┣ isSetName: bool<br>
+     ┣ characters: List<string> (CharacterType enum)<br>
+     ┗ currentCharacter: string (CharacterType)<br>
 
 ## 프로젝트 파일 구조
-
-
-
-
+Asset
+┗ Animator
+    ┣ Opstacle
+    ┗ Player
+┗ Image
+    ┣ Dark UI
+    ┣ FishFight
+    ┣ Free 2D Cartoon Parallax Background
+    ┣ Pixel Cursors
+    ┣ PlayerJump
+    ┣ Stage
+    ┗ TileMaps
+┗ Model
+┗ Prefeb
+    ┣ Item
+    ┣ Obstacle
+    ┣ Player
+    ┗ RankingUI
+┗ Scenes
+    ┣ Work
+    ┣ 1.MainScene
+    ┣ 2.InGameScene
+    ┗ AnimScene
+┗ Scripts
+    ┣ Auth
+    ┣ Character
+    ┣ Interface
+    ┣ Item
+    ┣ Manager
+    ┗ Obstacle
 ## Trouble Shooting
-
-
+- 기능 1 : 데이터 관리
+<details><summary>접기/펼치기</summary>
+    
+</details>
+- 기능 2 : UI 관리
+<details><summary>접기/펼치기</summary>
+    
+</details>
+- 기능 3 : 맵 관리
+<details><summary>접기/펼치기</summary>
+    
+</details>
+- 기능 4 : 캐릭터 관리
+<details><summary>접기/펼치기</summary>
+    
+</details>
+- 기능 5 : 아이템 관리
+<details><summary>접기/펼치기</summary>
+    
+</details>
 
 ## WorkFlow
 <details><summary>접기/펼치기</summary>
+    
 워크플로우
 1. 이슈 작성하기
 <img width="2848" height="1192" alt="image" src="https://github.com/user-attachments/assets/80763439-c5ad-4e94-900d-08f25433bfa7" />
