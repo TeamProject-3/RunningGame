@@ -91,7 +91,7 @@ Firebase (Cloud Firestore)
 
 
 ## 와이어프레임
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/board/yrowVFowOuh8CRozMyLpLG/-3-RunningGame?node-id=158-314&embed-host=share" allowfullscreen></iframe>
+<img width="446" height="268" alt="image" src="https://github.com/user-attachments/assets/d00e4bcd-bb1b-4101-82e3-ccf96c7bf3c0" />
 
 
 ## API 명세서
