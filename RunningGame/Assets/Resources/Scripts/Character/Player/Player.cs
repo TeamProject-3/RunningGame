@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (isSliding)
                 {
@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
                     isJump = true;
                 }
             }
-            else if (Input.GetKey(KeyCode.LeftControl) || Input.GetMouseButtonDown(2))
+            else if (Input.GetKey(KeyCode.LeftControl))
             {
                 StartSliding();
             }

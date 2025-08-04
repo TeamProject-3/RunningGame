@@ -51,28 +51,7 @@ public class PlayerSkill : MonoBehaviour
         isMagnet = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("ItemMagnet"))
-        {
-            // 자석 스킬 활성화
-            ActivateMagnet(5f); // 5초 동안 자석 스킬 활성화
-            Destroy(collision.gameObject); // 자석 아이템 제거
-            Debug.Log("자석 스킬 활성화!");
-        }
 
-        if(collision.CompareTag("Jelly"))
-        {
-           Destroy(collision.gameObject); // 젤리 제거
-        }
-
-        if (collision.CompareTag("ItemBoost"))
-        {
-            // 젤리 아이템 획득
-            Debug.Log("부스트 5초간 활성화");
-            Destroy(collision.gameObject); // 젤리 아이템 제거
-        }
-    }
 
     public void ActivateBoost()
     {
