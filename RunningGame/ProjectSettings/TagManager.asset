@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Enemy
+  - Spring
+  - BackGround
+  - ReLoad
+  - Item
+  - MoveCheck
+  - ItemShield
+  - ItemMagnet
+  - Jelly
+  - ItemBoost
   layers:
   - Default
   - TransparentFX
@@ -11,11 +22,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Ground
+  - Enemy
+  - PlayerDamage
+  - MoveCheck
   - 
   - 
   - 
