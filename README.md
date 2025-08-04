@@ -88,6 +88,8 @@ Firebase (Cloud Firestore)
 
 
 ## ERD
+```
+
 users (노드)
 └ userId (key)<br>
 ├ userName: string<br>
@@ -96,8 +98,12 @@ users (노드)
 ├ isSetName: bool<br>
 ├ characters: List<string> (CharacterType enum)<br>
 └ currentCharacter: string (CharacterType)<br>
+```
+
 
 ## 프로젝트 파일 구조
+```
+
 Asset<br>
 ├ Animator<br>
 │ ├ Opstacle<br>
@@ -122,12 +128,15 @@ Asset<br>
 │ ├ 2.InGameScene<br>
 │ └ AnimScene<br>
 └ Scripts<br>
-├ Auth<br>
-├ Character<br>
-├ Interface<br>
-├ Item<br>
-├ Manager<br>
-└ Obstacle<br>
+│ ├ Auth<br>
+│ ├ Character<br>
+│ ├ Interface<br>
+│ ├ Item<br>
+│ ├ Manager<br>
+│ └ Obstacle<br>
+```
+
+
 ## Trouble Shooting
 - 기능 1 : 데이터 관리
 <details><summary>접기/펼치기</summary>
