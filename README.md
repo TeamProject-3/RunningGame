@@ -98,36 +98,36 @@ users (노드)<br>
      ┗ currentCharacter: string (CharacterType)<br>
 
 ## 프로젝트 파일 구조
-Asset
-┗ Animator
-    ┣ Opstacle
-    ┗ Player
-┗ Image
-    ┣ Dark UI
-    ┣ FishFight
-    ┣ Free 2D Cartoon Parallax Background
-    ┣ Pixel Cursors
-    ┣ PlayerJump
-    ┣ Stage
-    ┗ TileMaps
-┗ Model
-┗ Prefeb
-    ┣ Item
-    ┣ Obstacle
-    ┣ Player
-    ┗ RankingUI
-┗ Scenes
-    ┣ Work
-    ┣ 1.MainScene
-    ┣ 2.InGameScene
-    ┗ AnimScene
-┗ Scripts
-    ┣ Auth
-    ┣ Character
-    ┣ Interface
-    ┣ Item
-    ┣ Manager
-    ┗ Obstacle
+Asset<br>
+┗ Animator<br>
+    ┣ Opstacle<br>
+    ┗ Player<br>
+┗ Image<br>
+    ┣ Dark UI<br>
+    ┣ FishFight<br>
+    ┣ Free 2D Cartoon Parallax Background<br>
+    ┣ Pixel Cursors<br>
+    ┣ PlayerJump<br>
+    ┣ Stage<br>
+    ┗ TileMaps<br>
+┗ Model<br>
+┗ Prefeb<br>
+    ┣ Item<br>
+    ┣ Obstacle<br>
+    ┣ Player<br>
+    ┗ RankingUI<br>
+┗ Scenes<br>
+    ┣ Work<br>
+    ┣ 1.MainScene<br>
+    ┣ 2.InGameScene<br>
+    ┗ AnimScene<br>
+┗ Scripts<br>
+    ┣ Auth<br>
+    ┣ Character<br>
+    ┣ Interface<br>
+    ┣ Item<br>
+    ┣ Manager<br>
+    ┗ Obstacle<br>
 ## Trouble Shooting
 - 기능 1 : 데이터 관리
 <details><summary>접기/펼치기</summary>
