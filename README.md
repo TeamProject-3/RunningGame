@@ -13,7 +13,7 @@
 10. [ERD](#ERD)
 11. [프로젝트 파일 구조](#프로젝트-파일-구조)
 12. [Trouble Shooting](#trouble-shooting)
-13. [WorkFlow](#워크플로우)
+13. [WorkFlow](#WorkFlow)
     
 ## 👨‍🏫 프로젝트 소개
 TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
