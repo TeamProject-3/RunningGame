@@ -14,6 +14,9 @@ public interface IUiUpdate
     public void UpdateExp()
     {
     }
+    public void UpdateMapData()
+    {
+    }
     public void UpdatePlayerName()
     {
     }
@@ -26,6 +29,10 @@ public interface IUiUpdate
     }
     public void UpdateHighScore()
     {
+    }
+    public void UpdatePlayerSprite()
+    {
+
     }
 
 }

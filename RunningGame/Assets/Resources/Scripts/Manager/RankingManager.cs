@@ -10,6 +10,7 @@ public struct UserRank
 {
     public string username;
     public int score;
+    public int dungeonIndex; // 추가: 어떤 던전의 점수인지
 }
 
 public class RankingManager : MonoBehaviour
@@ -24,40 +25,53 @@ public class RankingManager : MonoBehaviour
     void Start()
     {
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
-        ShowRanking();
+        ShowRanking(1); // 기본 0번 던전 랭킹 표시
     }
 
-    // 상위 N명의 랭킹을 불러오는 함수
-    public async Task<List<UserRank>> GetTopRankings(int limit)
+    // 상위 N명의 랭킹을 불러오는 함수 (던전 인덱스별)
+    public async Task<List<UserRank>> GetTopRankings(int limit, int dungeonIndex)
     {
         List<UserRank> rankingList = new List<UserRank>();
 
         try
         {
-            // "users" 경로에서 "score"를 기준으로 내림차순 정렬 후 상위 limit개 만큼 가져오기
-            var snapshot = await dbReference.Child("users").OrderByChild("bastScore").LimitToLast(limit).GetValueAsync();
+            // 모든 유저 데이터 가져오기
+            var snapshot = await dbReference.Child("users").GetValueAsync();
 
-            // 스냅샷이 존재하지 않으면 빈 리스트 반환
             if (!snapshot.Exists)
             {
                 Debug.Log("리스트 없음");
                 return rankingList;
             }
 
-            // 가져온 데이터를 UserRank 객체로 변환하여 리스트에 추가
             foreach (var childSnapshot in snapshot.Children)
             {
                 var userDict = (IDictionary<string, object>)childSnapshot.Value;
+
+                string username = userDict.ContainsKey("userName") ? userDict["userName"].ToString() : "Unknown";
+                int score = 0;
+
+                // bastScores 리스트에서 dungeonIndex의 점수 가져오기
+                if (userDict.ContainsKey("bastScores"))
+                {
+                    var scoresObj = userDict["bastScores"] as List<object>;
+                    if (scoresObj != null && dungeonIndex < scoresObj.Count)
+                    {
+                        int.TryParse(scoresObj[dungeonIndex].ToString(), out score);
+                    }
+                }
+
                 UserRank userRank = new UserRank
                 {
-                    username = userDict["userName"].ToString(),
-                    score = int.Parse(userDict["bastScore"].ToString())
+                    username = username,
+                    score = score,
+                    dungeonIndex = dungeonIndex
                 };
                 rankingList.Add(userRank);
             }
 
-            // Firebase는 오름차순으로 가져옴, 내림차순으로 정렬
-            rankingList.Reverse();
+            // 점수 내림차순 정렬 후 상위 limit만 추출
+            rankingList = rankingList.OrderByDescending(u => u.score).Take(limit).ToList();
 
             Debug.Log("Successfully fetched ranking data.");
         }
@@ -89,14 +103,14 @@ public class RankingManager : MonoBehaviour
 
             rankText.text = (i + 1).ToString();
             nameText.text = rankingList[i].username;
-            scoreText.text = rankingList[i].score.ToString();
+            scoreText.text = string.Format("{0:N0}", rankingList[i].score);
         }
     }
 
-    // 랭킹에  대한 버튼 클릭 이벤트 핸들러
-    public async void ShowRanking()
+    // 던전별 랭킹을 보여주는 함수로 변경
+    public async void ShowRanking(int dungeonIndex)
     {
-        var top10 = await GetTopRankings(10); // 상위 10명 랭킹 불러오기
-        DisplayRankings(top10);
+        var top = await GetTopRankings(3, dungeonIndex); // 상위 10명 랭킹 불러오기
+        DisplayRankings(top);
     }
 }

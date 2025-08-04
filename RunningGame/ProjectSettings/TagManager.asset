@@ -9,6 +9,12 @@ TagManager:
   - Spring
   - BackGround
   - ReLoad
+  - Item
+  - MoveCheck
+  - ItemShield
+  - ItemMagnet
+  - Jelly
+  - ItemBoost
   layers:
   - Default
   - TransparentFX
@@ -20,7 +26,7 @@ TagManager:
   - Ground
   - Enemy
   - PlayerDamage
-  - 
+  - MoveCheck
   - 
   - 
   - 

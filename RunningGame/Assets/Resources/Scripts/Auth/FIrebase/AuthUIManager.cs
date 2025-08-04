@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AuthUIManager : MonoBehaviour
@@ -42,6 +43,7 @@ public class AuthUIManager : MonoBehaviour
             statusText.text = $"Logged in as {user.Email}";
             // 로그인 성공 시 데이터 불러오기
             DataManager.Instance.currentPlayerdata = await DataManager.Instance.LoadData(user.UserId);
+            SceneManager.LoadScene("TestScene 4_Main"); // 메인 메뉴로 이동
         }
         else
         {
