@@ -26,8 +26,23 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 프로젝트 레퍼런스 중에 선택할 수 있던 것이 궁수의전설, 쿠키런, Fire&Water 세가지였습니다.<br>
 그 중 쿠키런이 모두가 알고 있었고, 로직을 구현하는데 큰 문제가 없을것이라 판단되어 프로젝트를 시작하게 되었습니다.<br>
 ## 💜 주요기능
-기능 1 : 데이터 관리
+기능 1 : 데이터 기능 - 박종현
 <details><summary>접기/펼치기</summary>
+<img width="299" height="167" alt="image" src="https://github.com/user-attachments/assets/74624209-b413-4a16-a5fe-0df0c014aafa" />
+
+<img width="333" height="93" alt="image" src="https://github.com/user-attachments/assets/0ade290c-b032-4179-a337-08388598262c" />
+
+<img width="194" height="130" alt="image" src="https://github.com/user-attachments/assets/bb6177f7-c059-454b-b387-ce128f74200f" />
+
+
+사용자가 계정을 생성하면 Firebase Authentication에 신규 계정이 등록되고, 동시에 해당 계정의 초기 데이터를 Firebase Realtime Database에 저장합니다.
+
+로그인 시(이메일과 비밀번호를 입력하면), 해당 이메일에 대응하는 UID(고유 식별자)를 받아옵니다.
+
+받아온 UID를 기반으로 Realtime Database에서 해당 계정의 데이터를 조회한 뒤, 해당 데이터를 유니티에서 json 파일 형태로 받아와 활용합니다.
+
+
+    
 </details>
 
 기능 2 : UI 관리
@@ -147,6 +162,33 @@ Asset<br>
 
 1. 박종현
 <details><summary>접기/펼치기</summary>
+
+1. 배경
+플레이어가 특정 구역에 도달하면 속도가 빨라지도록 구현.
+
+3. 발단
+속도가 빨라지면 맵의 구조(발판 거리, 높이 등)가 기존 속도 기준이라 점프 거리가 길어져서 게임 밸런스가 깨짐.
+
+5. 전개
+목표: 속도가 바뀌어도 점프 거리, 높이, 체공 시간이 항상 일정해야 함.
+해결 방법:
+속도 변화에 따라 점프 힘과 중력 값을 아래 공식으로 자동 조절.
+점프 힘 = 기준 점프 힘 × (현재 속도 ÷ 기준 속도)
+중력 값 = 기준 중력 값 × (현재 속도 ÷ 기준 속도)²
+
+7. 위기
+속도가 크게 증가하니 중력 값도 제곱에 따라 커짐.
+중력이 너무 세지면 플레이어가 바닥 콜라이더를 뚫고 지나가는 터널링 현상(충돌 감지 실패) 발생.
+<img width="192" height="160" alt="image" src="https://github.com/user-attachments/assets/dbd1125f-f0ca-4e6f-bb0a-6bb380cc41cb" />
+
+9. 절정 (해결)
+Rigidbody2D의 Collision Detection을 Continuous로 변경
+Discrete: 기본값, 느린 물체에 적합(터널링 위험 있음)
+Continuous: 빠른 물체가 정적 콜라이더와 충돌할 때 터널링 방지
+
+결론 
+속도가 빠른 게임에서 점프/중력 값을 공식으로 제어하는 것만으로는 충분하지 않음.
+충돌 감지 모드(Collision Detection)도 적절하게 설정해야 터널링 등 물리 버그를 예방할 수 있음
     
 </details>
 
