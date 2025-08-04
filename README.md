@@ -88,46 +88,46 @@ Firebase (Cloud Firestore)
 
 
 ## ERD
-users (노드)<br>
- ┗ userId (key)<br>
-     ┣ userName: string<br>
-     ┣ gold: int<br>
-     ┣ bastScores: List<int><br>
-     ┣ isSetName: bool<br>
-     ┣ characters: List<string> (CharacterType enum)<br>
-     ┗ currentCharacter: string (CharacterType)<br>
+users (노드)
+└ userId (key)
+├ userName: string
+├ gold: int
+├ bastScores: List<int>
+├ isSetName: bool
+├ characters: List<string> (CharacterType enum)
+└ currentCharacter: string (CharacterType)
 
 ## 프로젝트 파일 구조
-Asset<br>
-┗ Animator<br>
-    ┣ Opstacle<br>
-    ┗ Player<br>
-┗ Image<br>
-    ┣ Dark UI<br>
-    ┣ FishFight<br>
-    ┣ Free 2D Cartoon Parallax Background<br>
-    ┣ Pixel Cursors<br>
-    ┣ PlayerJump<br>
-    ┣ Stage<br>
-    ┗ TileMaps<br>
-┗ Model<br>
-┗ Prefeb<br>
-    ┣ Item<br>
-    ┣ Obstacle<br>
-    ┣ Player<br>
-    ┗ RankingUI<br>
-┗ Scenes<br>
-    ┣ Work<br>
-    ┣ 1.MainScene<br>
-    ┣ 2.InGameScene<br>
-    ┗ AnimScene<br>
-┗ Scripts<br>
-    ┣ Auth<br>
-    ┣ Character<br>
-    ┣ Interface<br>
-    ┣ Item<br>
-    ┣ Manager<br>
-    ┗ Obstacle<br>
+Asset
+├ Animator
+│ ├ Opstacle
+│ └ Player
+├ Image
+│ ├ Dark UI
+│ ├ FishFight
+│ ├ Free 2D Cartoon Parallax Background
+│ ├ Pixel Cursors
+│ ├ PlayerJump
+│ ├ Stage
+│ └ TileMaps
+├ Model
+├ Prefeb
+│ ├ Item
+│ ├ Obstacle
+│ ├ Player
+│ └ RankingUI
+├ Scenes
+│ ├ Work
+│ ├ 1.MainScene
+│ ├ 2.InGameScene
+│ └ AnimScene
+└ Scripts
+├ Auth
+├ Character
+├ Interface
+├ Item
+├ Manager
+└ Obstacle
 ## Trouble Shooting
 - 기능 1 : 데이터 관리
 <details><summary>접기/펼치기</summary>
