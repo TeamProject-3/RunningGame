@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Net;
 
 
 public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
@@ -140,11 +141,13 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     }
     public void OnStageSelectButton()
     {
-        //스테이지 인덱스를 받는 로직이 필요하다
-        HideUI(1);
-        ShowUI(2);
-        UpdateMapData();
-        UpdateHighScore();
+        if (stageIndex < 2)
+        {
+            HideUI(1);
+            ShowUI(2);
+            UpdateMapData();
+            UpdateHighScore();
+        }
     }
     public void UpdateMapData()
     {

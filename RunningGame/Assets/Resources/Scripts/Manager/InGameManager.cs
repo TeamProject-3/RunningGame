@@ -105,11 +105,11 @@ public class InGameManager : MonoBehaviour
             Daed();
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            PlayerStat playerstat = player.GetComponent<PlayerStat>();
-            SetSpeed(playerstat.moveSpeed + 2);
-        }
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    PlayerStat playerstat = player.GetComponent<PlayerStat>();
+        //    SetSpeed(playerstat.moveSpeed + 2);
+        //}
 
         if (player.isMoveCheck)
         {

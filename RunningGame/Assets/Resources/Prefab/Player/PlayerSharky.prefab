@@ -166,7 +166,7 @@ MonoBehaviour:
   shieldObj: {fileID: 4397011210654812387}
   jumpCount: 0
   maxJumpCount: 2
-  damage: 15
+  damage: 10
   isDead: 0
   isJump: 0
   isSliding: 0

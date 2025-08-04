@@ -5680,8 +5680,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c67bab5fbd0ad6548befac7a02e4a48d, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: -1530951603, guid: e11480b4012d610468b2d085656823ec, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6745,7 +6745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1347349118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9370,8 +9370,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uAC00\uACA9 : {value}\n\uC124\uBA85 : \n\n\uAD6C\uB9E4\uD558\uB824\uBA74
-    \uCE90\uB9AD\uD130\uB97C \uD074\uB9AD\uD574\uC8FC\uC138\uC694"
+  m_Text: "\uAC00\uACA9 : 100\uC6D0\n\n\uAD6C\uB9E4\uD558\uB824\uBA74 \uCE90\uB9AD\uD130\uB97C
+    \uD074\uB9AD\uD574\uC8FC\uC138\uC694"
 --- !u!222 &1811947158
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9450,8 +9450,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uAC00\uACA9 : 1\uD68C 100\uC6D0\n\uC124\uBA85 : ~\n\n1/319\uC758 \uD655\uB960\uB85C
-    \uC5BB\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\n\n\uCE90\uB9AD\uD130\uB97C \uD074\uB9AD\uD558\uC5EC\n\uD655\uB960\uC5D0
+  m_Text: "\uAC00\uACA9 : 1\uD68C 100\uC6D0\n\n1/319\uC758 \uD655\uB960\uB85C \uC5BB\uC744
+    \uC218 \uC788\uC2B5\uB2C8\uB2E4.\n\n\uCE90\uB9AD\uD130\uB97C \uD074\uB9AD\uD558\uC5EC\n\uD655\uB960\uC5D0
     \uB3C4\uC804\uD558\uAE30"
 --- !u!222 &1827907031
 CanvasRenderer:
@@ -10708,7 +10708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2047708979
 RectTransform:
   m_ObjectHideFlags: 0
