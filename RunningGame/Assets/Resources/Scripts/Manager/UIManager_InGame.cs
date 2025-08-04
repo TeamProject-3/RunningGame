@@ -117,7 +117,7 @@ public class UIManager_InGame : MonoBehaviour, IUiUpdate_InGame, IOnButton_InGam
     }
     public void OnExitButton()
     {
-        SceneManager.LoadScene("TestScene 4_Main");
+        SceneManager.LoadScene("MainScene");
         Time.timeScale = 1f;
     }
     public void ShowResultUI()

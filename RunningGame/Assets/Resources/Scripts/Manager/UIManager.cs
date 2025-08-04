@@ -183,7 +183,7 @@ public class UIManager : MonoBehaviour, IUiShow, IUiUpdate, IOnButton
     }
     public void OnRunButton()
     {
-        SceneManager.LoadScene("2.InGameScene");//추후변경필요
+        SceneManager.LoadScene("InGameScene");//추후변경필요
     }
     public void UpdateHighScore()
     {
