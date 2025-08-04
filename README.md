@@ -35,22 +35,22 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 <img width="194" height="130" alt="image" src="https://github.com/user-attachments/assets/bb6177f7-c059-454b-b387-ce128f74200f" />
 
 
-사용자가 계정을 생성하면 Firebase Authentication에 신규 계정이 등록되고, 동시에 해당 계정의 초기 데이터를 Firebase Realtime Database에 저장합니다.
+- 사용자가 계정을 생성하면 Firebase Authentication에 신규 계정이 등록되고, 동시에 해당 계정의 초기 데이터를 Firebase Realtime Database에 저장합니다.
 
-로그인 시(이메일과 비밀번호를 입력하면), 해당 이메일에 대응하는 UID(고유 식별자)를 받아옵니다.
+- 로그인 시(이메일과 비밀번호를 입력하면), 해당 이메일에 대응하는 UID(고유 식별자)를 받아옵니다.
 
-받아온 UID를 기반으로 Realtime Database에서 해당 계정의 데이터를 조회한 뒤, 해당 데이터를 유니티에서 json 파일 형태로 받아와 활용합니다.
+- 받아온 UID를 기반으로 Realtime Database에서 해당 계정의 데이터를 조회한 뒤, 해당 데이터를 유니티에서 json 파일 형태로 받아와 활용합니다.
 
 
     
 </details>
 
-기능 2 : UI 관리
+기능 2 : UI 관리 - 박진우
 <details><summary>접기/펼치기</summary>
 <img width="875" height="734" alt="image" src="https://github.com/user-attachments/assets/1e49e4cc-bf6e-4342-82f7-f63af96f8a02" />
 
-IOnButton, IUiShow, IUiUpdate 인터페이스를 사용하여 기능관련 메소드를 관리했습니다. <br>
-UIManager에서 필드값을 관리하였고 인터페이스를 상속받아서 기능관련 메소드를 구현했습니다.. <br>
+- IOnButton, IUiShow, IUiUpdate 인터페이스를 사용하여 기능관련 메소드를 관리했습니다. <br>
+- UIManager에서 필드값을 관리하였고 인터페이스를 상속받아서 기능관련 메소드를 구현했습니다.. <br>
 
 
     
