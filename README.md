@@ -128,12 +128,12 @@ Asset<br>
 │ ├ 2.InGameScene<br>
 │ └ AnimScene<br>
 └ Scripts<br>
-│ ├ Auth<br>
-│ ├ Character<br>
-│ ├ Interface<br>
-│ ├ Item<br>
-│ ├ Manager<br>
-│ └ Obstacle<br>
+  ├ Auth<br>
+  ├ Character<br>
+  ├ Interface<br>
+  ├ Item<br>
+  ├ Manager<br>
+  └ Obstacle<br>
 ```
 
 
