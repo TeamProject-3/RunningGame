@@ -45,7 +45,6 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
     
 </details>
 
-<p>------</p>
 <hr>
 
 기능 2 : UI 관리 - 박진우
@@ -58,22 +57,22 @@ TeamSparta의 Unity과정 중 Unity 2D 실습 팀 프로젝트 입니다.
 
     
 </details>
----
+<hr>
 기능 3 : 맵 관리
 <details><summary>접기/펼치기</summary>
     
 </details>
----
+<hr>
 기능 4 : 캐릭터 관리
 <details><summary>접기/펼치기</summary>
     
 </details>
----
+<hr>
 기능 5 : 아이템 관리
 <details><summary>접기/펼치기</summary>
     
 </details>
----
+<hr>
 
 ## ⏲️ 개발기간
 - 2025.07.29(화) ~ 2024.08.01(월)
@@ -86,18 +85,13 @@ C#, Unity, git
 ### ✔️ Version Control
 Unity : 2022.3.17f1, git DeskTop
 
-### ✔️ Deploy
-
 
 ### ✔️  DBMS
 Firebase (Cloud Firestore)
 
-## 서비스 구조
-
-
 
 ## 와이어프레임
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/board/yrowVFowOuh8CRozMyLpLG/-3-RunningGame?node-id=158-314&embed-host=share" allowfullscreen></iframe>
 
 
 ## API 명세서
@@ -194,17 +188,20 @@ Asset<br>
 - 돌 감지 모드(Collision Detection)도 적절하게 설정해야 터널링 등 물리 버그를 예방할 수 있음
     
 </details>
----
+<hr>
+
 2. 김우민
 <details><summary>접기/펼치기</summary>
     
 </details>
----
+<hr>
+
 3. 권진석
 <details><summary>접기/펼치기</summary>
     
 </details>
----
+<hr>
+
 4. 박진우
 <details><summary>접기/펼치기</summary>
 
@@ -231,12 +228,14 @@ Asset<br>
 https://zjaxjrhkd.tistory.com/210
     
 </details>
----
+<hr>
+
 5. 신명철
 <details><summary>접기/펼치기</summary>
     
 </details>
----
+<hr>
+
 ## WorkFlow
 <details><summary>접기/펼치기</summary>
     
