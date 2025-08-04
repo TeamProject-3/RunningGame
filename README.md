@@ -149,18 +149,22 @@ Asset<br>
 <details><summary>접기/펼치기</summary>
     
 </details>
+
 2. 김우민
 <details><summary>접기/펼치기</summary>
     
 </details>
+
 3. 권진석
 <details><summary>접기/펼치기</summary>
     
 </details>
+
 4. 박진우
 <details><summary>접기/펼치기</summary>
     
 </details>
+
 5. 신명철
 <details><summary>접기/펼치기</summary>
     
