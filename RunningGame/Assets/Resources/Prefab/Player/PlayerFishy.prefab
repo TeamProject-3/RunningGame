@@ -361,7 +361,7 @@ MonoBehaviour:
   isMoveCheck: 0
   isShield: 0
   isSBoost: 0
-  hpDecreaseRate: 2
+  hpDecreaseRate: 2.5
 --- !u!114 &2699849365686002115
 MonoBehaviour:
   m_ObjectHideFlags: 0
