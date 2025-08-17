@@ -15,6 +15,7 @@ TagManager:
   - ItemMagnet
   - Jelly
   - ItemBoost
+  - Down
   layers:
   - Default
   - TransparentFX

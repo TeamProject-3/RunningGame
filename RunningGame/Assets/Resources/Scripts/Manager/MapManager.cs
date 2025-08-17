@@ -81,6 +81,7 @@ public class MapManager : MonoBehaviour
 
         return backObjects.ToArray();
     }
+
     public GameObject GetstageEmpthyBackGrounds()
     {
 
@@ -95,6 +96,7 @@ public class MapManager : MonoBehaviour
     private void StageSelect(int selectNum)
     {
         GameObject instance;
+
         switch (selectNum)
         {
             case 1:
@@ -130,8 +132,4 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    private void SetSpeed()
-    {
-        
-    }
 }
